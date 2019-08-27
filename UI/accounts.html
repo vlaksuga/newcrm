@@ -15,11 +15,13 @@
 <body>
 
     <header>
+
         <div class="d-flex bg-light">
-            <div class="p-2 mr-auto"><a class="nav-link"><img src="./img/logo.png" alt="logo"></a></div>
+            <div class="p-2 mr-auto"><a class="nav-link"><img src="./img/logo.png" alt="logo" width="40%;"></a></div>
             <div class="p-2"><a class="nav-link">USERNAME</a></div>
             <div class="p-2"><a class="nav-link" href="#">LOGOUT</a></div>
         </div>
+
     </header>
 
     <main class="p-5">
@@ -46,146 +48,66 @@
                 <!-- / TAB : ALL / -->
                 <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
 
-                    <!-- FILTER -->
+                    <!-- FILTER 
 
                     <div class="filters mt-5">
                         <h5>FILTERS</h5>
                         <div class="wrap">
                             <div class="row">
 
-                                <!-- FILTER LEFT -->
                                 <div class="col-sm-7">
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item">
-                                            <div class="row" id="age_filter_box">
-                                                <div class="col-sm-2">
-                                                    AGE
-                                                </div>
-                                                <div class="col-sm-10">
-                                                    <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="age_filter_0" name="age_fil" value="0">
-                                                        <label class="custom-control-label"
-                                                            for="age_filter_0">ALL</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="age_filter_1" name="age_fil" value="1">
-                                                        <label class="custom-control-label"
-                                                            for="age_filter_1">10대</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="age_filter_2" name="age_fil" value="2">
-                                                        <label class="custom-control-label"
-                                                            for="age_filter_2">20대</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="age_filter_3" name="age_fil" value="3">
-                                                        <label class="custom-control-label"
-                                                            for="age_filter_3">30대</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="age_filter_4" name="age_fil" value="4">
-                                                        <label class="custom-control-label"
-                                                            for="age_filter_4">40대</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="age_filter_5" name="age_fil" value="5">
-                                                        <label class="custom-control-label"
-                                                            for="age_filter_5">50대</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="age_filter_6" name="age_fil" value="6">
-                                                        <label class="custom-control-label"
-                                                            for="age_filter_6">60대이상</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <li class="list-group-item">
                                             <div class="row" id="sex_filter_box">
                                                 <div class="col-sm-2">
-                                                    SEX
+                                                    성별
                                                 </div>
                                                 <div class="col-sm-10">
-                                                    <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="sex_filter_0" name="sex_fil" value="0">
-                                                        <label class="custom-control-label"
-                                                            for="sex_filter_0">ALL</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="sex_filter_1" name="sex_fil" value="1">
-                                                        <label class="custom-control-label"
-                                                            for="sex_filter_1">남성</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="sex_filter_2" name="sex_fil" value="2">
-                                                        <label class="custom-control-label"
-                                                            for="sex_filter_2">여성</label>
-                                                    </div>
+                                                    <select name="sex" class="custom-select" style="width: 30%; ">
+                                                        <option value="0">ALL</option>
+                                                        <option value="1">남성</option>
+                                                        <option value="2">여성</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </li>
                                         <li class="list-group-item">
                                             <div class="row" id="treat_filter_box">
                                                 <div class="col-sm-2">
-                                                    TREAT
+                                                    처리
                                                 </div>
                                                 <div class="col-sm-10">
                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="treat_filter_0" name="treat_fil" value="0">
-                                                        <label class="custom-control-label"
-                                                            for="treat_filter_0">ALL</label>
+                                                        <input type="radio" class="custom-control-input" id="treat_filter_0" name="treat_fil" value="0">
+                                                        <label class="custom-control-label" for="treat_filter_0">ALL</label>
                                                     </div>
                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="treat_filter_1" name="treat_fil" value="1">
-                                                        <label class="custom-control-label"
-                                                            for="treat_filter_1">미선택</label>
+                                                        <input type="radio" class="custom-control-input" id="treat_filter_1" name="treat_fil" value="1">
+                                                        <label class="custom-control-label" for="treat_filter_1">미선택</label>
                                                     </div>
                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="treat_filter_2" name="treat_fil" value="2">
-                                                        <label class="custom-control-label"
-                                                            for="treat_filter_2">상담완료</label>
+                                                        <input type="radio" class="custom-control-input" id="treat_filter_2" name="treat_fil" value="2">
+                                                        <label class="custom-control-label" for="treat_filter_2">상담완료</label>
                                                     </div>
                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="treat_filter_3" name="treat_fil" value="3">
-                                                        <label class="custom-control-label"
-                                                            for="treat_filter_3">부재1</label>
+                                                        <input type="radio" class="custom-control-input" id="treat_filter_3" name="treat_fil" value="3">
+                                                        <label class="custom-control-label" for="treat_filter_3">부재1</label>
                                                     </div>
                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="treat_filter_4" name="treat_fil" value="4">
-                                                        <label class="custom-control-label"
-                                                            for="treat_filter_4">부재2</label>
+                                                        <input type="radio" class="custom-control-input" id="treat_filter_4" name="treat_fil" value="4">
+                                                        <label class="custom-control-label" for="treat_filter_4">부재2</label>
                                                     </div>
                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="treat_filter_5" name="treat_fil" value="5">
-                                                        <label class="custom-control-label"
-                                                            for="treat_filter_5">부재3</label>
+                                                        <input type="radio" class="custom-control-input" id="treat_filter_5" name="treat_fil" value="5">
+                                                        <label class="custom-control-label" for="treat_filter_5">부재3</label>
                                                     </div>
                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="treat_filter_6" name="treat_fil" value="5">
-                                                        <label class="custom-control-label"
-                                                            for="treat_filter_6">장난DB</label>
+                                                        <input type="radio" class="custom-control-input" id="treat_filter_6" name="treat_fil" value="5">
+                                                        <label class="custom-control-label" for="treat_filter_6">장난DB</label>
                                                     </div>
                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" class="custom-control-input"
-                                                            id="treat_filter_7" name="treat_fil" value="5">
-                                                        <label class="custom-control-label"
-                                                            for="treat_filter_7">문자남김</label>
+                                                        <input type="radio" class="custom-control-input" id="treat_filter_7" name="treat_fil" value="5">
+                                                        <label class="custom-control-label" for="treat_filter_7">문자남김</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -206,7 +128,7 @@
                                                         TIME
                                                     </div>
                                                     <div class="col-sm-10">
-                                                        <select name="timestart" class="custom-select">
+                                                        <select name="timestart" class="custom-select" style="width: 20%; ">
                                                             <option value="0">00시</option>
                                                             <option value="1">01시</option>
                                                             <option value="2">02시</option>
@@ -233,7 +155,7 @@
                                                             <option value="23">23시</option>
                                                         </select>
                                                         <span> - </span>
-                                                        <select name="timeand" class="custom-select">
+                                                        <select name="timeand" class="custom-select" style="width: 20%; ">
                                                                 <option value="0">00시</option>
                                                                 <option value="1">01시</option>
                                                                 <option value="2">02시</option>
@@ -265,59 +187,72 @@
                                         <li class="list-group-item">
                                             <div class="row" id="search_filter_box">
                                                 <div class="col-sm-2">
-                                                    SEARCH
+                                                    ACCOUNT
                                                 </div>
                                                 <div class="col-sm-10">
-                                                    SEARCH BOX HERE <span class="ml-3"><button
-                                                            class="btn btn-primary">SEARCH</button></span>
+                                                        <select name="account" class="custom-select" style="width: 42%; ">
+                                                                <option value="0">ALL ACCOUNTS</option>
+                                                                <option value="1">ACCOUNT NAME</option>
+                                                                <option value="2">ACCOUNT NAME</option>
+                                                        </select>
                                                 </div>
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
 
-                                <!-- FILTER RIGHT -->
                                 <div class="col-sm-5 border">
                                     NOT SURE THIS BOX
                                 </div>
+
                             </div>
                         </div>
                     </div>
 
-                    <hr>
 
                     <!-- event -->
                     <div class="event mt-5">
                         <h5>EVENT</h5>
-                        <table class="table">
-                            <thead>
+                        <table class="table table-stripe">
+                            <thead class="thead-light">
                                 <tr>
-                                    <th>ACCOUNT</th>
-                                    <th>NAME</th>
-                                    <th>SEX</th>
-                                    <th>DEVICE</th>
-                                    <th>MEMO</th>
-                                    <th>TREAT</th>
-                                    <th>ERROR</th>
-                                </tr>
-                                <tr>
-                                    <th>DATE</th>
-                                    <th>AGE</th>
-                                    <th>PHONE</th>
-                                    <th>SRC</th>
-                                    <th>CHECKS</th>
-                                    <th>COMMENT</th>
-                                    <th>DELETE</th>
+                                    <th>NO</th>
+                                    <th>에러</th>
+                                    <th>날짜</th>
+                                    <th>어카운트명</th>
+                                    <th>이름</th>
+                                    <th>성별</th>
+                                    <th>나이</th>
+                                    <th>연락처</th>
+                                    <th>기기</th>
+                                    <th>내용</th>
+                                    <th>체크</th>
+                                    <th>경로</th>
+                                    <th>취급</th>
+                                    <th>메모</th>
+                                    <th>삭제</th>
+                                    <th>적용</th>
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <tr>
+                                    <td>1</td>
+                                    <td>
+                                        <select name="eventerror" class="custom-select">
+                                            <option value="">정상</option>
+                                            <option value="1">에러</option>
+                                        </select>
+                                    </td>
+                                    <td>2019-08-22 22:16:17</td>
                                     <td>로또매니아</td>
                                     <td>김태경</td>
                                     <td>남성</td>
+                                    <td>39<span>세</span></td>
+                                    <td>010-9947-3474</td>
                                     <td>MOBILE</td>
                                     <td>로또 1등 맞아서 팔자고치고 싶다</td>
+                                    <td>주름, 노화, Y</td>
+                                    <td>1165</td>
                                     <td>
                                         <select name="eventstatus" class="custom-select">
                                             <option value="">미분류</option>
@@ -329,22 +264,51 @@
                                             <option value="6">문자남김</option>
                                         </select>
                                     </td>
-                                    <td>
-                                        <select name="eventerror" class="custom-select">
-                                            <option value="">정상</option>
-                                            <option value="1">에러</option>
-                                        </select>
-                                    </td>
+
+
+
+
+                                    <td><textarea class="form-control smf" rows="1">살살구슬려서 성공시킴</textarea> </td>
+                                    <td><button class="btn btn-danger smf">삭제</button></td>
+                                    <td><button class="btn btn-primary smf">적용</button></td>
                                 </tr>
                                 <tr>
-                                    <td>2019-08-22 22:16:17</td>
-                                    <td>39<span>세</span></td>
-                                    <td>010-9947-3474</td>
-                                    <td>1165</td>
-                                    <td>주름, 노화, Y</td>
-                                    <td><textarea class="form-control" rows="1">살살구슬려서 성공시킴</textarea> </td>
-                                    <td><button class="btn btn-danger">삭제</button></td>
-                                </tr>
+                                        <td>2</td>
+                                        <td>
+                                            <select name="eventerror" class="custom-select">
+                                                <option value="">정상</option>
+                                                <option value="1">에러</option>
+                                            </select>
+                                        </td>
+                                        <td>2019-08-22 22:16:17</td>
+                                        <td>로또매니아</td>
+                                        <td>김태경</td>
+                                        <td>남성</td>
+                                        <td>39<span>세</span></td>
+                                        <td>010-9947-3474</td>
+                                        <td>MOBILE</td>
+                                        <td>로또 1등 맞아서 팔자고치고 싶다</td>
+                                        <td>주름, 노화, Y</td>
+                                        <td>1165</td>
+                                        <td>
+                                            <select name="eventstatus" class="custom-select">
+                                                <option value="">미분류</option>
+                                                <option value="1">상담완료</option>
+                                                <option value="2">부재1</option>
+                                                <option value="3">부재2</option>
+                                                <option value="4">부재3</option>
+                                                <option value="5">장난</option>
+                                                <option value="6">문자남김</option>
+                                            </select>
+                                        </td>
+    
+    
+    
+    
+                                        <td><textarea class="form-control smf" rows="1">살살구슬려서 성공시킴</textarea> </td>
+                                        <td><button class="btn btn-danger smf">삭제</button></td>
+                                        <td><button class="btn btn-primary smf">적용</button></td>
+                                    </tr>
                             </tbody>
                         </table>
                     </div>

@@ -1,12 +1,13 @@
 /* common */
+
 /* login */
 
 
 #login {
-    background-image: url(../img/bg1.jpg);
     width: 100vw;
     height: 100vh;
 }
+
 #login .box {
     border-radius: 5%;
     background-color: rgba(255,255 ,255, 0.9);
@@ -17,12 +18,19 @@
     top: 50%;
     margin: -250px 0 0 -250px;
     padding: 50px;
-
 }
 
 /* accounts */
 
 
 .table td, .table th {
+    text-align: center;
     vertical-align: middle;
+}
+
+.custom-select,
+.table td,
+.table th,
+.smf {
+    font-size : 0.8rem;
 }
