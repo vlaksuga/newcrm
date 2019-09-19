@@ -352,8 +352,17 @@ main .main-body .main-left .option-box .option-header {
     height: 70px;
     font-size: 0.8rem;
     border-bottom: 1px solid #eeeeee;
-    background-color: lightblue;
 
+
+}
+
+main .main-body .main-left .option-box .active {
+    background-color: lightblue;
+}
+
+main .main-body .main-left .option-box .menu:hover {
+    cursor: pointer;
+    background-color: lightcyan;
 }
 
 main .main-body .main-left .option-box .option-header .option-header-box {
@@ -444,7 +453,6 @@ main .main-body .main-left .option-box .option-footer .option-footer-box .reset 
 
 main .main-body .main-center {
     width: 100%;
-
 }
 
 main .main-body .main-center .event-box {
@@ -1088,7 +1096,85 @@ main .stickey .filter span {
 }
 /* STATS */
 
+
 /* CONFIG */
+
+main .main-body .main-center .config-box {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+}
+
+main .main-body .main-center .config-box .config-element {
+    width: 640px;
+    margin: 10px 10px 20px 10px;
+}
+
+main .main-body .main-center .config-box .config-element .config-head {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: row;
+}
+
+main .main-body .main-center .config-box .config-element .config-head {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid lightgray;
+}
+
+main .main-body .main-center .config-box .config-element .config-body {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: column;
+    font-size : 0.8rem;
+}
+
+main .main-body .main-center .config-box .config-element .config-body .config-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+main .main-body .main-center .config-box .config-element .config-body .config-item .item-body .item-value select {
+    width: 100px;
+}
+
+main .main-body .main-center .config-box .config-element .config-body .config-item ul {
+    list-style-type: none;
+}
+
+main .main-body .main-center .config-box .config-element .config-body .config-item ul li .rank-box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    width: 250px;
+    background-color: lightblue;
+    border-radius: 7%/50%;
+    padding: 5px 15px;
+    margin: 5px 0;
+}
+
+main .main-body .main-center .config-box .config-element .config-body .config-item ul li .rank-box .rank-icon {
+    width: 20px;
+}
+
+main .main-body .main-center .config-box .config-element .config-body .config-item ul li .rank-box .rank-mk {
+    width: 50px;
+}
+
+
+
+main .main-body .main-center .config-box .config-element .config-body .config-item ul li .rank-box:hover {
+    background-color: #ed5c5c;
+    cursor: pointer;
+}
 
 
 /* toggle */
@@ -1115,4 +1201,64 @@ main .stickey .filter span {
 
 .rotate {
     transform: rotate(180deg);
+}
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.switch .slider.round {
+    border-radius: 34px;
+} 
+
+.switch .slider.round::before {
+    border-radius: 50%;
+}
+
+.switch .slider::before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.switch input:checked + .slider {
+    background-color: lightblue;
+}
+
+.switch input:focus + .slider {
+    box-shadow: 0 0 1px lightblue;
+}
+
+.switch input:checked + .slider::before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px)
 }
