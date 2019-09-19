@@ -325,7 +325,6 @@ main .main-body {
 /* main-left */
 
 main .main-body .main-left {
-    display:none;
     height: 100%;
 }
 
@@ -363,6 +362,22 @@ main .main-body .main-left .option-box .option-header .option-header-box {
     width: 100%;
     margin: 0 10px;
 }
+
+main .main-body .main-left .option-box .option-header .option-header-box .option-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    font-size: 0.6rem;
+    border-radius: 15%/50%;
+    width: 60px;
+}
+
+main .main-body .main-left .option-box .option-header .option-header-box .option-close:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
 
 main .main-body .main-left .option-box .option-body {
     display: flex;
@@ -1042,8 +1057,34 @@ main .main-body .main-center .event-box .event-body .event-pagination {
 }
 
 
-main .main-body .main-right {
-    width: 350px;
+main .stickey {
+    position: fixed;
+    bottom: 8px;
+    left: 8px;
+}
+
+
+main .stickey .filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 20px;
+    background-color: black;
+    color:white;
+}
+
+main .stickey .filter:hover {
+    border: 1px solid red;
+    cursor: pointer;
+}
+
+
+
+
+main .stickey .filter span {
+    font-size: 0.6rem;
 }
 /* STATS */
 
