@@ -31,6 +31,7 @@
             });
             $("#datepicker_start").datepicker();
             $("#datepicker_end").datepicker();
+            $("#datepicker_error_start").datepicker();
 
         });
     </script>
@@ -57,65 +58,56 @@
         <div id="top">
             <div class="nav-container">
                 <div class="user-container">
-                    <ul>
-                        <li class="unselected none">
-                            <button>
-                                <div class="user-box">
-                                    <div class="avatar">
-                                        <img class="good">
-                                    </div>
-                                    <div class="user">
-                                        <span>ALL CHANNEL</span>
-                                        <span><i class="fas fa-angle-down"></i></span>
-                                        <span class="dot"><i class="fas fa-circle"></i></span>
-                                    </div>
-                                </div>
-                            </button>
-                        </li>
+                    <div class="channel-box unselected none">
+                        <div class="user-box">
+                            <div class="avatar">
+                                <img class="good">
+                            </div>
+                            <div class="user">
+                                <span>ALL CHANNEL</span>
+                                <span class="selected"><i class="fas fa-angle-down"></i></span>
+                                <span class="dot none"><i class="fas fa-circle"></i></span>
+                            </div>
+                        </div>
+                    </div>
 
-                        <li class="selected">
-                            <button>
-                                <div class="user-box">
-                                    <div class="avatar">
-                                        <img class="good">
-                                    </div>
-                                    <div class="user">
-                                        <span>LOTTORICH1</span>
-                                        <span class="selected"><i class="fas fa-angle-down"></i></span>
-                                        <span class="selected dot none"><i class="fas fa-circle"></i></span>
-                                    </div>
-                                </div>
-                            </button>
-                        </li>
-                        <li class="unselected none">
-                            <button>
-                                <div class="user-box">
-                                    <div class="avatar">
-                                        <img class="good">
-                                    </div>
-                                    <div class="user">
-                                        <span>LOTTORICH2</span>
-                                        <span><i class="fas fa-angle-down"></i></span>
-                                        <span class="dot"><i class="fas fa-circle"></i></span>
-                                    </div>
-                                </div>
-                            </button>
-                        </li>
-                        <li class="unselected none">
-                            <button>
-                                <div class="user-box">
-                                    <div class="avatar">
-                                        <img class="good">
-                                    </div>
-                                    <div class="user">
-                                        <span>LOTTORICH3</span>
-                                        <span><i class="fas fa-angle-down"></i></span>
-                                        <span class="dot"><i class="fas fa-circle"></i></span>
-                                    </div>
-                                </div>
-                            </button>
-                        </li>
-                    </ul>
+                    <div class="channel-box selected">
+                        <div class="user-box">
+                            <div class="avatar">
+                                <img class="bad">
+                            </div>
+                            <div class="user">
+                                <span>LOTTORICH1</span>
+                                <span class=""><i class="fas fa-angle-down"></i></span>
+                                <span class="dot none"><i class="fas fa-circle"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="channel-box unselected none">
+                        <div class="user-box">
+                            <div class="avatar">
+                                <img class="bad">
+                            </div>
+                            <div class="user">
+                                <span>LOTTORICH2</span>
+                                <span class="none"><i class="fas fa-angle-down"></i></span>
+                                <span class="dot"><i class="fas fa-circle"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="channel-box unselected none">
+
+                        <div class="user-box">
+                            <div class="avatar">
+                                <img class="good">
+                            </div>
+                            <div class="user">
+                                <span>LOTTORICH3</span>
+                                <span class="none"><i class="fas fa-angle-down"></i></span>
+                                <span class="dot"><i class="fas fa-circle"></i></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="logo-top">
                     <img src="./img/logomini.png"> <!-- 클릭 > reflesh -->
@@ -155,6 +147,7 @@
             </div>
 
             <div id="main">
+
                 <main>
                     <!-- event -->
                     <div class="main-top">
@@ -172,42 +165,28 @@
 
                         <div class="main-left active">
                             <div class="option-box">
-                                <div class="option-header active selected">
+
+                                <div class="option-header">
                                     <div class="option-header-box">
-                                        <span>재통화 분배</span>
+                                        <span>분배</span>
                                     </div>
                                 </div>
-                                <div class="option-header menu">
-                                    <div class="option-header-box ">
-                                        <span>신규 조건 분배</span>
-                                    </div>
-                                </div>
-                                <div class="option-header menu">
+
+                                <div class="option-header active">
                                     <div class="option-header-box">
-                                        <span>확률 분배</span>
+                                        <span>사전 주문 처리</span>
                                     </div>
                                 </div>
-                                <div class="option-header menu">
-                                    <div class="option-header-box">
-                                        <span>순차 분배</span>
-                                    </div>
-                                </div>
-                                <div class="option-header menu">
-                                    <div class="option-header-box">
-                                        <span>시간 초과</span>
-                                    </div>
-                                </div>
-                                <div class="option-header menu">
-                                    <div class="option-header-box">
-                                        <span>모두 보기</span>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
 
                         <div class="main-center">
-                            <div class="config-box">
 
+                            <!-- 분배 -->
+                            <div class="config-box share active">
+
+                                <!-- 재통화 분배 -->
                                 <div class="config-element">
 
                                     <div class="config-head">
@@ -273,51 +252,116 @@
                                         </div>
                                     </div>
 
+                                    <div class="config-footer">
+                                        <div class="footer-option">
+                                            <div class="footer-comment">
+                                                <span>재통화 분배에 대한 설명이 들어갑니다</span>
+                                            </div>
+                                        </div>
+                                        <div class="footer-btn-box">
+                                            <button class="tocar apply">적용</button>
+                                            <button class="tocar reset">RESET</button>
+                                        </div>
+                                    </div>
+
                                 </div>
 
+                                <!-- 조건 분배 -->
                                 <div class="config-element">
 
                                     <div class="config-head">
-                                        <div class="config-title">
-                                            <span>신규 조건 분배</span>
-                                        </div>
-                                        <div class="config-stat">
-                                            <label class="config-menu-switch switch">
-                                                <input type="checkbox">
-                                                <span class="slider round"></span>
-                                            </label>
-                                        </div>
+                                            <div class="config-title">
+                                                <span>조건 분배</span>
+                                            </div>
+                                            <div class="config-stat">
+                                                <label class="config-menu-switch switch">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
                                     </div>
-
+    
                                     <div class="config-body">
-                                        <div class="config-item">
-                                            <div class="item-header">
-                                                <div class="item-title">
-                                                    <span>조건 1</span>
+    
+                                            <div class="config-item">
+    
+                                                <div class="item-header">
+                                                    <div class="item-title">
+                                                        <select class="tocar">
+                                                            <option value="name">이름</option>
+                                                            <option value="age">나이</option>
+                                                            <option value="sex">성별</option>
+                                                            <option value="phone">연락처</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="item-body">
-                                                <div class="item-value">
-                                                    <input class="tocar">
+                                                
+                                                <div class="item-body">
+    
+                                                    <div class="item-value item-name item-phone item-etc none">
+                                                        <input class="tocar">
+                                                    </div>
+    
+                                                    <div class="item-value item-sex none">
+                                                        <select class="tocar">
+                                                            <option value="1">남성</option>
+                                                            <option value="2">여성</option>
+                                                        </select>
+                                                    </div>
+    
+                                                    <div class="item-value item-age">
+                                                        <input class="tocar">
+                                                        <select class="tocar">
+                                                            <option value="up">이상</option>
+                                                            <option value="down">이하</option>
+                                                        </select>
+                                                    </div>                                                
+                                                    
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="config-item">
-                                            <div class="item-header">
-                                                <div class="item-title">
-                                                    <span>가망시 최대 보유 횟수</span>
-                                                </div>
-                                            </div>
-                                            <div class="item-body">
-                                                <div class="item-value">
-                                                    <input class="tocar">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
+                                                <div class="item-mk">
+                                                    <select class="tocar">
+                                                        <option value="1">박지성</option>
+                                                        <option value="2">손흥민</option>
+                                                        <option value="3">이대호</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="item-act">
+                                                    <select class="tocar">
+                                                        <option value="1">분배</option>
+                                                        <option value="2">제외</option>
+                                                    </select>
+                                                </div>
+    
+                                                <div class="item-switch">
+                                                    <label class="config-menu-switch switch">
+                                                        <input type="checkbox">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+    
+    
+    
+                                    </div>
+    
+                                    <div class="config-footer">
+                                            <div class="footer-option">
+                                                <div class="footer-comment">
+                                                    <span>조건 분배에 대한 설명이 들어갑니다</span>
+                                                </div>
+                                            </div>
+                                            <div class="footer-btn-box">
+                                                <button class="tocar new">조건 추가</button>
+                                                <button class="tocar apply">적용</button>
+                                                <button class="tocar reset">RESET</button>
+                                            </div>
+                                    </div>
+    
                                 </div>
 
+                                <!-- 확률 분배 -->
                                 <div class="config-element">
 
                                     <div class="config-head">
@@ -375,8 +419,21 @@
                                         </div>
                                     </div>
 
+                                    <div class="config-footer">
+                                        <div class="footer-option">
+                                            <div class="footer-comment">
+                                                <span>확률 분배에 대한 설명이 들어갑니다</span>
+                                            </div>
+                                        </div>
+                                        <div class="footer-btn-box">
+                                            <button class="tocar apply">적용</button>
+                                            <button class="tocar reset">RESET</button>
+                                        </div>
+                                    </div>
+
                                 </div>
 
+                                <!-- 순차 분배 -->
                                 <div class="config-element">
 
                                     <div class="config-head">
@@ -437,13 +494,23 @@
                                             </ul>
                                         </div>
 
-                                        <div class="config-item">
-                                            <span>끌어놓기로 순서를 옮길 수 있습니다.</span>
+                                    </div>
+
+                                    <div class="config-footer">
+                                        <div class="footer-option">
+                                            <div class="footer-comment">
+                                                <span>끌어놓기로 순서를 옮길 수 있습니다</span>
+                                            </div>
+                                        </div>
+                                        <div class="footer-btn-box">
+                                            <button class="tocar apply">적용</button>
+                                            <button class="tocar reset">RESET</button>
                                         </div>
                                     </div>
 
                                 </div>
 
+                                <!-- 기간 초과 -->
                                 <div class="config-element">
 
                                     <div class="config-head">
@@ -498,30 +565,219 @@
                                             </div>
                                         </div>
                                         <div class="config-item">
-                                                <div class="item-header">
-                                                    <div class="item-title">
-                                                        <span>가망</span>
-                                                    </div>
+                                            <div class="item-header">
+                                                <div class="item-title">
+                                                    <span>가망</span>
                                                 </div>
-                                                <div class="item-body">
-                                                    <div class="item-value">
-                                                        <select class="tocar">
-                                                            <option value="0">무제한</option>
-                                                            <option value="1">1일</option>
-                                                            <option value="2">2일</option>
-                                                            <option value="3">3일</option>
-                                                            <option value="4">4일</option>
-                                                            <option value="5">5일</option>
-                                                        </select>
-                                                    </div>
+                                            </div>
+                                            <div class="item-body">
+                                                <div class="item-value">
+                                                    <select class="tocar">
+                                                        <option value="0">무제한</option>
+                                                        <option value="1">1일</option>
+                                                        <option value="2">2일</option>
+                                                        <option value="3">3일</option>
+                                                        <option value="4">4일</option>
+                                                        <option value="5">5일</option>
+                                                    </select>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="config-footer">
+                                        <div class="footer-option">
+                                            <div class="footer-comment">
+                                                <span>기간 초과에 대한 설명이 들어갑니다</span>
+                                            </div>
+                                        </div>
+                                        <div class="footer-btn-box">
+                                            <button class="tocar apply">적용</button>
+                                            <button class="tocar reset">RESET</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- 사전 주문 처리 -->
+                            <div class="config-box error none">
+                                
+                                <!-- 주문 중복 관리 -->
+                                <div class="config-element">
+
+                                    <div class="config-head">
+                                        <div class="config-title">
+                                            <span>주문 중복관리</span>
+                                        </div>
+                                        <div class="config-stat">
+                                            <label class="config-menu-switch switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="config-body">
+                                        <div class="config-item">
+                                            <div class="item-header">
+                                                <div class="item-title">
+                                                    <span>IP ADDRESS 일치</span>
+                                                </div>
+                                            </div>
+                                            <div class="item-body">
+                                                <div class="item-value">
+                                                    <label class="config-menu-switch switch">
+                                                        <input type="checkbox">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="config-item">
+                                            <div class="item-header">
+                                                <div class="item-title">
+                                                    <span>이름 일치</span>
+                                                </div>
+                                            </div>
+                                            <div class="item-body">
+                                                <div class="item-value">
+                                                    <label class="config-menu-switch switch">
+                                                        <input type="checkbox">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="config-item">
+                                            <div class="item-header">
+                                                <div class="item-title">
+                                                    <span>전화번호 일치</span>
+                                                </div>
+                                            </div>
+                                            <div class="item-body">
+                                                <div class="item-value">
+                                                    <label class="config-menu-switch switch">
+                                                        <input type="checkbox">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="config-item">
+                                            <div class="item-header">
+                                                <div class="item-title">
+                                                    <span>비교 주문 시작 일자 설정</span>
+                                                </div>
+                                            </div>
+                                            <div class="item-body">
+                                                <div class="item-value">
+                                                    <input type="text" id="datepicker_error_start">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="config-footer">
+                                        <div class="footer-option">
+                                            <div class="footer-comment">
+                                                <span>주문 중복관리에 관한 설명이 들어갑니다</span>
+                                            </div>
+                                        </div>
+                                        <div class="footer-btn-box">
+                                            <button class="tocar apply">적용</button>
+                                            <button class="tocar reset">RESET</button>
                                         </div>
                                     </div>
 
                                 </div>
+
+                                <!-- 특별 비정상 관리 -->
+                                <div class="config-element">
+
+                                    <div class="config-head">
+                                        <div class="config-title">
+                                            <span>특별 비정상 관리</span>
+                                        </div>
+                                        <div class="config-stat">
+                                            <label class="config-menu-switch switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="config-body">
+
+                                        <div class="config-item">
+
+                                            <div class="item-header">
+                                                <div class="item-title">
+                                                    <select class="tocar">
+                                                        <option value="name">이름</option>
+                                                        <option value="age">나이</option>
+                                                        <option value="sex">성별</option>
+                                                        <option value="phone">연락처</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="item-body">
+
+                                                <div class="item-value item-name item-phone item-etc none">
+                                                    <input class="tocar">
+                                                </div>
+
+                                                <div class="item-value item-sex none">
+                                                    <select class="tocar">
+                                                        <option value="1">남성</option>
+                                                        <option value="2">여성</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="item-value item-age">
+                                                    <input class="tocar">
+                                                    <select class="tocar">
+                                                        <option value="up">이상</option>
+                                                        <option value="down">이하</option>
+                                                    </select>
+                                                </div>                                                
+                                                
+                                            </div>
+
+                                            <div class="item-switch">
+                                                <label class="config-menu-switch switch">
+                                                    <input type="checkbox">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
+                                    <div class="config-footer">
+                                        <div class="footer-option">
+                                            <div class="footer-comment">
+                                                <span>특별 비정상 관리에 대한 설명이 들어갑니다</span>
+                                            </div>
+                                        </div>
+                                        <div class="footer-btn-box">
+                                            <button class="tocar new">조건 추가</button>
+                                            <button class="tocar apply">적용</button>
+                                            <button class="tocar reset">RESET</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
                             </div>
-
-
                         </div>
                 </main>
             </div>
