@@ -1198,12 +1198,20 @@ main .main-body .main-center .chart-box {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: nowrap;
+    margin-bottom: 30px;
 }
 
 main .main-body .main-center .chart-box .chart-element {
     padding: 20px;
     width: 30%;
     height: 300px;
+}
+
+main .main-body .main-center .chart-box .chart-element .caption {
+    width: 100%;
+    font-size: 0.7rem;
+    text-align: center;
+    color:grey;
 }
 
 main .main-body .main-center .filter-box {
@@ -1216,7 +1224,6 @@ main .main-body .main-center .filter-box {
     min-height: 65px;
     border-bottom: 1px solid #eeeeee;
     padding-left: 20px;
-
 }
 
 main .main-body .main-center .filter-box .day-box {
@@ -1269,6 +1276,11 @@ main .main-body .main-center .filter-box .day-box .filter-element select,
 main .main-body .main-center .filter-box .day-box .filter-element input {
     text-align: center;
     width: 100px;
+}
+
+main .main-body .main-center .title-box {
+    width: 100%;
+    padding: 20px;
 }
 
 /* CONFIG */
