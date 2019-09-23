@@ -270,6 +270,11 @@ main {
     border-radius: 50%;
 }
 
+#top .user-setting .set-box .i-box:hover {
+    background-color: red;
+    cursor: pointer;
+}
+
 #aside aside i {
     font-weight: bolder;
     font-size: 1.5rem;
@@ -366,6 +371,8 @@ main .main-body .main-left .option-box .option-header {
 
 
 }
+
+
 
 main .main-body .main-left .option-box .active {
     background-color: lightblue;
@@ -1116,6 +1123,11 @@ main .stickey .filter span {
 
 /* CONFIG */
 
+main .main-body .main-left .option-box .option-header.selectable:hover {
+    background-color: gray;
+    cursor: pointer;
+}
+
 main .main-body .main-center .config-box {
     display: flex;
     justify-content: flex-start;
@@ -1231,6 +1243,11 @@ border: 1px solid darkgrey;
 main .main-body .main-center .config-box .config-element .config-footer .footer-btn-box .new {
 border: 1px solid black;
 background-color: white;
+}
+
+main .main-body .main-center .config-box .gapbox {
+    width: 100%;
+    height: 200px;
 }
 
 

@@ -4,7 +4,7 @@
 <head>
     <title>CONFIG</title>
     <meta charset="utf-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://kit.fontawesome.com/799568d786.js"></script>
@@ -166,13 +166,13 @@
                         <div class="main-left active">
                             <div class="option-box">
 
-                                <div class="option-header">
+                                <div class="option-header selectable">
                                     <div class="option-header-box">
                                         <span>분배</span>
                                     </div>
                                 </div>
 
-                                <div class="option-header active">
+                                <div class="option-header selectable active">
                                     <div class="option-header-box">
                                         <span>사전 주문 처리</span>
                                     </div>
@@ -494,6 +494,24 @@
                                             </ul>
                                         </div>
 
+                                        <div class="config-item">
+                                                <div class="item-header">
+                                                    <div class="item-title">
+                                                        <span>제외대상 설정</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item-body">
+                                                    <div class="item-value">
+                                                        <select class="tocar">
+                                                            <option value="1">해제</option>
+                                                            <option value="1">박지성</option>
+                                                            <option value="2">손흥민</option>
+                                                            <option value="3">이대호</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                     </div>
 
                                     <div class="config-footer">
@@ -503,6 +521,7 @@
                                             </div>
                                         </div>
                                         <div class="footer-btn-box">
+                                            <button class="tocar new">대상 추가</button>
                                             <button class="tocar apply">적용</button>
                                             <button class="tocar reset">RESET</button>
                                         </div>
@@ -596,6 +615,10 @@
                                             <button class="tocar reset">RESET</button>
                                         </div>
                                     </div>
+                                </div>
+
+                                <!-- GAP -->
+                                <div class="gapbox">
                                 </div>
 
                             </div>
