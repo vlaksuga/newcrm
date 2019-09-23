@@ -1201,6 +1201,80 @@ main .main-body .main-center .chart-box {
     margin-bottom: 30px;
 }
 
+main .main-body .main-center .chart-box .element-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    margin-bottom: 30px;
+
+}
+
+main .main-body .main-center .chart-box .table-box {
+    width: 70%;
+    background-color: white;
+    margin-right: 10px;
+    height: 69vh;
+    overflow-y: auto;
+}
+
+
+main .main-body .main-center .chart-box .table-box.only {
+    width: 100% !important;
+}
+
+main .main-body .main-center .chart-box .table-box .order-table {
+    height: 69vh;
+    width: 100%;
+    overflow-y: auto;
+    font-size: 0.8rem;
+    border-collapse: collapse;
+}
+
+
+main .main-body .main-center .chart-box .table-box .order-table thead th,
+main .main-body .main-center .chart-box .table-box .order-table tbody td,
+main .main-body .main-center .chart-box .table-box .order-table tfoot td {
+    padding: 10px;
+
+}
+
+main .main-body .main-center .chart-box .table-box .order-table tbody td {
+    border-bottom: 1px solid lightgrey;
+}
+
+
+main .main-body .main-center .chart-box .table-box .order-table colgroup .col1 {
+    width: 100px;
+}
+
+main .main-body .main-center .chart-box .table-box .order-table colgroup .col2 {
+    width: 50px;
+}
+
+main .main-body .main-center .chart-box .table-box .order-table thead {
+    background-color: lightgrey;
+    border-bottom: 1px solid grey;
+}
+
+main .main-body .main-center .chart-box .table-box .order-table tfoot {
+    background-color: #ed5c5c;
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+}
+
+main .main-body .main-center .chart-box .table-box .order-table tbody {
+    vertical-align: middle;
+    text-align: center;
+}
+
+main .main-body .main-center .chart-box .element-box .chart-element {
+    padding: 20px;
+    width: 500px;
+    height: 300px;    
+}
+
 main .main-body .main-center .chart-box .chart-element {
     padding: 20px;
     width: 30%;
@@ -1244,6 +1318,14 @@ main .main-body .main-center .filter-box .switch-box {
     height: 100%;
 }
 
+main .main-body .main-center .filter-box .switch-box .switch {
+    color: lightgrey;
+}
+
+main .main-body .main-center .filter-box .switch-box .switch.active {
+    color:black !important;
+}
+
 main .main-body .main-center .filter-box .day-box .filter-element {
     color: grey;
     display: flex;
@@ -1281,6 +1363,8 @@ main .main-body .main-center .filter-box .day-box .filter-element input {
 main .main-body .main-center .title-box {
     width: 100%;
     padding: 20px;
+    height: 7vh;
+    min-height: 65px;
 }
 
 /* CONFIG */
