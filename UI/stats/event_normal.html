@@ -243,17 +243,29 @@
                                 </div>
                             </div>
 
-                            <div class="title-box">
-                                <span>진행 현황</span>
+                            <div class="title-box effect-box">
+                                <div class="title">
+                                    <span>신규 주문</span>
+                                </div>
+                                <div class="effect">
+                                    <div class="effect-false active">무효</div>
+                                    <div class="effect-sum">소계</div>
+                                    <div class="effect-ratio">유효율</div>
+                                </div>
                             </div>
 
                             <div class="chart-box">
 
                                 <!-- TABLE -->
-                                <div class="table-box">
+                                <div class="table-box daily">
+
                                     <table class="order-table">
+
                                         <colgroup>
                                             <col class="col1">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
                                             <col class="col2">
                                             <col class="col2">
                                             <col class="col2">
@@ -267,69 +279,76 @@
 
                                         <thead>
                                             <tr>
-                                                <th scope="row">DATE</th>
-                                                <th scope="row">신규</th>
-                                                <th scope="row">가망</th>
-                                                <th scope="row">결재</th>
-                                                <th scope="row">부재</th>
-                                                <th scope="row">결번</th>
-                                                <th scope="row">본인아님</th>
-                                                <th scope="row">거절</th>
-                                                <th scope="row">대기</th>
-                                                <th scope="row">강제폐기</th>
+                                                <th scope="row" rowspan="2">DATE</th>
+                                                <th scope="row" colspan="4">LOTTORICH1</th>
+                                                <th scope="row" colspan="4">LOTTORICH2</th>
+                                                <th scope="row" colspan="4">LOTTORICH3</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="d-true">유효</th>
+                                                <th scope="row" class="d-false">무효</th>
+                                                <th scope="row" class="d-sum">소계</th>
+                                                <th scope="row" class="d-ratio">유효율</th>
+                                                <th scope="row" class="d-true">유효</th>
+                                                <th scope="row" class="d-false">무효</th>
+                                                <th scope="row" class="d-sum">소계</th>
+                                                <th scope="row" class="d-ratio">유효율</th>
+                                                <th scope="row" class="d-true">유효</th>
+                                                <th scope="row" class="d-false">무효</th>
+                                                <th scope="row" class="d-sum">소계</th>
+                                                <th scope="row" class="d-ratio">유효율</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
-                                            <tr class="channel">
-                                                <td>LOTTORICH1</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>4</td>
-                                                <td>6</td>
+                                            <tr>
+                                                <td class="d-index">2019-09-16</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
                                             </tr>
                                             <tr>
-                                                <td>손흥민</td>
-                                                <td>11</td>
-                                                <td>13</td>
-                                                <td>15</td>
-                                                <td>0</td>
-                                                <td>7</td>
-                                                <td>55</td>
-                                                <td>7</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>박지성</td>
-                                                <td>11</td>
-                                                <td>13</td>
-                                                <td>15</td>
-                                                <td>0</td>
-                                                <td>7</td>
-                                                <td>55</td>
-                                                <td>7</td>
-                                                <td></td>
-                                                <td></td>
+                                                <td class="d-index">2019-09-16</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <td>TOTAL</td>
-                                                <td>11</td>
-                                                <td>13</td>
-                                                <td>15</td>
-                                                <td>0</td>
-                                                <td>7</td>
-                                                <td>55</td>
-                                                <td>7</td>
-                                                <td>4</td>
-                                                <td>6</td>
+                                                <tr>
+                                                    <td class="d-index">TOTAL</td>
+                                                    <td class="d-true">4</td>
+                                                    <td class="d-false">11</td>
+                                                    <td class="d-sum">15</td>
+                                                    <td class="d-ratio">26%</td>
+                                                    <td class="d-true">4</td>
+                                                    <td class="d-false">11</td>
+                                                    <td class="d-sum">15</td>
+                                                    <td class="d-ratio">26%</td>
+                                                    <td class="d-true">4</td>
+                                                    <td class="d-false">11</td>
+                                                    <td class="d-sum">15</td>
+                                                    <td class="d-ratio">26%</td>
+                                                </tr>
                                             </tr>
                                         </tfoot>
                                     </table>
