@@ -185,6 +185,16 @@
                             <div class="filter-box">
                                 <div class="day-box">
                                     <div class="filter-element">
+                                        <span>보기방식</span>
+                                        <select class="tocar">
+                                            <option value="1">일간</option>
+                                            <option value="2">월간</option>
+                                            <option value="3">요일</option>
+                                            <option value="4">시간</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="filter-element">
                                         <span>시작일</span>
                                         <input class="tocar" id="datepicker_start">
                                     </div>
@@ -257,7 +267,9 @@
                             <div class="chart-box">
 
                                 <!-- TABLE -->
-                                <div class="table-box daily">
+
+                                <!-- DAILY -->
+                                <div class="table-box col-day none">
 
                                     <table class="order-table">
 
@@ -279,7 +291,7 @@
 
                                         <thead>
                                             <tr>
-                                                <th scope="row" rowspan="2">DATE</th>
+                                                <th scope="row" rowspan="2">구분</th>
                                                 <th scope="row" colspan="4">LOTTORICH1</th>
                                                 <th scope="row" colspan="4">LOTTORICH2</th>
                                                 <th scope="row" colspan="4">LOTTORICH3</th>
@@ -354,36 +366,323 @@
                                     </table>
                                 </div>
 
+                                <!-- MONTHLY -->
+                                <div class="table-box col-month none">
+
+                                    <table class="order-table">
+
+                                        <colgroup>
+                                            <col class="col1">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                        </colgroup>
+
+                                        <thead>
+                                            <tr>
+                                                <th scope="row" rowspan="2">구분</th>
+                                                <th scope="row" colspan="4">LOTTORICH1</th>
+                                                <th scope="row" colspan="4">LOTTORICH2</th>
+                                                <th scope="row" colspan="4">LOTTORICH3</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="d-true">유효</th>
+                                                <th scope="row" class="d-false">무효</th>
+                                                <th scope="row" class="d-sum">소계</th>
+                                                <th scope="row" class="d-ratio">유효율</th>
+                                                <th scope="row" class="d-true">유효</th>
+                                                <th scope="row" class="d-false">무효</th>
+                                                <th scope="row" class="d-sum">소계</th>
+                                                <th scope="row" class="d-ratio">유효율</th>
+                                                <th scope="row" class="d-true">유효</th>
+                                                <th scope="row" class="d-false">무효</th>
+                                                <th scope="row" class="d-sum">소계</th>
+                                                <th scope="row" class="d-ratio">유효율</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td class="d-index">2019-09-16</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="d-index">2019-09-16</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <tr>
+                                                    <td class="d-index">TOTAL</td>
+                                                    <td class="d-true">4</td>
+                                                    <td class="d-false">11</td>
+                                                    <td class="d-sum">15</td>
+                                                    <td class="d-ratio">26%</td>
+                                                    <td class="d-true">4</td>
+                                                    <td class="d-false">11</td>
+                                                    <td class="d-sum">15</td>
+                                                    <td class="d-ratio">26%</td>
+                                                    <td class="d-true">4</td>
+                                                    <td class="d-false">11</td>
+                                                    <td class="d-sum">15</td>
+                                                    <td class="d-ratio">26%</td>
+                                                </tr>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+                                <!-- DOTWLY -->
+                                <div class="table-box col-dotw none">
+
+                                    <table class="order-table">
+
+                                        <colgroup>
+                                            <col class="col1">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                        </colgroup>
+
+                                        <thead>
+                                            <tr>
+                                                <th scope="row" rowspan="2">구분</th>
+                                                <th scope="row" colspan="4">LOTTORICH1</th>
+                                                <th scope="row" colspan="4">LOTTORICH2</th>
+                                                <th scope="row" colspan="4">LOTTORICH3</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="d-true">유효</th>
+                                                <th scope="row" class="d-false">무효</th>
+                                                <th scope="row" class="d-sum">소계</th>
+                                                <th scope="row" class="d-ratio">유효율</th>
+                                                <th scope="row" class="d-true">유효</th>
+                                                <th scope="row" class="d-false">무효</th>
+                                                <th scope="row" class="d-sum">소계</th>
+                                                <th scope="row" class="d-ratio">유효율</th>
+                                                <th scope="row" class="d-true">유효</th>
+                                                <th scope="row" class="d-false">무효</th>
+                                                <th scope="row" class="d-sum">소계</th>
+                                                <th scope="row" class="d-ratio">유효율</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td class="d-index">2019-09-16</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="d-index">2019-09-16</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <tr>
+                                                    <td class="d-index">TOTAL</td>
+                                                    <td class="d-true">4</td>
+                                                    <td class="d-false">11</td>
+                                                    <td class="d-sum">15</td>
+                                                    <td class="d-ratio">26%</td>
+                                                    <td class="d-true">4</td>
+                                                    <td class="d-false">11</td>
+                                                    <td class="d-sum">15</td>
+                                                    <td class="d-ratio">26%</td>
+                                                    <td class="d-true">4</td>
+                                                    <td class="d-false">11</td>
+                                                    <td class="d-sum">15</td>
+                                                    <td class="d-ratio">26%</td>
+                                                </tr>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+                                <!-- HOURLY -->
+                                <div class="table-box col-hour">
+
+                                    <table class="order-table">
+
+                                        <colgroup>
+                                            <col class="col1">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                            <col class="col2">
+                                        </colgroup>
+
+                                        <thead>
+                                            <tr>
+                                                <th scope="row" rowspan="2">구분</th>
+                                                <th scope="row" colspan="4">LOTTORICH1</th>
+                                                <th scope="row" colspan="4">LOTTORICH2</th>
+                                                <th scope="row" colspan="4">LOTTORICH3</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="d-true">유효</th>
+                                                <th scope="row" class="d-false">무효</th>
+                                                <th scope="row" class="d-sum">소계</th>
+                                                <th scope="row" class="d-ratio">유효율</th>
+                                                <th scope="row" class="d-true">유효</th>
+                                                <th scope="row" class="d-false">무효</th>
+                                                <th scope="row" class="d-sum">소계</th>
+                                                <th scope="row" class="d-ratio">유효율</th>
+                                                <th scope="row" class="d-true">유효</th>
+                                                <th scope="row" class="d-false">무효</th>
+                                                <th scope="row" class="d-sum">소계</th>
+                                                <th scope="row" class="d-ratio">유효율</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td class="d-index">00</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="d-index">01</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-false">11</td>
+                                                <td class="d-sum">15</td>
+                                                <td class="d-ratio">26%</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <tr>
+                                                    <td class="d-index">TOTAL</td>
+                                                    <td class="d-true">4</td>
+                                                    <td class="d-false">11</td>
+                                                    <td class="d-sum">15</td>
+                                                    <td class="d-ratio">26%</td>
+                                                    <td class="d-true">4</td>
+                                                    <td class="d-false">11</td>
+                                                    <td class="d-sum">15</td>
+                                                    <td class="d-ratio">26%</td>
+                                                    <td class="d-true">4</td>
+                                                    <td class="d-false">11</td>
+                                                    <td class="d-sum">15</td>
+                                                    <td class="d-ratio">26%</td>
+                                                </tr>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
                                 <div class="element-box">
 
-                                    <!-- 진행별 RADAR -->
+                                    <!-- 유무효 doughnut -->
                                     <div class="chart-element">
-                                        <canvas id="chart_result_radar" width="50" height="50"></canvas>
+                                        <canvas id="chart_normal_doughnut" width="50" height="50"></canvas>
                                         <script>
-                                                var ctx = document.getElementById('chart_result_radar');
-                                                var chart_result_radar = new Chart(ctx, {
-                                                    type: 'radar',
+                                                var ctx = document.getElementById('chart_normal_doughnut');
+                                                var chart_normal_doughnut = new Chart(ctx, {
+                                                    type: 'doughnut',
                                                     data: {
-                                                        labels: ['대기', '신규', '가망', '결재', '부재', '결번', '본인아님', '거절', '강제폐기'],
+                                                        labels: ['유효', '무효'],
                                                         datasets: [{
-                                                            label: '# 긍정적 진행 주문 ',
-                                                            data: [7, 4, 5, 7, 9, 0, 0, 0, 0],
+                                                            label: '# 주문 ',
+                                                            data: [4, 11],
                                                             backgroundColor: [
-                                                                'rgba(54, 162, 235, 0.2)'
+                                                                'rgba(54, 162, 235, 0.2)',
+                                                                'rgba(255, 99, 132, 0.2)'
+
                                                             ],
                                                             borderColor: [
-                                                                'rgba(54, 162, 235, 1)'
-                                                            ],
-                                                            borderWidth: 1
-                                                        },
-                                                        {
-                                                            label: '# 부정적 진행 주문',
-                                                            data: [0, 0, 0, 0, 0, 10, 9, 22, 15],
-                                                            backgroundColor: [
-                                                                'rgba(255, 0, 0, 0.2)'
-                                                            ],
-                                                            borderColor: [
-                                                                'rgba(255, 0, 0, 1)'
+                                                                'rgba(54, 162, 235, 1)',
+                                                                'rgba(255, 99, 132, 1)'
+
                                                             ],
                                                             borderWidth: 1
                                                         }],
@@ -399,7 +698,7 @@
                                                         }
                                                     }
                                                 })
-                                            </script>
+                                        </script>
                                     </div>
 
                                     <!-- 진행별 BAR -->

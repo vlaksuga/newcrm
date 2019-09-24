@@ -1311,7 +1311,7 @@ main .main-body .main-center .filter-box .day-box {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    width: 70%;
+    width: 90%;
     height: 100%;
 }
 
@@ -1320,7 +1320,7 @@ main .main-body .main-center .filter-box .switch-box {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    width: 30%;
+    width: 10%;
     height: 100%;
 }
 
@@ -1337,6 +1337,7 @@ main .main-body .main-center .filter-box .day-box .filter-element {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    align-items: center;
     padding: 10px;
     font-size: 0.8rem;
 }
@@ -1367,7 +1368,6 @@ main .main-body .main-center .filter-box .day-box .filter-element input {
 }
 
 main .main-body .main-center .title-box {
-    width: 100%;
     padding: 20px;
     height: 7vh;
     min-height: 65px;
@@ -1378,8 +1378,13 @@ main .main-body .main-center .title-box.effect-box {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 70% !important;
+    width: 70%;
 }
+
+main .main-body .main-center .title-box.effect-box.only {
+    width: 100% !important;
+}
+
 
 main .main-body .main-center .title-box.effect-box .effect {
     display: flex;
