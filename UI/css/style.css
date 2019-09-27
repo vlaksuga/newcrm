@@ -1353,8 +1353,10 @@ main .main-body .main-center .filter-box .day-box .filter-element.btn.apply butt
     background-color: #ed5c5c;
 }
 
+main .main-body .main-center .filter-box .day-box .filter-element.btn button.active,
 main .main-body .main-center .filter-box .day-box .filter-element.btn button:hover {
     background-color: lightblue;
+    cursor: pointer;
 }
 
 main .main-body .main-center .filter-box .day-box .filter-element span {

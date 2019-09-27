@@ -136,47 +136,40 @@
 
                                 <div class="option-header selectable">
                                     <div class="option-header-box">
-                                        <!-- href="/stats_index.html" -->
-                                        <span>INDEX</span>
-                                    </div>
-                                </div>
-
-                                <div class="option-header active">
-                                    <div class="option-header-box">
-                                        <span>진행 단계</span>
+                                        <span>INDEX : 종합 차트</span>
                                     </div>
                                 </div>
 
                                 <div class="option-header selectable">
                                     <div class="option-header-box">
-                                        <span>사용 기기</span>
+                                        <span>SECTION1 : 유효 / 무효</span>
                                     </div>
                                 </div>
 
                                 <div class="option-header selectable">
                                     <div class="option-header-box">
-                                        <span>기간</span>
+                                        <span>SECTION2 : 웹 / 모바일</span>
+                                    </div>
+                                </div>
+
+                             
+                                <div class="option-header selectable">
+                                    <div class="option-header-box">
+                                        <span>SECTION3 : 유입 경로</span>
                                     </div>
                                 </div>
 
                                 <div class="option-header selectable">
                                     <div class="option-header-box">
-                                        <span>폼</span>
+                                        <span>SECTION4 : 남 / 여</span>
                                     </div>
                                 </div>
 
-                                <div class="option-header selectable">
+                                <div class="option-header selectable active">
                                     <div class="option-header-box">
-                                        <span>수집 출처</span>
+                                        <span>SECTION5 : 진행 현황</span>
                                     </div>
                                 </div>
-
-                                <div class="option-header selectable">
-                                    <div class="option-header-box">
-                                        <span>연령</span>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
 
@@ -184,44 +177,53 @@
 
                             <div class="filter-box">
                                 <div class="day-box">
-                                    <div class="filter-element">
-                                        <span>시작일</span>
-                                        <input class="tocar" id="datepicker_start">
-                                    </div>
-                                    <div class="filter-element">
-                                        <span>종료일</span>
-                                        <input class="tocar" id="datepicker_end">
-                                    </div>
+
                                     <div class="filter-element btn">
-                                        <button class="tocar">
-                                            오늘
-                                        </button>
-                                    </div>
-                                    <div class="filter-element btn">
-                                        <button class="tocar">
-                                            어제
+                                        <button class="tocar active">
+                                            신규
                                         </button>
                                     </div>
 
                                     <div class="filter-element btn">
-                                        <button class="tocar">
-                                            이번주
+                                        <button class="tocar active">
+                                            가망
                                         </button>
                                     </div>
 
                                     <div class="filter-element btn">
-                                        <button class="tocar">
-                                            이번달
+                                        <button class="tocar active">
+                                            결재
+                                        </button>
+                                    </div>
+
+                                    <div class="filter-element btn">
+                                        <button class="tocar active">
+                                            부재
                                         </button>
                                     </div>
                                     <div class="filter-element btn">
-                                        <button class="tocar">
-                                            지난주
+                                        <button class="tocar active">
+                                            결번
                                         </button>
                                     </div>
                                     <div class="filter-element btn">
-                                        <button class="tocar">
-                                            지난달
+                                        <button class="tocar active">
+                                            본인아님
+                                        </button>
+                                    </div>
+                                    <div class="filter-element btn">
+                                        <button class="tocar active">
+                                            거절
+                                        </button>
+                                    </div>
+                                    <div class="filter-element btn">
+                                        <button class="tocar active">
+                                            대기
+                                        </button>
+                                    </div>
+                                    <div class="filter-element btn">
+                                        <button class="tocar active">
+                                            강제폐기
                                         </button>
                                     </div>
 
@@ -389,7 +391,7 @@
                                         <script>
                                             var ctx7 = document.getElementById('chart_result_hbar');
                                             var chart_result_hbar = new Chart(ctx7, {
-                                                type: 'horizontalBar',
+                                                type: 'bar',
                                                 data: {
                                                     labels: ['대기', '신규', '가망', '결재', '부재', '결번', '본인아님', '거절', '강제폐기'],
                                                     datasets: [{
