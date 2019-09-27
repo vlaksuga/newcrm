@@ -539,14 +539,14 @@ main .main-body .main-center {
     width: 100%;
 }
 
-main .main-body .main-center .event-box {
+main .main-body .main-center .account-box {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     width: 100%;
 }
 
-main .main-body .main-center .event-header {
+main .main-body .main-center .account-header {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
@@ -554,7 +554,7 @@ main .main-body .main-center .event-header {
 }
 
 
-main .main-body .main-center .event-box .event-header .event-header-box {
+main .main-body .main-center .account-box .account-header .account-header-box {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
@@ -568,7 +568,7 @@ main .main-body .main-center .event-box .event-header .event-header-box {
 
 
 
-main .main-body .main-center .event-box .event-header .mod-box {
+main .main-body .main-center .account-box .account-header .mod-box {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -579,44 +579,40 @@ main .main-body .main-center .event-box .event-header .mod-box {
 
 }
 
-main .main-body .main-center .event-box .event-header .mod-box div {
+main .main-body .main-center .account-box .account-header .mod-box div {
     margin: 0px 0px 5px 10px;
 }
 
-main .main-body .main-center .event-box .event-header .mod-box .mod-excel {
+main .main-body .main-center .account-box .account-header .mod-box .mod-plus {
     color: green;
 }
 
-main .main-body .main-center .event-box .event-header .mod-box .mod-shrink-all {
-    color: #ed5c5c;
-}
-
-main .main-body .main-center .event-box .event-header .event-header-right .save-excel:hover {
+main .main-body .main-center .account-box .account-header .account-header-right .save-excel:hover {
     background-color: darkgreen;
 }
 
-main .main-body .main-center .event-box .event-header .event-header-box .header-element span {
+main .main-body .main-center .account-box .account-header .account-header-box .header-element span {
     margin-left : 10px;
 }
 
-main .main-body .main-center .event-box .event-header .event-header-box .header-element .default {
+main .main-body .main-center .account-box .account-header .account-header-box .header-element .default {
     color:green;
 }
 
-main .main-body .main-center .event-box .event-header .event-header-box .header-element .error {
+main .main-body .main-center .account-box .account-header .account-header-box .header-element .error {
     color:#ed5c5c;
 }
 
-main .main-body .main-center .event-box .event-body {
+main .main-body .main-center .account-box .account-body {
     height:80vh;
     overflow-y: auto;
 }
 
-main .main-body .main-center .event-box .event-body .event-element {
+main .main-body .main-center .account-box .account-body .account-element {
     margin-bottom: 5px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary {
+main .main-body .main-center .account-box .account-body .account-element .account-summary {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -628,7 +624,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
     border-bottom: 1px solid lightgray;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-header {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-header {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -641,12 +637,12 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
 }
 
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-header span {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-header span {
     margin-left: 5px;
 }
 
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-header .ev-stat {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-header .ev-stat {
     display: none;
     width: 90%;
     color: white;
@@ -656,23 +652,23 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
     font-size: 0.6rem;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-header .error {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-header .error {
     background-color: #ed5c5c;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-header .default {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-header .default {
     background-color:green;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-header .active {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-header .active {
     display: block;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-header .ev-chname {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-header .ev-chname {
     font-size: 0.6rem;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-body {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -683,30 +679,30 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
     background-color: white;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-body:hover,
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer:hover {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-body:hover,
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer:hover {
     cursor: pointer;
 
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-body .data-row1 {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-body .data-row1 {
     font-size: 1rem;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-body .data-row1 span::after {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-body .data-row1 span::after {
     content: " / ";
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-body .data-row1 span:last-child::after,
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-body .data-row2 span:last-child::after {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-body .data-row1 span:last-child::after,
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-body .data-row2 span:last-child::after {
     content: "";
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-body .data-row2 span::after {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-body .data-row2 span::after {
     content: ", ";
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -717,7 +713,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
     background-color: white;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer .ev-result {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -725,7 +721,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
     height: 100%;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result .ev-result-stat {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer .ev-result .ev-result-stat {
     display: flex;
     justify-content: flex-start;
     width: 100%;
@@ -733,71 +729,71 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
 }
 
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result .ev-result-stat .ev-result-title .title-btn {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer .ev-result .ev-result-stat .ev-result-title .title-btn {
     text-align: center;
     width: 80px;
     padding:2px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result .ev-result-stat .ev-result-title .active {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer .ev-result .ev-result-stat .ev-result-title .active {
     display: block;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result .ev-result-stat .ev-result-reset {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer .ev-result .ev-result-stat .ev-result-reset {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     width: 100%;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result .ev-result-stat .ev-result-reset > div {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer .ev-result .ev-result-stat .ev-result-reset > div {
     margin: 0 5px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result .ev-result-stat .ev-result-reset > div > select {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer .ev-result .ev-result-stat .ev-result-reset > div > select {
     font-size: 0.8rem;
     width : 80px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result .ev-result-stat .ev-result-reset > div > button {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer .ev-result .ev-result-stat .ev-result-reset > div > button {
     background-color: lightgrey;
     width : 80px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result .ev-result-detail {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer .ev-result .ev-result-detail {
     display: flex;
     justify-content: flex-start;
     width: 100%;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result .ev-result-detail .manager {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer .ev-result .ev-result-detail .manager {
     display: none;
     margin-right: 10px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result .ev-result-detail .valid-date {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer .ev-result .ev-result-detail .valid-date {
     display: none;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result .ev-result-detail .valid-date .alert {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer .ev-result .ev-result-detail .valid-date .alert {
     color: red;
     font-weight: bolder;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result .ev-result-detail .warning {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer .ev-result .ev-result-detail .warning {
     color : red;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result .ev-result-detail .active {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer .ev-result .ev-result-detail .active {
     display: block;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result-comment input {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-footer .ev-result-comment input {
     width: 100%;
     height: 20px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-tail {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-tail {
     border-left: 1px solid lightgrey;
     width: 220px;
     height: 100%;
@@ -805,7 +801,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
 
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-tail .tail-box {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-tail .tail-box {
     width: 100%;
     height: 100%;
     display: flex;
@@ -814,14 +810,14 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
     font-size: 1rem;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-tail .tail-box .item {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-tail .tail-box .item {
     width: 33%;
     height: 100%;
     text-align: center;
     padding: 5px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-tail .tail-box .item .itembtn {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-tail .tail-box .item .itembtn {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -831,59 +827,59 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
     border-radius: 5%;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-tail .tail-box .item .itembtn .statbtn {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-tail .tail-box .item .itembtn .statbtn {
     line-height: 18px;
 }
 
 
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-tail .tail-box .item .itembtn .statbtn i {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-tail .tail-box .item .itembtn .statbtn i {
     font-size: 1.3rem;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-tail .tail-box .item .itembtn .statbtn span {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-tail .tail-box .item .itembtn .statbtn span {
     font-size: 0.8rem;
 }
 
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-tail .tail-box .on {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-tail .tail-box .on {
     display: none;
     color : black;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-tail .tail-box .off {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-tail .tail-box .off {
     display: none;
     color : red;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-tail .tail-box .suc {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-tail .tail-box .suc {
     display: none;
     color : green;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-tail .tail-box .hold {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-tail .tail-box .hold {
     display: none;
     color : lightgray;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-tail .tail-box .back {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-tail .tail-box .back {
     display: none;
     color : blue;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-tail .tail-box .delete {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-tail .tail-box .delete {
     display: none;
     color:red;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-summary .element-tail .tail-box .active {
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-tail .tail-box .active {
     display: block;
 }
 
 
-/* event-expand */
+/* account-expand */
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand {
+main .main-body .main-center .account-box .account-body .account-element .account-expand {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -896,7 +892,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
 }
 
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-header {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-header {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -907,7 +903,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
        
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-header .ev-id {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-header .ev-id {
     width: 100%;
     font-size:0.6rem;
     color: grey;
@@ -915,7 +911,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
     margin-bottom: 5px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-body {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -925,7 +921,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
     padding: 10px 5px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-body .event-detail-row {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-body .account-detail-row {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -934,19 +930,19 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
     margin-bottom: 5px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-body .event-detail-row .label {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-body .account-detail-row .label {
     text-align: center;
     color:#555;
     background-color: lightgray;
     width: 15%;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-body .event-detail-row .data {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-body .account-detail-row .data {
     width: 85%;
     padding-left:5px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -957,15 +953,15 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
     
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .assign,
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .result .item-box {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .assign,
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .result .item-box {
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -973,67 +969,67 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
     margin-bottom: 3px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .assign .item,
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .result .item-box .item {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .assign .item,
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .result .item-box .item {
     margin-right: 8px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .assign .assign-date,
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .result .item-box .result-date {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .assign .assign-date,
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .result .item-box .result-date {
     width: 125px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .result .result-msg {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .result .result-msg {
     color: grey;
     width: 100%;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .assign .assign-name,
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .result .item-box .result-name {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .assign .assign-name,
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .result .item-box .result-name {
     width: 40px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .result .result-name::after {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .result .result-name::after {
     clear: both;
     content: "";
     display: table;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .assign .assign-kind,
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .result .result-kind {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .assign .assign-kind,
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .result .result-kind {
     text-align: center;
     width: 80px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .kind-option {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .kind-option {
     width: 100%;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .assign .kind-new {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .assign .kind-new {
     display: none;
     background-color: lightblue;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .assign .kind-re {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .assign .kind-re {
     display: none;
     background-color: orange;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .assign .kind-select {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .assign .kind-select {
     display: none;
     background-color: violet;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .assign .kind-point {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .assign .kind-point {
     display: none;
     background-color: red;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .assign .active {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-history .assign .active {
     display: block;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-add {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-add {
     padding: 5px 0;
     width: 100%;
     border-top: 1px solid lightgrey;
@@ -1041,45 +1037,45 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
 
 
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-add form .result-select {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-add form .result-select {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     width:100%;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-add form .result-select #result-opt {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-add form .result-select #result-opt {
     font-size:0.7rem;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-add form .result-title {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-add form .result-title {
     width : 73px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-add form .result-notice {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-add form .result-notice {
     padding-left: 10px;
     color:gray;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-add form .result-msg-input {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-add form .result-msg-input {
     margin-top: 10px;
     width: 100%;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-add form .result-msg-input textarea {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-add form .result-msg-input textarea {
     font-size: 0.8rem;
     padding: 5px;
     border: 1px solid lightblue;
     width: 100%;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-add form .result-send {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-add form .result-send {
     width: 100%;
     text-align: right;
     padding-top: 5px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-add form .result-send button {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .result-add form .result-send button {
     padding: 5px 10px;
     font-size: 0.8rem;
     width : 100px;
@@ -1088,17 +1084,17 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .active {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-footer .active {
     display: block;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-tail {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-tail {
 
     width: 220px;
     height: 100%;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-tail .control-box {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-tail .control-box {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -1109,35 +1105,35 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
     height: 100%;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-tail .control-box .off-history {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-tail .control-box .off-history {
     margin-bottom: 10px;
     border-bottom: 1px solid lightgrey;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-tail .control-box .item {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-tail .control-box .item {
     margin-bottom: 5px;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-tail .control-box .off-return .title {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-tail .control-box .off-return .title {
     color: blue;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-tail .control-box .off-done .title {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-tail .control-box .off-done .title {
     color: red;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-tail .control-box .input textarea {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-tail .control-box .input textarea {
     border: none;
     font-size: 0.7rem;
     width: 100%;
     border: 1px solid lightblue;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-tail .control-box .btn {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-tail .control-box .btn {
     text-align: center;
 }
 
-main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-tail .control-box .btn button {
+main .main-body .main-center .account-box .account-body .account-element .account-expand .expand-tail .control-box .btn button {
     padding : 2px 5px;
     margin: 0px 5px;
     background-color: lightblue;
@@ -1149,7 +1145,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
 
 
 
-main .main-body .main-center .event-box .event-body .event-pagination {
+main .main-body .main-center .account-box .account-body .account-pagination {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -1627,3 +1623,10 @@ main .main-body .main-center .config-box .gapbox {
     transform: translateX(26px)
 }
 
+
+/* admin */
+
+main .main-body .main-center .account-box .account-body .account-element .account-summary .element-body .data-row1 span input {
+    width: 100px;
+    border-bottom: 1px solid lightgray !important;
+}
