@@ -1375,6 +1375,10 @@ main .main-body .main-center .title-box {
     min-height: 65px;
 }
 
+main .main-body .main-center .title-box i {
+    margin: 0 5px;    
+}
+
 main .main-body .main-center .title-box.effect-box {
     display: flex;
     flex-direction: row;
