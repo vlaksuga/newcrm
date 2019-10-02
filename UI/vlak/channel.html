@@ -5,7 +5,8 @@
     <title>ADAND OMS</title>
     <meta charset="utf-8">
 
-    <link href="../css/admin.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/channel-box.css" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <script src="https://kit.fontawesome.com/799568d786.js"></script>
@@ -99,16 +100,6 @@
                                 <div class="option-body">
 
                                     <div class="option-element">
-                                        <span>종류</span>
-                                        <select class="tocar">
-                                            <option value="0" selected>ALL</option>
-                                            <option value="1">AGENCY</option>
-                                            <option value="2">OWNER</option>
-                                            <option value="3">MK</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="option-element">
                                         <span>시작일</span>
                                         <input class="tocar" id="datepicker_start">
                                     </div>
@@ -138,11 +129,11 @@
                         </div>
 
                         <div class="main-center">
-                            <div class="account-box">
+                            <div class="channel-box">
 
-                                <div class="account-header">
+                                <div class="channel-header">
 
-                                    <div class="account-header-box">
+                                    <div class="channel-header-box">
                                         <div class="header-element">
                                             <a href="#"><span class="all"><i class="far fa-circle"></i></span></a>
                                         </div>
@@ -163,13 +154,13 @@
 
                                 </div>
 
-                                <div class="account-body">
+                                <div class="channel-body">
 
                                     <!-- order start -->
-                                    <div class="account-element">
+                                    <div class="channel-element">
 
                                         <!-- summary -->
-                                        <div class="account-summary">
+                                        <div class="channel-summary">
 
                                             <div class="element-header">
 
@@ -212,10 +203,7 @@
                                                         <span>폼설정이 필요합니다.</span>
                                                     </div>
                                                     <div class="form-on">
-                                                        <span>이름</span>
-                                                        <span>나이</span>
-                                                        <span>성별</span>
-                                                        <span>전화번호</span>
+                                                        <span>647</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -244,7 +232,7 @@
 
                                         </div>
 
-                                        <div class="account-expand">
+                                        <div class="channel-expand">
 
                                             <div class="expand-header">
                                                 <div class="ev-id">
@@ -259,9 +247,10 @@
                                             <div class="expand-body">
                                                 <div class="user-kind-box">
 
-                                                    <div class="kind-agency">
+                                                    <div class="kind kind-agency">
                                                         <div class="title">
                                                             <span>AGENCY</span>
+                                                            <i class="fas fa-plus-circle"></i>
                                                         </div>
                                                         <div class="user-box">
                                                             <div class="user">
@@ -280,9 +269,49 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="kind-owner">
+                                                    <div class="kind kind-owner">
+                                                        <div class="title">
+                                                            <span>OWNER</span>
+                                                            <i class="fas fa-plus-circle"></i>
+                                                        </div>
+                                                        <div class="user-box">
+                                                            <div class="user">
+                                                                <select class="tocar">
+                                                                    <option value="tekiteki" selected>TEKITEKI</option>
+                                                                </select>
+                                                                <span>김태경</span>
+                                                                <i class="fas fa-times-circle"></i>
+                                                            </div>
+                                                            <div class="user">
+                                                                <select class="tocar">
+                                                                    <option value="jspark" selected>jspark</option>
+                                                                </select>
+                                                                <span>박지성</span>
+                                                                <i class="fas fa-times-circle"></i>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="kind-mk">
+                                                    <div class="kind kind-mk">
+                                                        <div class="title">
+                                                            <span>MK</span>
+                                                            <i class="fas fa-plus-circle"></i>
+                                                        </div>
+                                                        <div class="user-box">
+                                                            <div class="user">
+                                                                <select class="tocar">
+                                                                    <option value="tekiteki" selected>TEKITEKI</option>
+                                                                </select>
+                                                                <span>김태경</span>
+                                                                <i class="fas fa-times-circle"></i>
+                                                            </div>
+                                                            <div class="user">
+                                                                <select class="tocar">
+                                                                    <option value="jspark" selected>jspark</option>
+                                                                </select>
+                                                                <span>박지성</span>
+                                                                <i class="fas fa-times-circle"></i>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -290,195 +319,58 @@
 
 
                                             <div class="expand-footer">
-                                                <div class="result-history">
-                                                    <div class="assign">
-                                                        <div class="item assign-date">
-                                                            <span>2019-08-10, 12:34:56</span>
-                                                        </div>
-                                                        <div class="item assign-kind">
-                                                            <div class="kind-option kind-new active">
-                                                                <span>신규분배</span>
-                                                            </div>
-                                                            <div class="kind-option kind-re">
-                                                                <span>재통화분배</span>
-                                                            </div>
-                                                            <div class="kind-option kind-select">
-                                                                <span>선택함</span>
-                                                            </div>
-                                                            <div class="kind-option kind-point">
-                                                                <span>지정됨</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item assign-name">
-                                                            <span>김태경</span>
-                                                        </div>
+
+                                                <div class="form form-code">
+                                                    <div class="title">
+                                                        <span>CODE</span>
                                                     </div>
-                                                    <div class="result">
-                                                        <div class="item-box">
-                                                            <div class="item result-date">
-                                                                <span>2019-08-10, 12:34:56</span>
-                                                            </div>
-                                                            <div class="item result-kind active">
-                                                                <div class="kind-option btn-wrong active">
-                                                                    <span>결번</span>
-                                                                </div>
-                                                                <div class="kind-option btn-missed">
-                                                                    <span>부재</span>
-                                                                </div>
-                                                                <div class="kind-option btn-discord">
-                                                                    <span>본인아님</span>
-                                                                </div>
-                                                                <div class="kind-option btn-refuse">
-                                                                    <span>거절</span>
-                                                                </div>
-                                                                <div class="kind-option btn-success">
-                                                                    <span>결재</span>
-                                                                </div>
-                                                                <div class="kind-option btn-chance">
-                                                                    <span>가망</span>
-                                                                </div>
-                                                                <div class="kind-option btn-dump">
-                                                                    <span>강제폐기</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item result-name">
-                                                                <span>손흥민</span>
-                                                            </div>
+                                                    <div class="code-box">
+                                                        <div class="code">
+                                                            <span>A-CODE : </span>
+                                                            <span>163</span>
                                                         </div>
-                                                        <div class="item result-msg">
-                                                            <div class="msg-after">
-                                                                <span><i class="fas fa-comments"></i> </span><span>전화
-                                                                    안받음 난 너를 믿었던만큼 내 친구도 믿었기에 난 아무런부담없이 널 내친구에게
-                                                                    소개시켜 줬고 그런 만남이 있은후로부터</span>
-                                                            </div>
+                                                        <div class="code">
+                                                            <span>B-CODE : </span>
+                                                            <span>dsf4dfd423</span>
+                                                        </div>
+                                                        <div class="code none if-new">
+                                                            <span>B-CODE : </span>
+                                                            <input>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="result-add mk-auth none">
-                                                    <form>
-                                                        <div class="result-select">
-                                                            <div class="result-title">
-                                                                <span>상태처리</span>
-                                                            </div>
-                                                            <select id="result-opt" class="tocar">
-                                                                <option value="1">결번</option>
-                                                                <option value="2">부재</option>
-                                                                <option value="3">본인아님</option>
-                                                                <option value="4">거절</option>
-                                                                <option value="5">결재</option>
-                                                                <option value="6">가망</option>
-                                                            </select>
-                                                            <div class="result-notice">
-                                                                <span>없는 번호이거나 연결이 되지 않습니다</span>
-                                                                <span class="none">전화를 받지 않습니다</span>
-                                                                <span class="none">주문자와 동일하지 않습니다</span>
-                                                                <span class="none">결재할 의사가 없습니다</span>
-                                                                <span class="none">결재하였습니다!</span>
-                                                                <span class="none">결재할 가능성이 있습니다</span>
-                                                            </div>
+
+                                                <div class="form form-col">
+
+                                                    <div class="title">
+                                                        <span>COLUMNS</span>
+                                                        <i class="fas fa-plus-circle"></i>
+                                                    </div>
+
+                                                    <div class="col-box">
+                                                        <div class="col">
+                                                            <input class="colname" value="이름">
+                                                            <input class="colwbind" value="d.NAME">
+                                                            <i class="fas fa-times-circle"></i>
                                                         </div>
-                                                        <div class="result-msg-input">
-                                                            <textarea rows="3"></textarea>
+                                                        <div class="col">
+                                                            <input class="colname" value="성별">
+                                                            <input class="colwbind" value="d.NAME">
+                                                            <i class="fas fa-times-circle"></i>
                                                         </div>
-                                                        <div class="result-send">
-                                                            <button class="tocar">SAVE</button>
-                                                        </div>
-                                                    </form>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="form form-script">
+                                                    <div class="title">
+                                                        <span>SCRIPT</span>
+                                                    </div>
+                                                    <textarea></textarea>
                                                 </div>
                                             </div>
 
                                             <div class="expand-tail">
-
-                                                <div class="control-box agency-auth none">
-
-                                                    <div class="off-control box">
-                                                        <div class="off-history">
-                                                            <div class="off-title title item">
-                                                                <span>무효신청</span>
-                                                            </div>
-                                                            <div class="off-msg item">
-                                                                <span>다른 랩사에서 이미 수집된 중복자료임</span>
-                                                            </div>
-                                                            <div class="off-date item">
-                                                                <span>2019-09-21, 12:34:56</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="off-history">
-                                                            <div class="off-title title item">
-                                                                <span>반려</span>
-                                                            </div>
-                                                            <div class="off-msg item">
-                                                                <span>다른 랩사에서 이미 수집된 중복자료임</span>
-                                                            </div>
-                                                            <div class="off-date item">
-                                                                <span>2019-09-21, 12:34:56</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="off-input none">
-                                                            <div class="off-msg-input input item">
-                                                                <textarea rows="3"></textarea>
-                                                            </div>
-                                                            <div class="off-btn btn item">
-                                                                <button>무효</button>
-                                                                <button>반려</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="control-box owner-auth">
-
-                                                    <div class="off-control box">
-                                                        <div class="off-history off-try">
-                                                            <div class="off-title title item">
-                                                                <span>무효신청</span>
-                                                            </div>
-                                                            <div class="off-msg item">
-                                                                <span>다른 랩사에서 이미 수집된 중복자료임</span>
-                                                            </div>
-                                                            <div class="off-date item">
-                                                                <span>2019-09-21, 12:34:56</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="off-history off-return">
-                                                            <div class="off-title title item">
-                                                                <span>반려</span>
-                                                            </div>
-                                                            <div class="off-msg item">
-                                                                <span>알 수 없음</span>
-                                                            </div>
-                                                            <div class="off-date item">
-                                                                <span>2019-09-21, 12:34:56</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="off-history off-done">
-                                                            <div class="off-title title item">
-                                                                <span>무효화</span>
-                                                            </div>
-                                                            <div class="off-msg item">
-                                                                <span>승인함</span>
-                                                            </div>
-                                                            <div class="off-date item">
-                                                                <span>2019-09-21, 12:34:56</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="off-input">
-                                                            <div class="off-msg-input input item">
-                                                                <textarea rows="3"></textarea>
-                                                            </div>
-                                                            <div class="off-btn btn item">
-                                                                <button>확인</button>
-                                                                <button>재신청</button>
-                                                                <button class="none">신청</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="control-box mk-auth none">
-                                                </div>
 
                                             </div>
 
@@ -488,7 +380,7 @@
                                     </div>
 
                                     <!-- order END -->
-                                    <div class="account-pagination">
+                                    <div class="channel-pagination">
                                         <div class="newer">
                                             <i class="fa fa-chevron-left"></i>
                                             <span>NEWER</span>
