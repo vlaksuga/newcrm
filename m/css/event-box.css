@@ -625,6 +625,8 @@ main .main-body .main-center .event-box .event-body .event-pagination {
     align-items: center;
     padding: 10px;
     font-size: 0.8rem;
-    color:black;
+    color:white;
+    background-color: #555;
     border: 1px solid white;
+    margin-bottom: 5px;
 }
