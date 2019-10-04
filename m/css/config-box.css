@@ -9,13 +9,13 @@ main .main-body .main-center .config-box {
     flex-direction: column;
     width: 100%;
     background-color: white;
-    height: 87vh;
     overflow-y: auto;
 }
 
 main .main-body .main-center .config-box .config-element {
-    width: 640px;
-    margin: 10px 10px 80px 10px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
 }
 
 main .main-body .main-center .config-box .config-element .config-head {
@@ -90,9 +90,13 @@ main .main-body .main-center .config-box .config-element .config-body .config-it
 
 main .main-body .main-center .config-box .config-element .config-footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: row;
     align-items: center;
+}
+
+main .main-body .main-center .config-box .config-element .config-footer .footer-option {
+    display: none;
 }
 
 main .main-body .main-center .config-box .config-element .config-footer .footer-option .footer-comment {

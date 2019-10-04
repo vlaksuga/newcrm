@@ -3,6 +3,7 @@
     <head>
         <title>ADAND OMS</title>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- FONT -->
         <link href="https://fonts.googleapis.com/css?family=Manjari|Noto+Sans+KR&display=swap" rel="stylesheet">
@@ -28,63 +29,65 @@
     <div id="app">
 
         <div id="top">
+
             <div class="nav-container">
+
+                <div class="logo-top">
+                    <img src="../img/logomini.png"> <!-- 클릭 > reflesh -->
+                </div>
+
                 <div class="user-container">
-                    <div class="channel-box unselected none">
+                    <div class="channel-box none">
                         <div class="user-box">
-                            <div class="avatar">
+                            <div class="avatar none">
                                 <img class="good">
                             </div>
                             <div class="user">
-                                <span>ALL CHANNEL</span>
-                                <span class="selected"><i class="fas fa-angle-down"></i></span>
-                                <span class="dot none"><i class="fas fa-circle"></i></span>
+                                <span>ALL</span>
+                                <span class="none"><i class="fas fa-angle-down"></i></span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="channel-box selected">
+                    <div class="channel-box active">
                         <div class="user-box">
-                            <div class="avatar">
-                                <img class="bad">
+                            <div class="avatar none">
+                                <img class="good">
                             </div>
                             <div class="user">
                                 <span>LOTTORICH1</span>
                                 <span class=""><i class="fas fa-angle-down"></i></span>
-                                <span class="dot none"><i class="fas fa-circle"></i></span>
                             </div>
                         </div>
                     </div>
-                    <div class="channel-box unselected none">
+
+                    <div class="channel-box none">
                         <div class="user-box">
-                            <div class="avatar">
+                            <div class="avatar none">
                                 <img class="bad">
                             </div>
                             <div class="user">
                                 <span>LOTTORICH2</span>
                                 <span class="none"><i class="fas fa-angle-down"></i></span>
-                                <span class="dot"><i class="fas fa-circle"></i></span>
                             </div>
                         </div>
                     </div>
-                    <div class="channel-box unselected none">
+
+                    <div class="channel-box none">
 
                         <div class="user-box">
-                            <div class="avatar">
+                            <div class="avatar none">
                                 <img class="good">
                             </div>
                             <div class="user">
                                 <span>LOTTORICH3</span>
                                 <span class="none"><i class="fas fa-angle-down"></i></span>
-                                <span class="dot"><i class="fas fa-circle"></i></span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="logo-top">
-                    <img src="../img/logomini.png"> <!-- 클릭 > reflesh -->
-                </div>
-                <div class="user-setting">
+
+                <div class="user-setting none">
                     <!-- 클릭 > "LOGOUT 할까요?" > LOGGOUT -->
                     <div class="set-box">
                         <div class="i-box">
@@ -97,32 +100,11 @@
 
         <div id="below-top">
 
-            <div id="aside">
-                <aside>
-                    <div class="aside-box">
-                        <a href="../app/event.html">
-                            <i class="fas fa-database"></i>
-                            <span>EVENT</span>
-                        </a>
-                    </div>
-                    <div class="aside-box">
-                        <a href="../stats/index.html">
-                            <i class="fas fa-chart-bar"></i>
-                            <span>STATS</span>
-                        </a>
-                    </div>
-                    <div class="aside-box active">
-                        <i class="fas fa-cogs"></i>
-                        <span>CONFIG</span>
-                    </div>
-                </aside>
-            </div>
-
             <div id="main">
 
                 <main>
                     <!-- event -->
-                    <div class="main-top">
+                    <div class="main-top none">
 
                         <div class="title-box">
                             <span>CONFIG </span>
@@ -130,23 +112,16 @@
                                     <span id="channer-name">LOTTORICH1</span>
                         </div>
 
-
                     </div>
 
                     <div class="main-body">
 
-                        <div class="main-left active">
+                        <div class="main-left">
                             <div class="option-box">
-
-                                <div class="option-header selectable">
-                                    <div class="option-header-box">
-                                        <span>분배</span>
-                                    </div>
-                                </div>
 
                                 <div class="option-header selectable active">
                                     <div class="option-header-box">
-                                        <span>사전 주문 처리</span>
+                                        <span>분배</span>
                                     </div>
                                 </div>
 
@@ -156,7 +131,7 @@
                         <div class="main-center">
 
                             <!-- 분배 -->
-                            <div class="config-box share none">
+                            <div class="config-box share">
 
                                 <!-- 재통화 분배 -->
                                 <div class="config-element">
@@ -589,14 +564,26 @@
                                     </div>
                                 </div>
 
-                                <!-- GAP -->
-                                <div class="gapbox">
+                            </div>
+
+                        </div>
+
+                        <div class="main-left">
+                            <div class="option-box">
+
+                                <div class="option-header selectable active">
+                                    <div class="option-header-box">
+                                        <span>사전 주문 처리</span>
+                                    </div>
                                 </div>
 
                             </div>
+                        </div>
+
+                        <div class="main-center">
 
                             <!-- 사전 주문 처리 -->
-                            <div class="config-box error active">
+                            <div class="config-box error">
                                 
                                 <!-- 주문 중복 관리 -->
                                 <div class="config-element">
@@ -779,6 +766,34 @@
             </div>
 
         </div>
+
+        <div id="footer">
+            <footer>
+                    <div class="footer-box active">
+                        <i class="fas fa-database"></i>
+                        <span>EVENT</span>
+                    </div>
+                    <div class="footer-box">
+                        <a href="../stats/index.html">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>STATS</span>
+                        </a>
+                    </div>
+                    <div class="footer-box">
+                        <a href="../app/config.html">
+                            <i class="fas fa-cogs"></i>
+                            <span>CONFIG</span>
+                        </a>
+                    </div>
+                    <div class="footer-box">
+                        <a href="../app/config.html">
+                            <i class="fas fa-power-off"></i>
+                            <span>LOGOUT</span>
+                        </a>
+                    </div>
+            </footer>
+        </div>
+
     </div>
 
 </body>
