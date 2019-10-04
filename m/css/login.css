@@ -54,7 +54,7 @@ main {
 
 #login .login-box {
     width: 95%;
-    height: 250px;
+    height: 230px;
     border: 2px solid black;
     display: flex;
     flex-direction: column;
@@ -67,7 +67,7 @@ main {
 
 #login .submit {
     width: 95%;
-    height: 50px;
+    height: 70px;
     display: flex;
     flex-direction: row;
     align-items: center;

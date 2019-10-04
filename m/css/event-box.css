@@ -71,7 +71,6 @@ main .main-body .main-center .event-box .event-header .event-header-box .header-
 }
 
 main .main-body .main-center .event-box .event-body {
-    height:80vh;
     overflow-y: auto;
 }
 
@@ -82,24 +81,21 @@ main .main-body .main-center .event-box .event-body .event-element {
 main .main-body .main-center .event-box .event-body .event-element .event-summary {
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    height: 7vh;
     min-height: 65px;
     font-size: 0.8rem;
-    border-bottom: 1px solid lightgray;
 }
 
 main .main-body .main-center .event-box .event-body .event-element .event-summary .element-header {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    width: 180px;
+    width: 100%;
     height: 100%;
-    border-right: 1px solid lightgrey;
-    padding-top: 5px;
+    padding: 5px;
     background-color: white;
 }
 
@@ -111,11 +107,11 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
 
 main .main-body .main-center .event-box .event-body .event-element .event-summary .element-header .ev-stat {
     display: none;
-    width: 90%;
+    width: 30%;
     color: white;
     border-radius: 10%/50%;
     text-align: left;
-    padding: 5px;
+    padding: 3px;
     font-size: 0.6rem;
 }
 
@@ -132,6 +128,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
 }
 
 main .main-body .main-center .event-box .event-body .event-element .event-summary .element-header .ev-chname {
+    width: 70%;
     font-size: 0.6rem;
 }
 
@@ -140,7 +137,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    width: 40%;
+    width: 100%;
     height: 100%;
     padding: 5px;
     background-color: white;
@@ -153,7 +150,15 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
 }
 
 main .main-body .main-center .event-box .event-body .event-element .event-summary .element-body .data-row1 {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    width: 100%;
+    padding: 5px;
+}
+
+main .main-body .main-center .event-box .event-body .event-element .event-summary .element-body .data-row2 {
+    width: 100%;
+    text-align: right;
+    font-size: 0.6rem;
 }
 
 main .main-body .main-center .event-box .event-body .event-element .event-summary .element-body .data-row1 span::after {
@@ -174,25 +179,25 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    width: 40%;
+    width: 100%;
     height: 100%;
-    padding: 0 10px;
+    padding: 5px;
     background-color: white;
 }
 
 main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     height: 100%;
 }
 
 main .main-body .main-center .event-box .event-body .event-element .event-summary .element-footer .ev-result .ev-result-stat {
     display: flex;
     justify-content: flex-start;
-    width: 100%;
     align-items: flex-start;
+    margin-right: 5px;
 }
 
 
@@ -262,7 +267,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
 
 main .main-body .main-center .event-box .event-body .event-element .event-summary .element-tail {
     border-left: 1px solid lightgrey;
-    width: 220px;
+    width: 100%;
     height: 100%;
     background-color: white;
 
@@ -349,7 +354,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-summar
 main .main-body .main-center .event-box .event-body .event-element .event-expand {
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     width: 100%;
     font-size: 0.8rem;
@@ -364,7 +369,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 180px;
+    width: 100%;
     height: 100%;
     padding-top: 10px;
        
@@ -383,7 +388,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 40%;
+    width: 100%;
     height: 100%;
     padding: 10px 5px;
 }
@@ -401,11 +406,11 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
     text-align: center;
     color:#555;
     background-color: lightgray;
-    width: 15%;
+    width: 20%;
 }
 
 main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-body .event-detail-row .data {
-    width: 85%;
+    width: 80%;
     padding-left:5px;
 }
 
@@ -414,7 +419,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
     justify-content: space-between;
     flex-direction: column;
     align-items: flex-start;
-    width: 40%;
+    width: 100%;
     height: 100%;
     padding: 10px;
     
@@ -443,7 +448,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
 
 main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .assign .assign-date,
 main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .result .item-box .result-date {
-    width: 125px;
+    width: 40%;
 }
 
 main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .result .result-msg {
@@ -465,7 +470,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
 main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .assign .assign-kind,
 main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .result .result-kind {
     text-align: center;
-    width: 80px;
+    width: 35%;
 }
 
 main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-footer .result-history .kind-option {
@@ -557,7 +562,7 @@ main .main-body .main-center .event-box .event-body .event-element .event-expand
 
 main .main-body .main-center .event-box .event-body .event-element .event-expand .expand-tail {
 
-    width: 220px;
+    width: 100%;
     height: 100%;
 }
 
@@ -616,9 +621,10 @@ main .main-body .main-center .event-box .event-body .event-pagination {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
     font-size: 0.8rem;
     color:black;
+    border: 1px solid white;
 }

@@ -92,93 +92,6 @@ main {
 }
 
 
-/* login */
-
-
-#login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    background-color: lightgrey;
-}
-
-
-
-#login .login-box {
-    width: 400px;
-    height: 250px;
-    border: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    border-radius: 15px 15px 0 0;
-    background-color: black;
-}
-
-
-#login .submit {
-    width: 400px;
-    height: 100px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: black;
-    justify-content: center;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    letter-spacing: 0.8rem;
-    border-radius: 0 0 15px 15px;
-}
-
-#login .submit:hover {
-    background-color: #4b4b4b;
-    cursor: pointer;
-}
-
-
-#login .login-box .login-label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    vertical-align: middle;
-    width: 100%;
-    height: 100px;
-}
-
-
-#login .login-box .login-label .logo-box img {
-    display: block;
-}
-
-#login .login-box .login-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 100%;
-    height: 150px;
-    padding: 15px;
-}
-
-#login .login-box .login-form .input-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-
-#login .login-box .login-form .input-box input {
-    height: 40px;
-    width: 100%;
-    padding-left: 10px;
-}
-
-
 /* PAGE */
 * {
     margin: 0;
@@ -200,10 +113,8 @@ main {
     background-color: #e5e5e5;
 }
 
-#aside {
-    width: 70px;
-    height: 94vh;
-    ;
+#footer {
+    width: 100%;
     background-color: #555;
 }
 
@@ -218,6 +129,7 @@ main {
 }
 
 #top .nav-container .user-container {
+    width: 50%;
     height: 100%;
     z-index: 2;
     
@@ -256,7 +168,7 @@ main {
 #top .user-box {
     display: flex;
     justify-content: flex-start;
-    width: 350px;
+    width: 100%;
     border-right: 1px solid #4b4b4b;
 }
 
@@ -283,7 +195,7 @@ main {
 }
 
 #top .user-box .user {
-    width: 300px;
+    width: 100%;
     color: #e5e5e5;
     display: flex;
     justify-content: space-between;
@@ -298,13 +210,12 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    width: 20%;
     height: 100%;;
 }
 
 #top .logo-top img {
-    width: 40px;
-    height: 40px;
+    width: 40%;
     border-radius: 50%;
 
 }
@@ -341,43 +252,6 @@ main {
     cursor: pointer;
 }
 
-#aside aside svg {
-    font-weight: bolder;
-    font-size: 1.5rem;
-
-}
-
-#aside aside {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    height: 100%;
-}
-
-#aside aside .aside-box,
-#aside aside .aside-box a {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 7vh;
-    min-height: 65px;
-    color: white;
-}
-#aside aside .aside-box span,
-#aside aside .aside-box a span {
-    font-size: 0.7rem;
-    margin-top: 4px;
-}
-
-#aside aside .active {
-    background-color: #e5e5e5;
-    color: black !important;
-}
-
-
 /* EVENT */
 
 main .main-top {
@@ -404,6 +278,7 @@ main .main-body {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    flex-direction: column;
     height: auto;
 }
 
@@ -411,7 +286,7 @@ main .main-body {
 /* main-left */
 
 main .main-body .main-left {
-    height: 100%;
+    width: 100%;
 }
 
 main .main-body .main-left .option-box {
@@ -419,7 +294,7 @@ main .main-body .main-left .option-box {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 280px;
+    width: 100%;
     height: 100%;
 }
 
@@ -430,8 +305,7 @@ main .main-body .main-left .option-box .option-header {
     justify-content: start;
     align-items: center;
     width: 100%;
-    height: 7vh;
-    min-height: 65px;
+    min-height: 40px;
     font-size: 0.8rem;
     border-bottom: 1px solid #eeeeee;
 
@@ -460,10 +334,7 @@ main .main-body .main-left .option-box .option-header .option-header-box .option
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: white;
     font-size: 0.6rem;
-    border-radius: 15%/50%;
-    width: 60px;
 }
 
 main .main-body .main-left .option-box .option-header .option-header-box .option-close:hover {
@@ -685,6 +556,43 @@ main .main-body .main-center .title-box.effect-box .effect > div:hover {
     color: red;
     text-decoration-line: line-through;
 }
+
+/* footer */
+#footer {
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+}
+
+#footer footer svg {
+    font-weight: bolder;
+    font-size: 1rem;
+
+}
+
+#footer footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+#footer footer .footer-box,
+#footer footer .footer-box a {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+    color: white;
+}
+#footer footer .footer-box span,
+#footer footer .footer-box a span {
+    font-size: 0.7rem;
+    margin-top: 4px;
+}
+
 
 
 /* CONFIG */
