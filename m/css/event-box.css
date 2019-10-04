@@ -13,7 +13,9 @@ main .main-body .main-center .event-box .event-header {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
+    align-items: center;
     width: 100%;
+    padding: 5px;
 }
 
 
@@ -21,12 +23,9 @@ main .main-body .main-center .event-box .event-header .event-header-box {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
     width: 50%;
-    height: 7vh;
-    min-height: 65px;
     font-size: 0.8rem;
-    padding-bottom: 10px;
 }
 
 
@@ -37,13 +36,6 @@ main .main-body .main-center .event-box .event-header .mod-box {
     align-items: flex-end;
     width: 50%;
     height: 100%;
-    margin: 0 20px;
-    font-size: 1.3rem;
-
-}
-
-main .main-body .main-center .event-box .event-header .mod-box div {
-    margin: 0px 0px 5px 10px;
 }
 
 main .main-body .main-center .event-box .event-header .mod-box .mod-excel {
@@ -59,7 +51,7 @@ main .main-body .main-center .event-box .event-header .event-header-right .save-
 }
 
 main .main-body .main-center .event-box .event-header .event-header-box .header-element span {
-    margin-left : 10px;
+    margin-right : 10px;
 }
 
 main .main-body .main-center .event-box .event-header .event-header-box .header-element .default {

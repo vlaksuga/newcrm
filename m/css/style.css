@@ -594,6 +594,10 @@ main .main-body .main-center .title-box.effect-box .effect > div:hover {
     margin-top: 4px;
 }
 
+#footer footer .footer-box.active,
+#footer footer .footer-box.active a {
+    color: darkgray;
+}
 
 
 /* CONFIG */
