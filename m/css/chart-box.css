@@ -78,9 +78,10 @@ main .main-body .main-center .chart-box .table-box .order-table tbody tr.channel
 }
 
 main .main-body .main-center .chart-box .element-box .chart-element {
+    position: relative;
     padding: 0 20px 20px 20px;
-    width: 100%;
-    height: 300px;
+    width: 95vw;
+    height: 50vh;
 }
 
 main .main-body .main-center .chart-box .chart-element {
