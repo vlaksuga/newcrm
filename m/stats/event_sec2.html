@@ -4,6 +4,7 @@
 <head>
     <title>STATISTICS</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/chart-box.css" rel="stylesheet">
@@ -22,105 +23,77 @@
     <div id="app">
 
         <div id="top">
+
             <div class="nav-container">
-                <div class="user-container">
-                    <div class="channel-box unselected none">
-                        <div class="user-box">
-                            <div class="avatar">
-                                <img class="good">
-                            </div>
-                            <div class="user">
-                                <span>ALL CHANNEL</span>
-                                <span class="selected"><i class="fas fa-angle-down"></i></span>
-                                <span class="dot none"><i class="fas fa-circle"></i></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="channel-box selected">
-                        <div class="user-box">
-                            <div class="avatar">
-                                <img class="bad">
-                            </div>
-                            <div class="user">
-                                <span>LOTTORICH1</span>
-                                <span class=""><i class="fas fa-angle-down"></i></span>
-                                <span class="dot none"><i class="fas fa-circle"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="channel-box unselected none">
-                        <div class="user-box">
-                            <div class="avatar">
-                                <img class="bad">
-                            </div>
-                            <div class="user">
-                                <span>LOTTORICH2</span>
-                                <span class="none"><i class="fas fa-angle-down"></i></span>
-                                <span class="dot"><i class="fas fa-circle"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="channel-box unselected none">
-
-                        <div class="user-box">
-                            <div class="avatar">
-                                <img class="good">
-                            </div>
-                            <div class="user">
-                                <span>LOTTORICH3</span>
-                                <span class="none"><i class="fas fa-angle-down"></i></span>
-                                <span class="dot"><i class="fas fa-circle"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="logo-top">
                     <img src="../img/logomini.png"> <!-- 클릭 > reflesh -->
                 </div>
 
-                <div class="user-setting">
-                    <!-- 클릭 > "LOGOUT 할까요?" > LOGGOUT -->
-                    <div class="set-box">
-                        <div class="i-box">
-                            <i class="fas fa-power-off"></i>
+                <div class="user-container">
+                    <div class="channel-box none">
+                        <div class="user-box">
+                            <div class="avatar none">
+                                <img class="good">
+                            </div>
+                            <div class="user">
+                                <span>ALL</span>
+                                <span class="none"><i class="fas fa-angle-down"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="channel-box active">
+                        <div class="user-box">
+                            <div class="avatar none">
+                                <img class="good">
+                            </div>
+                            <div class="user">
+                                <span>LOTTORICH1</span>
+                                <span class=""><i class="fas fa-angle-down"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="channel-box none">
+                        <div class="user-box">
+                            <div class="avatar none">
+                                <img class="bad">
+                            </div>
+                            <div class="user">
+                                <span>LOTTORICH2</span>
+                                <span class="none"><i class="fas fa-angle-down"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="channel-box none">
+
+                        <div class="user-box">
+                            <div class="avatar none">
+                                <img class="good">
+                            </div>
+                            <div class="user">
+                                <span>LOTTORICH3</span>
+                                <span class="none"><i class="fas fa-angle-down"></i></span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <div class="user-setting">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
         </div>
 
         <div id="below-top">
 
-            <div id="aside">
-                <aside>
-                    <div class="aside-box">
-                        <a href="event.html">
-                            <i class="fas fa-database"></i>
-                            <span>EVENT</span>
-                        </a>
-                    </div>
-                    <div class="aside-box active">
-                        <i class="fas fa-chart-bar"></i>
-                        <span>STATS</span>
-
-                    </div>
-                    <div class="aside-box">
-                        <a href="config.html">
-                            <i class="fas fa-cogs"></i>
-                            <span>CONFIG</span>
-                        </a>
-                    </div>
-                </aside>
-            </div>
-
             <div id="main">
 
                 <main>
                     <!-- event -->
-                    <div class="main-top">
+                    <div class="main-top none">
 
                         <div class="title-box">
                             <span>STATISTICS</span>
@@ -132,7 +105,7 @@
 
                     <div class="main-body">
 
-                            <div class="main-left active">
+                            <div class="main-left active none">
                                     <div class="option-box">
         
                                         <div onclick="location.href='./index.html'" class="option-header selectable">
@@ -179,7 +152,6 @@
                             <div class="filter-box">
                                 <div class="day-box">
                                     <div class="filter-element">
-                                        <span>보기방식</span>
                                         <select class="tocar">
                                             <option value="1">일간</option>
                                             <option value="2">월간</option>
@@ -189,44 +161,11 @@
                                     </div>
 
                                     <div class="filter-element">
-                                        <span>시작일</span>
-                                        <input class="tocar" id="datepicker_start">
+                                        <input class="tocar" id="datepicker_start" placeholder="시작일">
                                     </div>
+
                                     <div class="filter-element">
-                                        <span>종료일</span>
-                                        <input class="tocar" id="datepicker_end">
-                                    </div>
-                                    <div class="filter-element btn">
-                                        <button class="tocar">
-                                            오늘
-                                        </button>
-                                    </div>
-                                    <div class="filter-element btn">
-                                        <button class="tocar">
-                                            어제
-                                        </button>
-                                    </div>
-
-                                    <div class="filter-element btn">
-                                        <button class="tocar">
-                                            이번주
-                                        </button>
-                                    </div>
-
-                                    <div class="filter-element btn">
-                                        <button class="tocar">
-                                            이번달
-                                        </button>
-                                    </div>
-                                    <div class="filter-element btn">
-                                        <button class="tocar">
-                                            지난주
-                                        </button>
-                                    </div>
-                                    <div class="filter-element btn">
-                                        <button class="tocar">
-                                            지난달
-                                        </button>
+                                        <input class="tocar" id="datepicker_end" placeholder="종료일">
                                     </div>
 
                                     <div class="filter-element btn apply">
@@ -239,10 +178,10 @@
 
                                 <div class="switch-box">
                                     <div class="chart switch active">
-                                        <a><i class="fas fa-chart-pie"></i></a>
+                                        <a><i class="fas fa-chart-pie none"></i></a>
                                     </div>
-                                    <div class="excel switch active">
-                                        <a><i class="fas fa-file-excel"></i></a>
+                                    <div class="table switch active">
+                                        <a><i class="fas fa-table"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -738,11 +677,9 @@
                                     </table>
                                 </div>
 
-                                <div class="element-box">
-
-                                    <!-- 웹모바일 doughnut -->
-                                    <div class="chart-element">
-                                        <canvas id="chart_ismobile_doughnut" width="50" height="50"></canvas>
+                                <!-- 웹모바일 doughnut -->
+                                <div class="chart-element none">
+                                        <canvas id="chart_ismobile_doughnut"></canvas>
                                         <script>
                                                 var ctx = document.getElementById('chart_ismobile_doughnut');
                                                 var chart_ismobile_doughnut = new Chart(ctx, {
@@ -777,11 +714,11 @@
                                                     }
                                                 })
                                         </script>
-                                    </div>
+                                </div>
 
-                                    <!-- 유무효 BAR -->
-                                    <div class="chart-element">
-                                        <canvas id="chart_normal_hbar" width="50" height="50"></canvas>
+                                <!-- 유무효 BAR -->
+                                <div class="chart-element none">
+                                        <canvas id="chart_normal_hbar"></canvas>
                                         <script>
                                             var ctx7 = document.getElementById('chart_normal_hbar');
                                             var chart_normal_hbar = new Chart(ctx7, {
@@ -842,11 +779,7 @@
                                                 }
                                             })
                                         </script>
-                                    </div>
-
                                 </div>
-
-
 
                             </div>
 
@@ -857,6 +790,33 @@
 
             </div>
 
+        </div>
+
+        <div id="footer">
+            <footer>
+                    <div class="footer-box active">
+                        <i class="fas fa-database"></i>
+                        <span>EVENT</span>
+                    </div>
+                    <div class="footer-box">
+                        <a href="../stats/index.html">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>STATS</span>
+                        </a>
+                    </div>
+                    <div class="footer-box">
+                        <a href="../app/config.html">
+                            <i class="fas fa-cogs"></i>
+                            <span>CONFIG</span>
+                        </a>
+                    </div>
+                    <div class="footer-box">
+                        <a href="../app/config.html">
+                            <i class="fas fa-power-off"></i>
+                            <span>LOGOUT</span>
+                        </a>
+                    </div>
+            </footer>
         </div>
     </div>
 

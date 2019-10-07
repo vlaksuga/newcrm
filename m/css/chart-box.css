@@ -9,78 +9,74 @@ main .main-body .main-center .chart-box {
 main .main-body .main-center .chart-box .element-box {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-wrap: nowrap;
-    margin-bottom: 30px;
     width: 100%;
 }
 
-main .main-body .main-center .chart-box .table-box {
-    width: 70%;
+main .main-body .main-center .table-box {
+    width: 100%;
     background-color: white;
-    margin-right: 10px;
-    height: 73vh;
     overflow-y: auto;
 }
 
 
-main .main-body .main-center .chart-box .table-box.only {
+main .main-body .main-center .table-box.only {
     width: 100% !important;
 }
 
-main .main-body .main-center .chart-box .table-box .order-table {
+main .main-body .main-center .table-box .order-table {
     width: 100%;
-    overflow-y: auto;
-    font-size: 0.8rem;
+    font-size: 0.2vw;
     border-collapse: collapse;
 }
 
 
-main .main-body .main-center .chart-box .table-box .order-table thead th,
-main .main-body .main-center .chart-box .table-box .order-table tbody td,
-main .main-body .main-center .chart-box .table-box .order-table tfoot td {
+main .main-body .main-center .table-box .order-table thead th,
+main .main-body .main-center .table-box .order-table tbody td,
+main .main-body .main-center .table-box .order-table tfoot td {
     padding: 10px;
 
 }
 
-main .main-body .main-center .chart-box .table-box .order-table tbody td {
+main .main-body .main-center .table-box .order-table tbody td {
     border-bottom: 1px solid lightgrey;
 }
 
 
-main .main-body .main-center .chart-box .table-box .order-table colgroup .col1 {
+main .main-body .main-center .table-box .order-table colgroup .col1 {
     width: 100px;
 }
 
-main .main-body .main-center .chart-box .table-box .order-table colgroup .col2 {
+main .main-body .main-center .table-box .order-table colgroup .col2 {
     width: 50px;
 }
 
-main .main-body .main-center .chart-box .table-box .order-table thead {
+main .main-body .main-center .table-box .order-table thead {
     background-color: lightgrey;
     border-bottom: 1px solid grey;
 }
 
-main .main-body .main-center .chart-box .table-box .order-table tfoot {
+main .main-body .main-center .table-box .order-table tfoot {
     background-color: #ed5c5c;
     color: white;
     vertical-align: middle;
     text-align: center;
 }
 
-main .main-body .main-center .chart-box .table-box .order-table tbody {
+main .main-body .main-center .table-box .order-table tbody {
     vertical-align: middle;
     text-align: center;
 }
 
-main .main-body .main-center .chart-box .table-box .order-table tbody tr.channel {
+main .main-body .main-center .table-box .order-table tbody tr.channel {
     background-color: lightyellow;
 }
 
 main .main-body .main-center .chart-box .chart-element {
     position: relative;
     padding: 0 20px 20px 20px;
-    width: 95vw;
+    width: 100vw;
     height: 350px;
     margin-bottom: 50px;
 }

@@ -11,22 +11,20 @@ main .main-body .main-center .channel-box {
 
 main .main-body .main-center .channel-box .channel-header {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-direction: row;
+    align-items: center;
     width: 100%;
-}
+    padding: 5px;
+} 
 
 
 main .main-body .main-center .channel-box .channel-header .channel-header-box {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
-    align-items: flex-end;
-    width: 50%;
-    height: 7vh;
-    min-height: 65px;
+    align-items: center;
     font-size: 0.8rem;
-    padding-bottom: 10px;
 }
 
 
@@ -35,19 +33,15 @@ main .main-body .main-center .channel-box .channel-header .mod-box {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    width: 50%;
     height: 100%;
-    margin: 0 20px;
-    font-size: 1.3rem;
-
 }
 
-main .main-body .main-center .channel-box .channel-header .mod-box div {
-    margin: 0px 0px 5px 10px;
-}
-
-main .main-body .main-center .channel-box .channel-header .mod-box .mod-plus {
+main .main-body .main-center .channel-box .channel-header .mod-box .mod-excel {
     color: green;
+}
+
+main .main-body .main-center .channel-box .channel-header .mod-box .mod-shrink-all {
+    color: #ed5c5c;
 }
 
 main .main-body .main-center .channel-box .channel-header .channel-header-right .save-excel:hover {
@@ -55,7 +49,7 @@ main .main-body .main-center .channel-box .channel-header .channel-header-right 
 }
 
 main .main-body .main-center .channel-box .channel-header .channel-header-box .header-element span {
-    margin-left : 10px;
+    margin-right : 10px;
 }
 
 main .main-body .main-center .channel-box .channel-header .channel-header-box .header-element .default {
@@ -67,7 +61,6 @@ main .main-body .main-center .channel-box .channel-header .channel-header-box .h
 }
 
 main .main-body .main-center .channel-box .channel-body {
-    height:80vh;
     overflow-y: auto;
 }
 
@@ -78,24 +71,21 @@ main .main-body .main-center .channel-box .channel-body .channel-element {
 main .main-body .main-center .channel-box .channel-body .channel-element .channel-summary {
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    height: 7vh;
     min-height: 65px;
     font-size: 0.8rem;
-    border-bottom: 1px solid lightgray;
 }
 
 main .main-body .main-center .channel-box .channel-body .channel-element .channel-summary .element-header {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    width: 180px;
+    width: 100%;
     height: 100%;
-    border-right: 1px solid lightgrey;
-    padding-top: 5px;
+    padding: 5px;
     background-color: white;
 }
 
@@ -107,11 +97,11 @@ main .main-body .main-center .channel-box .channel-body .channel-element .channe
 
 main .main-body .main-center .channel-box .channel-body .channel-element .channel-summary .element-header .ev-stat {
     display: none;
-    width: 90%;
+    width: 30%;
     color: white;
     border-radius: 10%/50%;
     text-align: left;
-    padding: 5px;
+    padding: 3px;
     font-size: 0.6rem;
 }
 
@@ -128,6 +118,7 @@ main .main-body .main-center .channel-box .channel-body .channel-element .channe
 }
 
 main .main-body .main-center .channel-box .channel-body .channel-element .channel-summary .element-header .ev-chname {
+    width: 70%;
     font-size: 0.6rem;
 }
 
@@ -136,7 +127,7 @@ main .main-body .main-center .channel-box .channel-body .channel-element .channe
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    width: 40%;
+    width: 100%;
     height: 100%;
     padding: 5px;
     background-color: white;
@@ -149,16 +140,19 @@ main .main-body .main-center .channel-box .channel-body .channel-element .channe
 }
 
 main .main-body .main-center .channel-box .channel-body .channel-element .channel-summary .element-body .data-row1 {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    width: 100%;
+    padding: 5px;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-summary .element-body .data-row2 {
+    width: 100%;
+    text-align: right;
+    font-size: 0.6rem;
 }
 
 main .main-body .main-center .channel-box .channel-body .channel-element .channel-summary .element-body .data-row1 span::after {
-    content: " / ";
-}
-
-main .main-body .main-center .channel-box .channel-body .channel-element .channel-summary .element-body .data-row1 span input {
-    width: 100px;
-    border-bottom: 1px solid lightgray !important;
+    content: "  ";
 }
 
 main .main-body .main-center .channel-box .channel-body .channel-element .channel-summary .element-body .data-row1 span:last-child::after,
@@ -175,25 +169,25 @@ main .main-body .main-center .channel-box .channel-body .channel-element .channe
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    width: 40%;
+    width: 100%;
     height: 100%;
-    padding: 0 10px;
+    padding: 5px;
     background-color: white;
 }
 
 main .main-body .main-center .channel-box .channel-body .channel-element .channel-summary .element-footer .ev-result {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     height: 100%;
 }
 
 main .main-body .main-center .channel-box .channel-body .channel-element .channel-summary .element-footer .ev-result .ev-result-stat {
     display: flex;
     justify-content: flex-start;
-    width: 100%;
     align-items: flex-start;
+    margin-right: 5px;
 }
 
 
@@ -263,7 +257,7 @@ main .main-body .main-center .channel-box .channel-body .channel-element .channe
 
 main .main-body .main-center .channel-box .channel-body .channel-element .channel-summary .element-tail {
     border-left: 1px solid lightgrey;
-    width: 220px;
+    width: 100%;
     height: 100%;
     background-color: white;
 
@@ -301,7 +295,7 @@ main .main-body .main-center .channel-box .channel-body .channel-element .channe
 
 
 
-main .main-body .main-center .channel-box .channel-body .channel-element .channel-summary .element-tail .tail-box .item .itembtn .statbtn i {
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-summary .element-tail .tail-box .item .itembtn .statbtn svg {
     font-size: 1.3rem;
 }
 
@@ -350,7 +344,7 @@ main .main-body .main-center .channel-box .channel-body .channel-element .channe
 main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand {
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     width: 100%;
     font-size: 0.8rem;
@@ -365,7 +359,7 @@ main .main-body .main-center .channel-box .channel-body .channel-element .channe
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 180px;
+    width: 100%;
     height: 100%;
     padding-top: 10px;
        
@@ -384,48 +378,30 @@ main .main-body .main-center .channel-box .channel-body .channel-element .channe
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 40%;
+    width: 100%;
     height: 100%;
     padding: 10px 5px;
 }
 
-main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-body .user-kind-box {
-    width: 100%;
-}
-
-main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-body .user-kind-box .kind {
-    width: 100%;
-}
-
-main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-body .user-kind-box .kind .title {
-    width: 100%;
-    background-color: lightgrey;
-    padding : 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-body .user-kind-box .kind .user-box {
-    width: 100%;
-}
-
-main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-body .user-kind-box .kind .user-box .user {
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-body .channel-detail-row {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
+    margin-bottom: 5px;
 }
 
-main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-body .user-kind-box .kind .user-box .user select {
-    width: 150px;
-    margin-right : 10px;
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-body .channel-detail-row .label {
+    text-align: center;
+    color:#555;
+    background-color: lightgray;
+    width: 20%;
 }
 
-main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-body .user-kind-box .kind .user-box .user span {
-    margin-right : 10px;
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-body .channel-detail-row .data {
+    width: 80%;
+    padding-left:5px;
 }
 
 main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer {
@@ -433,53 +409,150 @@ main .main-body .main-center .channel-box .channel-body .channel-element .channe
     justify-content: space-between;
     flex-direction: column;
     align-items: flex-start;
-    width: 40%;
+    width: 100%;
     height: 100%;
     padding: 10px;
-
-}
-
-main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .form {
-    width: 100%;
-    margin-bottom: 10px;
     
 }
 
-main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .form .title {
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     width: 100%;
-    background-color: lightgray;
-    padding : 5px;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .assign,
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .result .item-box {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
+    width: 100%;
+    margin-bottom: 3px;
 }
 
-main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .form .col-box {
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .assign .item,
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .result .item-box .item {
+    margin-right: 8px;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .assign .assign-date,
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .result .item-box .result-date {
+    width: 40%;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .result .result-msg {
+    color: grey;
     width: 100%;
 }
 
-main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .form .col-box .col {
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .assign .assign-name,
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .result .item-box .result-name {
+    width: 40px;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .result .result-name::after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .assign .assign-kind,
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .result .result-kind {
+    text-align: center;
+    width: 35%;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .kind-option {
+    width: 100%;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .assign .kind-new {
+    display: none;
+    background-color: lightblue;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .assign .kind-re {
+    display: none;
+    background-color: orange;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .assign .kind-select {
+    display: none;
+    background-color: violet;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .assign .kind-point {
+    display: none;
+    background-color: red;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-history .assign .active {
+    display: block;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-add {
+    padding: 5px 0;
+    width: 100%;
+    border-top: 1px solid lightgrey;
+}
+
+
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-add form .result-select {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
-    margin: 3px 0;
-}
-
-main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .form .col-box .col input {
-    width: 120px;
-    margin-right : 10px;
-}
-
-main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .form textarea {
     width:100%;
-    height: 250px;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-add form .result-select #result-opt {
+    font-size:0.7rem;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-add form .result-title {
+    width : 73px;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-add form .result-notice {
+    padding-left: 10px;
+    color:gray;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-add form .result-msg-input {
+    margin-top: 10px;
+    width: 100%;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-add form .result-msg-input textarea {
+    font-size: 0.8rem;
+    padding: 5px;
+    border: 1px solid lightblue;
+    width: 100%;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-add form .result-send {
+    width: 100%;
+    text-align: right;
+    padding-top: 5px;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .result-add form .result-send button {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    width : 100px;
+    background-color: lightblue;
+    font-family: 'Manjari', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-footer .active {
+    display: block;
 }
 
 main .main-body .main-center .channel-box .channel-body .channel-element .channel-expand .expand-tail {
 
-    width: 220px;
+    width: 100%;
     height: 100%;
 }
 
@@ -538,10 +611,12 @@ main .main-body .main-center .channel-box .channel-body .channel-pagination {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
     font-size: 0.8rem;
-    color:black;
+    color:white;
+    background-color: #555;
+    border: 1px solid white;
+    margin-bottom: 5px;
 }
-

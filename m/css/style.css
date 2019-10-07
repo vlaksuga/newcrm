@@ -130,7 +130,7 @@ main {
 }
 
 #top .nav-container .user-container {
-    width: 50%;
+    width: 60%;
     height: 100%;
     z-index: 2;
     
@@ -171,6 +171,7 @@ main {
     justify-content: flex-start;
     width: 100%;
     border-right: 1px solid #4b4b4b;
+    border-left: 1px solid #4b4b4b;
 }
 
 #top .user-box .avatar {
@@ -223,34 +224,12 @@ main {
 
 #top .user-setting {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 300px;
-    height: 100%;
-}
-
-#top .user-setting .set-box {
-    display: flex;
     justify-content: center;
     align-items: center;
-    width: 70px;
+    width: 20%;
     height: 100%;
-    border-left: 1px solid #4b4b4b;
-}
-
-#top .user-setting .set-box .i-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e5e5e5;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
-#top .user-setting .set-box .i-box:hover {
-    background-color: red;
-    cursor: pointer;
+    color:white;
+    font-size: 1.3rem;
 }
 
 /* EVENT */
@@ -287,7 +266,12 @@ main .main-body {
 /* main-left */
 
 main .main-body .main-left {
+    position: fixed;
+    right:0;
+    top:50px;
     width: 100%;
+    background-color: lightgrey;
+    z-index: 3;
 }
 
 main .main-body .main-left .option-box {
@@ -439,6 +423,10 @@ main .stickey .filter span {
     font-size: 0.6rem;
 }
 
+main .main-body .main-center {
+    width: 100%;
+}
+
 main .main-body .main-center .filter-box {
     display: flex;
     flex-direction: row;
@@ -448,7 +436,7 @@ main .main-body .main-center .filter-box {
     height: 7vh;
     min-height: 65px;
     border-bottom: 1px solid #eeeeee;
-    padding-left: 20px;
+    padding: 5px;
 }
 
 main .main-body .main-center .filter-box .day-box {
@@ -456,7 +444,7 @@ main .main-body .main-center .filter-box .day-box {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    width: 90%;
+    width: 80%;
     height: 100%;
 }
 
@@ -465,7 +453,7 @@ main .main-body .main-center .filter-box .switch-box {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    width: 10%;
+    width: 20%;
     height: 100%;
 }
 
@@ -489,7 +477,7 @@ main .main-body .main-center .filter-box .day-box .filter-element {
 
 main .main-body .main-center .filter-box .day-box .filter-element.btn button {
     border: none;
-    width: 80px;
+    width: 50px;
     padding : 1px 10px;
     font-size: 0.8rem;
 }
@@ -511,13 +499,15 @@ main .main-body .main-center .filter-box .day-box .filter-element span {
 main .main-body .main-center .filter-box .day-box .filter-element select,
 main .main-body .main-center .filter-box .day-box .filter-element input {
     text-align: center;
-    width: 100px;
+    width: 60px;
 }
 
 main .main-body .main-center .title-box {
     padding: 20px;
     height: 7vh;
     min-height: 65px;
+    width: 100%;
+    font-size: 0.7rem;
 }
 
 main .main-body .main-center .title-box svg {
@@ -529,7 +519,8 @@ main .main-body .main-center .title-box.effect-box {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 70%;
+    width: 100%;
+    font-size: 0.7rem;
 }
 
 main .main-body .main-center .title-box.effect-box.only {

@@ -4,6 +4,7 @@
 <head>
     <title>STATISTICS</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/chart-box.css" rel="stylesheet">
@@ -22,99 +23,71 @@
     <div id="app">
 
         <div id="top">
+
             <div class="nav-container">
-                <div class="user-container">
-                    <div class="channel-box unselected none">
-                        <div class="user-box">
-                            <div class="avatar">
-                                <img class="good">
-                            </div>
-                            <div class="user">
-                                <span>ALL CHANNEL</span>
-                                <span class="selected"><i class="fas fa-angle-down"></i></span>
-                                <span class="dot none"><i class="fas fa-circle"></i></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="channel-box selected">
-                        <div class="user-box">
-                            <div class="avatar">
-                                <img class="bad">
-                            </div>
-                            <div class="user">
-                                <span>LOTTORICH1</span>
-                                <span class=""><i class="fas fa-angle-down"></i></span>
-                                <span class="dot none"><i class="fas fa-circle"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="channel-box unselected none">
-                        <div class="user-box">
-                            <div class="avatar">
-                                <img class="bad">
-                            </div>
-                            <div class="user">
-                                <span>LOTTORICH2</span>
-                                <span class="none"><i class="fas fa-angle-down"></i></span>
-                                <span class="dot"><i class="fas fa-circle"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="channel-box unselected none">
-
-                        <div class="user-box">
-                            <div class="avatar">
-                                <img class="good">
-                            </div>
-                            <div class="user">
-                                <span>LOTTORICH3</span>
-                                <span class="none"><i class="fas fa-angle-down"></i></span>
-                                <span class="dot"><i class="fas fa-circle"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="logo-top">
                     <img src="../img/logomini.png"> <!-- 클릭 > reflesh -->
                 </div>
 
-                <div class="user-setting">
-                    <!-- 클릭 > "LOGOUT 할까요?" > LOGGOUT -->
-                    <div class="set-box">
-                        <div class="i-box">
-                            <i class="fas fa-power-off"></i>
+                <div class="user-container">
+                    <div class="channel-box none">
+                        <div class="user-box">
+                            <div class="avatar none">
+                                <img class="good">
+                            </div>
+                            <div class="user">
+                                <span>ALL</span>
+                                <span class="none"><i class="fas fa-angle-down"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="channel-box active">
+                        <div class="user-box">
+                            <div class="avatar none">
+                                <img class="good">
+                            </div>
+                            <div class="user">
+                                <span>LOTTORICH1</span>
+                                <span class=""><i class="fas fa-angle-down"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="channel-box none">
+                        <div class="user-box">
+                            <div class="avatar none">
+                                <img class="bad">
+                            </div>
+                            <div class="user">
+                                <span>LOTTORICH2</span>
+                                <span class="none"><i class="fas fa-angle-down"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="channel-box none">
+
+                        <div class="user-box">
+                            <div class="avatar none">
+                                <img class="good">
+                            </div>
+                            <div class="user">
+                                <span>LOTTORICH3</span>
+                                <span class="none"><i class="fas fa-angle-down"></i></span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <div class="user-setting">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
         </div>
 
         <div id="below-top">
-
-            <div id="aside">
-                <aside>
-                    <div class="aside-box">
-                        <a href="event.html">
-                            <i class="fas fa-database"></i>
-                            <span>EVENT</span>
-                        </a>
-                    </div>
-                    <div class="aside-box active">
-                        <i class="fas fa-chart-bar"></i>
-                        <span>STATS</span>
-
-                    </div>
-                    <div class="aside-box">
-                        <a href="config.html">
-                            <i class="fas fa-cogs"></i>
-                            <span>CONFIG</span>
-                        </a>
-                    </div>
-                </aside>
-            </div>
 
             <div id="main">
 
@@ -122,7 +95,7 @@
                     <!-- event -->
                     <div class="main-top">
 
-                        <div class="title-box">
+                        <div class="title-box none">
                             <span>STATISTICS</span>
                             <i class="fas fa-angle-double-right"></i>
                             <span id="channer-name">LOTTORICH1</span>
@@ -132,54 +105,54 @@
 
                     <div class="main-body">
 
-                            <div class="main-left active">
-                                    <div class="option-box">
-        
-                                        <div onclick="location.href='./index.html'" class="option-header selectable">
-                                            <div class="option-header-box">
-                                                <span>INDEX : 종합 차트</span>
-                                            </div>
-                                        </div>
-        
-                                        <div onclick="location.href='./event_sec1.html'" class="option-header selectable">
-                                            <div class="option-header-box">
-                                                <span>SECTION1 : 유효 / 무효</span>
-                                            </div>
-                                        </div>
-        
-                                        <div onclick="location.href='./event_sec2.html'" class="option-header selectable">
-                                            <div class="option-header-box">
-                                                <span>SECTION2 : 웹 / 모바일</span>
-                                            </div>
-                                        </div>
-        
-                                     
-                                        <div onclick="location.href='./event_sec3.html'" class="option-header selectable">
-                                            <div class="option-header-box">
-                                                <span>SECTION3 : 유입 경로</span>
-                                            </div>
-                                        </div>
-        
-                                        <div onclick="location.href='./event_sec4.html'" class="option-header selectable active">
-                                            <div class="option-header-box">
-                                                <span>SECTION4 : 남 / 여</span>
-                                            </div>
-                                        </div>
-        
-                                        <div onclick="location.href='./event_sec5.html'" class="option-header selectable">
-                                            <div class="option-header-box">
-                                                <span>SECTION5 : 진행 현황</span>
-                                            </div>
-                                        </div>
+                        <div class="main-left active none">
+                            <div class="option-box">
+
+                                <div onclick="location.href='./index.html'" class="option-header selectable">
+                                    <div class="option-header-box">
+                                        <span>INDEX : 종합 차트</span>
                                     </div>
+                                </div>
+
+                                <div onclick="location.href='./event_sec1.html'" class="option-header selectable">
+                                    <div class="option-header-box">
+                                        <span>SECTION1 : 유효 / 무효</span>
+                                    </div>
+                                </div>
+
+                                <div onclick="location.href='./event_sec2.html'" class="option-header selectable">
+                                    <div class="option-header-box">
+                                        <span>SECTION2 : 웹 / 모바일</span>
+                                    </div>
+                                </div>
+
+
+                                <div onclick="location.href='./event_sec3.html'" class="option-header selectable">
+                                    <div class="option-header-box">
+                                        <span>SECTION3 : 유입 경로</span>
+                                    </div>
+                                </div>
+
+                                <div onclick="location.href='./event_sec4.html'"
+                                    class="option-header selectable active">
+                                    <div class="option-header-box">
+                                        <span>SECTION4 : 남 / 여</span>
+                                    </div>
+                                </div>
+
+                                <div onclick="location.href='./event_sec5.html'" class="option-header selectable">
+                                    <div class="option-header-box">
+                                        <span>SECTION5 : 진행 현황</span>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
 
                         <div class="main-center" id="chart">
 
                             <div class="filter-box">
                                 <div class="day-box">
                                     <div class="filter-element">
-                                        <span>보기방식</span>
                                         <select class="tocar">
                                             <option value="1">일간</option>
                                             <option value="2">월간</option>
@@ -189,44 +162,11 @@
                                     </div>
 
                                     <div class="filter-element">
-                                        <span>시작일</span>
-                                        <input class="tocar" id="datepicker_start">
+                                        <input class="tocar" id="datepicker_start" placeholder="시작일">
                                     </div>
+
                                     <div class="filter-element">
-                                        <span>종료일</span>
-                                        <input class="tocar" id="datepicker_end">
-                                    </div>
-                                    <div class="filter-element btn">
-                                        <button class="tocar">
-                                            오늘
-                                        </button>
-                                    </div>
-                                    <div class="filter-element btn">
-                                        <button class="tocar">
-                                            어제
-                                        </button>
-                                    </div>
-
-                                    <div class="filter-element btn">
-                                        <button class="tocar">
-                                            이번주
-                                        </button>
-                                    </div>
-
-                                    <div class="filter-element btn">
-                                        <button class="tocar">
-                                            이번달
-                                        </button>
-                                    </div>
-                                    <div class="filter-element btn">
-                                        <button class="tocar">
-                                            지난주
-                                        </button>
-                                    </div>
-                                    <div class="filter-element btn">
-                                        <button class="tocar">
-                                            지난달
-                                        </button>
+                                        <input class="tocar" id="datepicker_end" placeholder="종료일">
                                     </div>
 
                                     <div class="filter-element btn apply">
@@ -239,10 +179,10 @@
 
                                 <div class="switch-box">
                                     <div class="chart switch active">
-                                        <a><i class="fas fa-chart-pie"></i></a>
+                                        <a><i class="fas fa-chart-pie none"></i></a>
                                     </div>
-                                    <div class="excel switch active">
-                                        <a><i class="fas fa-file-excel"></i></a>
+                                    <div class="table switch active">
+                                        <a><i class="fas fa-table"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -263,7 +203,7 @@
                                 <!-- TABLE -->
 
                                 <!-- DAILY -->
-                                <div class="table-box col-day">
+                                <div class="table-box col-day none">
 
                                     <table class="order-table">
 
@@ -357,25 +297,25 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <tr>
-                                                    <td class="d-index">TOTAL</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">12</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">12</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">12</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">12</td>
-                                                </tr>
+                                            <tr>
+                                                <td class="d-index">TOTAL</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">12</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">12</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">12</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">12</td>
+                                            </tr>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -476,25 +416,25 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <tr>
-                                                    <td class="d-index">TOTAL</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">12</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">12</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">12</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">12</td>
-                                                </tr>
+                                            <tr>
+                                                <td class="d-index">TOTAL</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">12</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">12</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">12</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">12</td>
+                                            </tr>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -595,25 +535,25 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <tr>
-                                                    <td class="d-index">TOTAL</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">12</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">12</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">12</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">12</td>
-                                                </tr>
+                                            <tr>
+                                                <td class="d-index">TOTAL</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">12</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">12</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">12</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">12</td>
+                                            </tr>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -714,139 +654,133 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <tr>
-                                                    <td class="d-index">TOTAL</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">12</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">12</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">12</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">4</td>
-                                                    <td class="d-true">12</td>
-                                                </tr>
+                                            <tr>
+                                                <td class="d-index">TOTAL</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">12</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">12</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">12</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">4</td>
+                                                <td class="d-true">12</td>
+                                            </tr>
                                             </tr>
                                         </tfoot>
                                     </table>
                                 </div>
 
-                                <div class="element-box">
+                                <!-- src doughnut -->
+                                <div class="chart-element">
+                                    <canvas id="chart_sex_doughnut"></canvas>
+                                    <script>
+                                        var ctx = document.getElementById('chart_sex_doughnut');
+                                        var chart_sex_doughnut = new Chart(ctx, {
+                                            type: 'doughnut',
+                                            data: {
+                                                labels: ['남', '여', '불명'],
+                                                datasets: [{
+                                                    label: '# 주문 ',
+                                                    data: [6, 11, 2],
+                                                    backgroundColor: [
+                                                        'rgba(54, 162, 235, 0.2)',
+                                                        'rgba(255, 99, 132, 0.2)'
 
-                                    <!-- src doughnut -->
-                                    <div class="chart-element">
-                                        <canvas id="chart_sex_doughnut" width="50" height="50"></canvas>
-                                        <script>
-                                                var ctx = document.getElementById('chart_sex_doughnut');
-                                                var chart_sex_doughnut = new Chart(ctx, {
-                                                    type: 'doughnut',
-                                                    data: {
-                                                        labels: ['남', '여', '불명'],
-                                                        datasets: [{
-                                                            label: '# 주문 ',
-                                                            data: [6, 11, 2],
-                                                            backgroundColor: [
-                                                                'rgba(54, 162, 235, 0.2)',
-                                                                'rgba(255, 99, 132, 0.2)'
-
-                                                            ],
-                                                            borderColor: [
-                                                                'rgba(54, 162, 235, 1)',
-                                                                'rgba(255, 99, 132, 1)',
-                                                                'rgba(0, 0, 0, 1)'
-                                                            ],
-                                                            borderWidth: 1
-                                                        }],
-                                                    },
-                                                    options: {
-                                                        maintainAspectRatio: false,
-                                                        scales: {
-                                                            yAxes: [{
-                                                                ticks: {
-                                                                    beginAtZero: true
-                                                                }
-                                                            }]
+                                                    ],
+                                                    borderColor: [
+                                                        'rgba(54, 162, 235, 1)',
+                                                        'rgba(255, 99, 132, 1)',
+                                                        'rgba(0, 0, 0, 1)'
+                                                    ],
+                                                    borderWidth: 1
+                                                }],
+                                            },
+                                            options: {
+                                                maintainAspectRatio: false,
+                                                scales: {
+                                                    yAxes: [{
+                                                        ticks: {
+                                                            beginAtZero: true
                                                         }
-                                                    }
-                                                })
-                                        </script>
-                                    </div>
-
-                                    <!-- 유무효 BAR -->
-                                    <div class="chart-element">
-                                        <canvas id="chart_sex_bar" width="50" height="50"></canvas>
-                                        <script>
-                                            var ctx7 = document.getElementById('chart_sex_bar');
-                                            var chart_sex_bar = new Chart(ctx7, {
-                                                type: 'bar',
-                                                data: {
-                                                    labels: ['LOTTORICH1', 'LOTTORICH2', 'LOTTORICH3'],
-                                                    datasets: [{
-                                                        label: '남',
-                                                        data: [7, 4, 5],
-                                                        backgroundColor: [
-                                                            'rgba(54, 162, 235, 0.2)',
-                                                            'rgba(54, 162, 235, 0.2)',
-                                                            'rgba(54, 162, 235, 0.2)'
-                                                        ],
-                                                        borderColor: [
-                                                            'rgba(54, 162, 235, 1)',
-                                                            'rgba(54, 162, 235, 1)',
-                                                            'rgba(54, 162, 235, 1)'
-                                                    ],
-                                                        borderWidth: 1
-                                                    },
-                                                    {
-                                                        label: '여',
-                                                        data: [6, 9, 8],
-                                                        backgroundColor: [
-                                                            'rgba(255, 99, 132, 0.2)',
-                                                            'rgba(255, 99, 132, 0.2)',
-                                                            'rgba(255, 99, 132, 0.2)'
-                                                        ],
-                                                        borderColor: [
-                                                            'rgba(255, 99, 132, 1)',
-                                                            'rgba(255, 99, 132, 1)',
-                                                            'rgba(255, 99, 132, 1)'
-                                                        ],
-                                                        borderWidth: 1
-                                                    },
-                                                    {
-                                                        label: '불명',
-                                                        data: [3, 1, 1],
-                                                        backgroundColor: [
-
-                                                        ],
-                                                        borderColor: [
-                                                        ],
-                                                        borderWidth: 1
-                                                    }
-                                                    ],
-                                                },
-                                                options: {
-                                                    maintainAspectRatio: false,
-                                                    scales: {
-                                                        yAxes: [{
-                                                            ticks: {
-                                                                beginAtZero: true
-                                                            }
-                                                        }]
-                                                    }
+                                                    }]
                                                 }
-                                            })
-                                        </script>
-                                    </div>
-
+                                            }
+                                        })
+                                    </script>
                                 </div>
 
+                                <!-- 유무효 BAR -->
+                                <div class="chart-element">
+                                    <canvas id="chart_sex_bar"></canvas>
+                                    <script>
+                                        var ctx7 = document.getElementById('chart_sex_bar');
+                                        var chart_sex_bar = new Chart(ctx7, {
+                                            type: 'bar',
+                                            data: {
+                                                labels: ['LOTTORICH1', 'LOTTORICH2', 'LOTTORICH3'],
+                                                datasets: [{
+                                                    label: '남',
+                                                    data: [7, 4, 5],
+                                                    backgroundColor: [
+                                                        'rgba(54, 162, 235, 0.2)',
+                                                        'rgba(54, 162, 235, 0.2)',
+                                                        'rgba(54, 162, 235, 0.2)'
+                                                    ],
+                                                    borderColor: [
+                                                        'rgba(54, 162, 235, 1)',
+                                                        'rgba(54, 162, 235, 1)',
+                                                        'rgba(54, 162, 235, 1)'
+                                                    ],
+                                                    borderWidth: 1
+                                                },
+                                                {
+                                                    label: '여',
+                                                    data: [6, 9, 8],
+                                                    backgroundColor: [
+                                                        'rgba(255, 99, 132, 0.2)',
+                                                        'rgba(255, 99, 132, 0.2)',
+                                                        'rgba(255, 99, 132, 0.2)'
+                                                    ],
+                                                    borderColor: [
+                                                        'rgba(255, 99, 132, 1)',
+                                                        'rgba(255, 99, 132, 1)',
+                                                        'rgba(255, 99, 132, 1)'
+                                                    ],
+                                                    borderWidth: 1
+                                                },
+                                                {
+                                                    label: '불명',
+                                                    data: [3, 1, 1],
+                                                    backgroundColor: [
 
+                                                    ],
+                                                    borderColor: [
+                                                    ],
+                                                    borderWidth: 1
+                                                }
+                                                ],
+                                            },
+                                            options: {
+                                                maintainAspectRatio: false,
+                                                scales: {
+                                                    yAxes: [{
+                                                        ticks: {
+                                                            beginAtZero: true
+                                                        }
+                                                    }]
+                                                }
+                                            }
+                                        })
+                                    </script>
+                                </div>
 
                             </div>
 
@@ -858,6 +792,34 @@
             </div>
 
         </div>
+
+        <div id="footer">
+            <footer>
+                <div class="footer-box active">
+                    <i class="fas fa-database"></i>
+                    <span>EVENT</span>
+                </div>
+                <div class="footer-box">
+                    <a href="../stats/index.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>STATS</span>
+                    </a>
+                </div>
+                <div class="footer-box">
+                    <a href="../app/config.html">
+                        <i class="fas fa-cogs"></i>
+                        <span>CONFIG</span>
+                    </a>
+                </div>
+                <div class="footer-box">
+                    <a href="../app/config.html">
+                        <i class="fas fa-power-off"></i>
+                        <span>LOGOUT</span>
+                    </a>
+                </div>
+            </footer>
+        </div>
+
     </div>
 
 </body>
