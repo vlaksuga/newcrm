@@ -27,3 +27,15 @@ update order set masking = ?;
 
 //배정 주문 상태 처리.
 update assignorder set resulttxt=? , status=? , closedate=?;
+
+//su 유저리스트
+select * from user;
+
+//su 채널별 유저리스트
+select * from user ,channelauthuser cau where cau.userpkey = user.userpkey and cau.channelid=?
+
+//su 주문리스트
+select * from orders
+
+//su 채널별 주문리스트
+select * from orders where channelid = ?
