@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>ADAND OMS</title>
     <meta charset="utf-8">
@@ -10,40 +11,64 @@
 
     <script src="https://kit.fontawesome.com/799568d786.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Manjari|Noto+Sans+KR&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/c.js"></script>
 
- <script>
-	drawFragment("#top","./frag/top.html");
-	drawFragment("#aside","./frag/aside.html");
-
-
-	
-	oms.get("/adm/listUser.json",{},function(head,body){
-		wmap(body,$(".main-center"));
-
-		});
-
- </script>
-
- 	
-				
 </head>
 <body>
 <div id="app">
 
     <div id="top">
-        
+        <div class="nav-container">
+            <div class="user-container">
+
+                <div class="channel-box active">
+                    <div class="user-box">
+                        <div class="avatar">
+                            <img class="good">
+                        </div>
+                        <div class="user">
+                            <span>ADMINISTRATOR</span>
+                            <span class="active"><i class="fas fa-user-circle"></i></span>
+                            <span class="dot none"><i class="fas fa-circle"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="logo-top">
+                <img src="../img/logomini.png"> <!-- 클릭 > reflesh -->
+            </div>
+            <div class="user-setting">
+                <!-- 클릭 > "LOGOUT 할까요?" > LOGGOUT -->
+                <div class="set-box">
+                    <div class="i-box">
+                        <i class="fas fa-power-off"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="below-top">
 
         <div id="aside">
-           
+            <aside>
+                <div class="aside-box active">
+                    <i class="fas fa-user-circle"></i>
+                    <span>USER</span>
+                </div>
+                <div class="aside-box">
+                    <a href="./channel.html">
+                    <i class="fas fa-globe"></i>
+                    <span>CHANNEL</span>
+                    </a>
+                </div>
+            </aside>
         </div>
 
         <div id="main">
@@ -135,43 +160,26 @@
 
                             </div>
 
-                            <div class="account-body" bind="list:LIST">
-
-
-
-
-
+                            <div class="account-body">
 
                                 <!-- account start -->
-								<bindtemplete style="display:none">
                                 <div class="account-element">
 
                                     <!-- summary -->
                                     <div class="account-summary">
 
-                                        <div class="element-header" bind="fn:status:onetoactive">
-						<script>
-	
-	function onetoactive(d,ele,data){
-		$(".ev-stat",ele).removeClass("active");
-	
-		if (d == 1){
-			$(".default",ele).addClass("active");
-		}else{
-			$(".error",ele).addClass("active");
-		}
-	}
-	</script>
+                                        <div class="element-header">
+
                                             <div class="ev-stat default active">
                                                 <i class="fas fa-check-circle"></i><span>ACTIVE</span>
                                             </div>
 
-                                            <div class="ev-stat error active">
+                                            <div class="ev-stat error">
                                                 <i class="fas fa-exclamation-circle"></i><span>INACTIVE</span>
                                             </div>
 
                                             <div class="ev-chname">
-                                                <span bind="text:name">AGENCY</span>
+                                                <span>AGENCY</span>
                                             </div>
 
                                         </div>
@@ -180,13 +188,13 @@
 
                                             <div class="data-row1">
                                                 <span class="ev-name">
-                                                    <input class="tocar" value="김태경" bind="val:name"></span>
-                                                <span class="ev-id"><input class="tocar" value="tekiteki" bind="val:userid"></span>
-                                                <span class="ev-pw"><input class="tocar" value="kim31010!" bind="val:pw"></span>
+                                                    <input class="tocar" value="김태경"></span>
+                                                <span class="ev-id"><input class="tocar" value="tekiteki"></span>
+                                                <span class="ev-pw"><input class="tocar" value="kim31010!"></span>
                                             </div>
 
                                             <div class="data-row2">
-                                                <span class="ev-date" bind="text:regdate">2019-08-30</span>
+                                                <span class="ev-date">2019-08-30</span>
                                             </div>
 
                                         </div>
@@ -208,10 +216,10 @@
                                                                 <span>MK</span>
                                                             </div>
                                                             <div class="btn-dump active">
-                                                                <select class="tocar" bind="val:kind">
-                                                                    <option value="AGENCY">AGENCY</option>
-                                                                    <option value="OWNER">OWNER</option>
-                                                                    <option value="MK">MK</option>
+                                                                <select class="tocar">
+                                                                    <option value="1">AGENCY</option>
+                                                                    <option value="2">OWNER</option>
+                                                                    <option value="3">MK</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -251,16 +259,6 @@
 
 
                                 </div>
-								</bindtemplete>
-
-
-
-
-
-
-
-
-
 
                                 <!-- order END -->
                                 <div class="account-pagination">
