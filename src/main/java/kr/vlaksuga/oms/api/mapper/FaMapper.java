@@ -11,6 +11,11 @@ import java.util.Map;
 @Mapper
 public interface FaMapper {
 
+
+    @Select("select now()")
+    Map getNow();
+
+
     @Select("select now()")
     List<Map> getperson(@Param("movieid") String movieid);
 
