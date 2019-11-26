@@ -39,3 +39,6 @@ update assignorder set resulttxt=? , status=? , closedate=?;
 
 //su 채널별 주문리스트
 /adm/listOrderByChannel.* ? channelid=
+
+//su 채널리스트
+/adm/listChannel.*
