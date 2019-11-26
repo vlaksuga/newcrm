@@ -13,39 +13,12 @@ public class SelectContoller  extends Controller{
     FaMapper mapper;
 
 
-    @RequestMapping(value = "/listNotice.*", method = RequestMethod.GET)
+    @RequestMapping(value = "/s.*", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     @CrossOrigin(origins="*")
-    public CResult listNotice(@RequestParam(value = "mid") String mid) {
+    public CResult s() {
         CResult ret= new CResult();
-
-        return ret;
-    }
-
-    @RequestMapping(value = "/getNotice.*", method = RequestMethod.GET)
-    @ResponseStatus(value = HttpStatus.OK)
-    @CrossOrigin(origins="*")
-    public CResult getNotice(@RequestParam(value = "mid") String mid) {
-        CResult ret= new CResult();
-
-        return ret;
-    }
-
-    @RequestMapping(value = "/listFaq.*", method = RequestMethod.GET)
-    @ResponseStatus(value = HttpStatus.OK)
-    @CrossOrigin(origins="*")
-    public CResult listFaq(@RequestParam(value = "mid") String mid) {
-        CResult ret= new CResult();
-
-        return ret;
-    }
-
-    @RequestMapping(value = "/getFaq.*", method = RequestMethod.GET)
-    @ResponseStatus(value = HttpStatus.OK)
-    @CrossOrigin(origins="*")
-    public CResult getFaq(@RequestParam(value = "mid") String mid) {
-        CResult ret= new CResult();
-
+        ret.putAll(mapper.getNow());
         return ret;
     }
 

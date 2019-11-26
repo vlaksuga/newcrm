@@ -9,7 +9,7 @@ import java.util.Map;
 
 
 @Mapper
-public interface FaMapper {
+public interface OmsMapperForSu {
 
 
     @Select("select now()")
@@ -19,5 +19,7 @@ public interface FaMapper {
     @Select("select now()")
     List<Map> getperson(@Param("movieid") String movieid);
 
+    @Select("select * from user")
+    List<Map> listUser();
 
 }
