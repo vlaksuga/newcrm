@@ -36,5 +36,35 @@ public class SuController extends Controller{
     }
 
 
+    @RequestMapping(value = "/listUserByChannel.*", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    @CrossOrigin(origins="*")
+    public CResult listUserByChannel(@RequestParam(value = "channelid") String channelid) {
+        CResult ret= new CResult();
+        ret.put("list",sumapper.listUserByChannel(channelid));
+        return ret;
+    }
+
+
+
+    @RequestMapping(value = "/listOrderByChannel.*", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    @CrossOrigin(origins="*")
+    public CResult listOrderByChannel(@RequestParam(value = "channelid") String channelid) {
+        CResult ret= new CResult();
+        ret.put("list",sumapper.listOrderByChannel(channelid));
+        return ret;
+    }
+
+
+    @RequestMapping(value = "/listChannel.*", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    @CrossOrigin(origins="*")
+    public CResult listChannel() {
+        CResult ret= new CResult();
+        ret.put("list",sumapper.listChannel());
+        return ret;
+    }
+
 
 }

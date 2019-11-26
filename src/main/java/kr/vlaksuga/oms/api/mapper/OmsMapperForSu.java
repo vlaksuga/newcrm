@@ -22,4 +22,16 @@ public interface OmsMapperForSu {
     @Select("select * from user")
     List<Map> listUser();
 
+    @Select("select * from user ,channelauthuser cau where cau.userpkey = user.userpkey and cau.channelid=#{channelid}")
+    List<Map> listUserByChannel(@Param("channelid") String channelid);
+
+    @Select("select * from orders")
+    List<Map> listOrder();
+
+    @Select("select * from orders where channelid = #{channelid}")
+    List<Map> listOrderByChannel(@Param("channelid") String channelid);
+
+    @Select("select * from channel")
+    List<Map> listChannel();
+
 }
