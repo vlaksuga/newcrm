@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <style>
+        html, body, div, ul, ol, li {margin: 0; padding: 0; font-size: 12px;}
+        a, a:hover, a:link, a:visited, a:focus {text-decoration: none; color: inherit;}
+        ul {list-style: none;}
+
+        #app {margin: 0 auto; width: 100vw; height: 100vh; max-width: 360px; background-color:#141c1f; color: white;}
+        
+        header {height: 30px; display: flex; justify-content: space-between; align-items: center; padding: 8px;}
+        header .account_name {font-weight: 700;}
+        header i {font-size: 18px;}
+        
+        main .date_board {padding: 8px; font-weight: 700;}
+        main .date_board .date_distance {margin: 0 5px;}
+
+        main .total_board {background-color: #03bafc; display: flex; align-items: baseline; padding: 24px 8px;}
+        main .total_board .total {font-size: 36px; font-weight: 900;}
+        main .total_board .total_orders{font-size: 18px; font-weight: 900; margin-left: 4px;}
+        main .list_board {padding: 8px;}
+
+        main .list_board ul li {border-radius: 5px; background-color: white; color: black; padding: 8px; display: flex; justify-content: space-between; margin-bottom: 8px;}
+        main .list_board ul li.fail {background-color: #333333;}
+        main .list_board ul li.success {background-color: green;}
+        main .list_board ul li .state {font-weight: 700;}
+        main .list_board ul li .date {color: #aaaaaa;}
+
+        footer nav ul {display: flex; width: 100vw; height: 48px; background-color: black; position: fixed; bottom: 0; justify-content: space-around; align-items: center;}
+        footer nav ul li {font-size: 18px;}
+        
+        
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="account_name">로또리치</div>
+            <div class="option_dots"><a><i class="fas fa-ellipsis-h"></i></a></div>
+        </header>
+        <main>
+            <section class="date_board">
+                <span class="start_date">2020-03-10</span><span class="date_distance">~</span><span class="end_date">2020-03-18</span>
+            </section>
+            <section class="total_board"><span class="total">54</span><span class="total_orders">orders</span></section>
+            <section class="list_board">
+                <ul>
+                    <li>
+                        <span class="state">대기</span>
+                        <span class="date">2020-03-18,16:44:15</span>
+                    </li>
+                    <li class="fail">
+                        <span class="state">거절</span>
+                        <span class="date">2020-03-18,16:44:15</span>
+                    </li>
+                    <li class="success">
+                        <span class="state">결재</span>
+                        <span class="date">2020-03-18,16:44:15</span>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <footer>
+            <nav>
+                <ul>
+                    <li class="nav_list"><i class="fas fa-list-alt"></i></li>
+                    <li class="nav_orders"><i class="fas fa-users"></i></li>
+                    <li class="nav_stats"><i class="fas fa-chart-bar"></i></li>
+                    <li class="nav_mypage"><i class="fas fa-cog"></i></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+</body>
+
+</html>
