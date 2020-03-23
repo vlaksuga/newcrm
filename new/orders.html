@@ -23,10 +23,6 @@
         header i {font-size: 18px;}
         
 
-        main .total_board {background-color: #03bafc; display: flex; align-items: baseline; padding: 24px 8px;}
-        main .total_board .total {font-size: 36px; font-weight: 900;}
-        main .total_board .total_orders{font-size: 18px; font-weight: 900; margin-left: 4px;}
-
         main .order_board {padding: 8px;}
         main .order_board ul li {border-radius: 5px; background-color: white; color: black; padding: 12px 8px; display: flex; justify-content: space-between; margin-bottom: 8px; height: 70vh; overflow-y: auto;}
         main .order_board ul li .content_list {width: 100%;}
@@ -38,6 +34,8 @@
         main .order_board ul li .content_list .handler .handler_label {font-weight: 900; width: 30%; vertical-align: top;}
         main .order_board ul li .content_list .handler .handler_value {width: 70%;}
         main .order_board ul li .content_list textarea {width: 100%; height: 250px; margin-top: 8px; border: none; resize: none; font-size: 10px;}
+
+        main .buttons {display: flex; justify-content: space-around;}
 
 
         footer nav ul {display: flex; width: 320px; height: 48px; background-color: black; position: fixed; bottom: 0; justify-content: space-around; align-items: center;}
@@ -126,8 +124,27 @@
                 </ul>
             </section>
             <section class="buttons">
+                <a onclick="saveOrder();"><div class="save">저장</div></a>
+                <a onclick="deleteOrder();"><div class="del">삭제</div></a>
+            </section>
+            <script>
+                function saveOrder(){
+                    if(confirm('변경된 내용을 저장할까요?')){
+                        alert('저장하였습니다.');
+                    }else{
+                        alert('취소하였습니다.');
+                    };
+                }
 
-            </section>            
+                function deleteOrder(){
+                    if(prompt('"주문삭제확인"을 입력해주세요')=="주문삭제확인"){
+                        alert('삭제하였습니다');
+                    }else{
+                        alert('삭제하지 못했습니다.');
+                    }
+                    ;
+                }
+            </script>
         </main>
 
         <footer>
