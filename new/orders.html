@@ -86,7 +86,7 @@
 
         <script>
             $('.option_dots').on('click',function(){
-                $('#filter').fadeIn();
+                $('#filter').fadeIn(500);
             })
         </script>
 
@@ -145,7 +145,6 @@
                             </table>
                             <textarea placeholder="코멘트를 남겨주세요"></textarea>
                         </div>
-
                     </li>
                 </ul>
             </section>
@@ -157,19 +156,16 @@
                 function saveOrder(){
                     if(confirm('변경된 내용을 저장할까요?')){
                         alert('저장하였습니다.');
-                    }else{
-                        alert('취소하였습니다.');
-                    };
-                }
+                    }
+                };
 
                 function deleteOrder(){
                     if(prompt('"삭제확인"을 입력해주세요')=="삭제확인"){
                         alert('삭제하였습니다');
                     }else{
                         alert('삭제하지 못했습니다.');
-                    }
-                    ;
-                }
+                    };
+                };
             </script>
         </main>
 
