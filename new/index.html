@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=320,minimum-scale=1.0,maximum-scale=4.0,user-scalable=no">
     <meta name="keywords" content="">			
     <meta name="description" content="">		
@@ -12,10 +13,36 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />			
     <style>
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 22px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
         html, body, div, ul, ol, li {margin: 0; padding: 0; font-size: 12px;}
         a, a:hover, a:link, a:visited, a:focus {text-decoration: none; color: inherit;}
         ul {list-style: none;}
 
+
+        #loading {width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; align-items: center;}
         #app {margin: 0 auto; width: 100vw; height: 100vh; width: 320px; background-color:#141c1f; color: white;}
         
         header {height: 30px; display: flex; justify-content: space-between; align-items: center; padding: 8px;}
@@ -31,8 +58,8 @@
 
         main .list_board {padding: 8px;}
         main .list_board ul li {border-radius: 5px; background-color: white; color: black; padding: 12px 8px; display: flex; justify-content: space-between; margin-bottom: 8px;}
-        main .list_board ul li.fail {background-color: #333333;}
-        main .list_board ul li.success {background-color: green;}
+        main .list_board ul li.fail {background-color: #333333; color: white;}
+        main .list_board ul li.success {background-color: green; color: white;}
         main .list_board ul li .state {font-weight: 700;}
         main .list_board ul li .date {color: #aaaaaa;}
 
@@ -54,7 +81,10 @@
 
         #filter .state_option {margin-top: 4px;}
         #filter .state_option table {width: 100%; line-height: 24px; padding: 6px;}
-        #filter .state_option table td{width: 33.3%; height: 35px; text-align: center; background-color: lightpink; font-size: 12px; font-size: 900; border-radius: 5px;}
+        #filter .state_option table td{width: 33.3%; height: 35px; text-align: center;  font-size: 12px; font-size: 900; border-radius: 5px;}
+        #filter .state_option table td.normal {background-color: white; color: black; border: 1px solid black;}
+        #filter .state_option table td.fail {background-color: #333333; color: white; }
+        #filter .state_option table td.success {background-color: green; color: white; }
         
         #filter .confirm {position: absolute; right: 16px; bottom: 16px; text-align: center; padding: 4px 12px; }
         
@@ -63,12 +93,21 @@
 </head>
 
 <body>
+    <div id="loading">
+        <img src="img/Preloader_7.gif">
+    </div>
 
-    <div id="app">
+    <script>
+        $(document).ready(function() {
+            $('#loading').hide();
+            $('#app').fadeIn(500);
+        });
+    </script>
+    <div id="app" style="display: none;">
 
         <header>
             <div class="account_name">로또리치</div>
-            <div class="option_dots"><a><i class="fas fa-ellipsis-h"></i></a></div>
+            <div class="option_dots"><a><i class="material-icons">sort</i></a></div>
         </header>
 
         <script>
@@ -105,10 +144,10 @@
         <footer>
             <nav>
                 <ul>
-                    <li class="nav_list"><a href="index.html"><i class="fas fa-list-alt"></i></a></li>
-                    <li class="nav_orders"><i class="fas fa-users"></i></li>
-                    <li class="nav_stats"><i class="fas fa-chart-bar"></i></li>
-                    <li class="nav_mypage"><i class="fas fa-cog"></i></li>
+                    <li class="nav_list"><a href="index.html"><i class="material-icons">home</i></a></li>
+                    <li class="nav_orders"><a href="orders.html"><i class="material-icons">assignment</i></a></li>
+                    <li class="nav_stats"><i class="material-icons">pie_chart</i></li>
+                    <li class="nav_mypage"><i class="material-icons">settings</i></li>
                 </ul>
             </nav>
         </footer>
@@ -141,14 +180,14 @@
                 <section class="state_option">
                     <table>
                         <tr>
-                            <td><a>대기</a></td>
-                            <td><a>거절</a></td>
-                            <td><a>결재</a></td>
+                            <td class="normal"><a>대기</a></td>
+                            <td class="fail"><a>거절</a></td>
+                            <td class="success"><a>결재</a></td>
                         </tr>
                     </table>
                 </section>
                 <section class="confirm">
-                    <div class="apply">저장하고 닫기</div>
+                    <div class="apply">닫기</div>
                 </section>
             </div>
         </div>
