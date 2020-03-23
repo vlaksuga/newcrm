@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <meta name="viewport" content="width=320,minimum-scale=1.0,maximum-scale=4.0,user-scalable=no">
+    <meta name="keywords" content="">			
+    <meta name="description" content="">		
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />			
+    <style>
+        html, body, div, ul, ol, li {margin: 0; padding: 0; font-size: 12px;}
+        a, a:hover, a:link, a:visited, a:focus {text-decoration: none; color: inherit;}
+        ul {list-style: none;}
+
+        #app {margin: 0 auto; width: 100vw; height: 100vh; width: 320px; background-color:#141c1f; color: white;}
+        
+        header {height: 30px; display: flex; justify-content: space-between; align-items: center; padding: 8px;}
+        header .account_name {font-weight: 700;}
+        header i {font-size: 18px;}
+        
+
+        main .total_board {background-color: #03bafc; display: flex; align-items: baseline; padding: 24px 8px;}
+        main .total_board .total {font-size: 36px; font-weight: 900;}
+        main .total_board .total_orders{font-size: 18px; font-weight: 900; margin-left: 4px;}
+
+        main .order_board {padding: 8px;}
+        main .order_board ul li {border-radius: 5px; background-color: white; color: black; padding: 12px 8px; display: flex; justify-content: space-between; margin-bottom: 8px; height: 70vh; overflow-y: auto;}
+        main .order_board ul li .content_list {width: 100%;}
+        main .order_board ul li .content_list .income {line-height: 24px; border-bottom: 1px solid #eeeeee; width: 100%;}
+        main .order_board ul li .content_list .income .income_label {font-weight: 900; width: 30%; vertical-align: top;}
+        main .order_board ul li .content_list .income .income_value {width: 70%;}
+
+        main .order_board ul li .content_list .handler {line-height: 24px; border-bottom: 1px solid #eeeeee; width: 100%;}
+        main .order_board ul li .content_list .handler .handler_label {font-weight: 900; width: 30%; vertical-align: top;}
+        main .order_board ul li .content_list .handler .handler_value {width: 70%;}
+        main .order_board ul li .content_list textarea {width: 100%; height: 250px; margin-top: 8px; border: none; resize: none; font-size: 10px;}
+
+
+        footer nav ul {display: flex; width: 320px; height: 48px; background-color: black; position: fixed; bottom: 0; justify-content: space-around; align-items: center;}
+        footer nav ul li {font-size: 18px;}
+
+        #filter {position: fixed; top: 0; right: 0; width: 75vw; height: 100vh; background-color: rgba(0, 0, 0, 1); z-index: 2;}
+        #filter .fil_head {display: flex; justify-content: space-between; align-items: center; height: 30px; padding: 8px;}
+        #filter .date_option .selector .date{display: flex; justify-content: space-between; padding: 4px 8px;}
+        
+        
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <header>
+            <div class="account_name">로또리치</div>
+            <div class="option_dots"><a><i class="fas fa-ellipsis-h"></i></a></div>
+        </header>
+
+        <script>
+            $('.option_dots').on('click',function(){
+                $('#filter').fadeIn();
+            })
+        </script>
+
+        <main>
+            <section class="order_board">
+                <ul>
+                    <li>
+                        <div class="content_list">
+                            <table class="income">
+                                <tr>
+                                    <td class="income_label">입력시간</td>
+                                    <td class="income_value">2020-03-18, 16:46:45</td>
+                                </tr>
+                                <tr>
+                                    <td class="income_label">이름</td>
+                                    <td class="income_value">김태경</td>
+                                </tr>
+                                <tr>
+                                    <td class="income_label">연락처</td>
+                                    <td class="income_value">010-9947-3474</td>
+                                </tr>
+                                <tr>
+                                    <td class="income_label">경로</td>
+                                    <td class="income_value">1130</td>
+                                </tr>
+                            </table>
+                            <table class="handler">
+                                <tr>
+                                    <td class="handler_label">유효성</td>
+                                    <td class="handler_value">
+                                        <select>
+                                            <option value="1" selected>유효</option>
+                                            <option value="0">무효</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="handler_label">상태</td>
+                                    <td class="handler_value">
+                                        <select>
+                                            <option value="1" selected>대기</option>
+                                            <option value="2">거절</option>
+                                            <option value="3">완료</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="handler_label">중복</td>
+                                    <td class="handler_value">
+                                        <select>
+                                            <option value="1" selected>중복</option>
+                                            <option value="2">아님</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                            <textarea placeholder="코멘트를 남겨주세요"></textarea>
+                        </div>
+
+                    </li>
+                </ul>
+            </section>
+            <section class="buttons">
+
+            </section>            
+        </main>
+
+        <footer>
+            <nav>
+                <ul>
+                    <li class="nav_list"><a href="./index.html"><i class="fas fa-list-alt"></i></a></li>
+                    <li class="nav_orders"><a href="./orders.html"></a><i class="fas fa-users"></i></a></li>
+                    <li class="nav_stats"><i class="fas fa-chart-bar"></i></li>
+                    <li class="nav_mypage"><i class="fas fa-cog"></i></li>
+                </ul>
+            </nav>
+        </footer>
+
+        <div id="filter" style="display: none;">
+            <section class="fil_head">
+                <div class="title">FILTER</div>
+                <div class="close"><a><i class="fas fa-times"></i></a></div>
+            </section>
+            <section class="date_option">
+                <div class="selector">
+                    <div class="start date">
+                        <label>시작일</label><input type="date" value="2020-01-01">
+                    </div>
+                    <div class="end date">
+                        <label>종료일</label><input type="date" value="2020-03-20">
+                    </div>
+                </div>
+                <div class="shortcuts">
+                    <ul>
+                        <li>
+                            <div class="today">오늘</div>
+                        </li>
+                        <li>
+                            <div class="today">어제</div>
+                        </li>
+                        <li>
+                            <div class="today">7일전</div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="state_option">
+            </section>
+        </div>
+
+        <script>
+            $('.close').on('click',function(){
+                $('#filter').fadeOut();
+            })
+        </script>
+
+    </div>
+</body>
+
+</html>

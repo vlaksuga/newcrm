@@ -28,8 +28,8 @@
         main .total_board {background-color: #03bafc; display: flex; align-items: baseline; padding: 24px 8px;}
         main .total_board .total {font-size: 36px; font-weight: 900;}
         main .total_board .total_orders{font-size: 18px; font-weight: 900; margin-left: 4px;}
-        main .list_board {padding: 8px;}
 
+        main .list_board {padding: 8px;}
         main .list_board ul li {border-radius: 5px; background-color: white; color: black; padding: 12px 8px; display: flex; justify-content: space-between; margin-bottom: 8px;}
         main .list_board ul li.fail {background-color: #333333;}
         main .list_board ul li.success {background-color: green;}
@@ -69,7 +69,7 @@
             <section class="total_board"><span class="total">54</span><span class="total_orders">orders</span></section>
             <section class="list_board">
                 <ul>
-                    <li>
+                    <li class="normal">
                         <span class="state">대기</span>
                         <span class="date">2020-03-18,16:44:15</span>
                     </li>
@@ -114,6 +114,12 @@
                     <ul>
                         <li>
                             <div class="today">오늘</div>
+                        </li>
+                        <li>
+                            <div class="today">어제</div>
+                        </li>
+                        <li>
+                            <div class="today">7일전</div>
                         </li>
                     </ul>
                 </div>
