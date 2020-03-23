@@ -39,9 +39,24 @@
         footer nav ul {display: flex; width: 320px; height: 48px; background-color: black; position: fixed; bottom: 0; justify-content: space-around; align-items: center;}
         footer nav ul li {font-size: 18px;}
 
-        #filter {position: fixed; top: 0; right: 0; width: 75vw; height: 100vh; background-color: rgba(0, 0, 0, 1); z-index: 2;}
-        #filter .fil_head {display: flex; justify-content: space-between; align-items: center; height: 30px; padding: 8px;}
-        #filter .date_option .selector .date{display: flex; justify-content: space-between; padding: 4px 8px;}
+        #filter {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.8); z-index: 2;}
+        #filter .box {position: relative; margin: 100px auto; background-color:white; width: 95vw; height: 95vw; border-radius: 5px; color: black;}
+        #filter .fil_head {height: 30px; padding: 8px;}
+        #filter .fil_head .title {font-weight: 900;}
+
+        #filter .date_option .selector {display: flex; justify-content: space-around; align-items: center; }
+        #filter .date_option .selector .date{display: flex; justify-content: space-between; align-items: center; padding: 4px 8px;}
+        #filter .date_option .selector .date label {font-weight: 700;}
+        #filter .date_option .selector .date input {border: 1px solid #eeeeee;}
+        #filter .date_option .shortcuts {margin-top: 4px;}
+        #filter .date_option .shortcuts table {width: 100%; line-height: 24px; padding: 6px;}
+        #filter .date_option .shortcuts table td{width: 33.3%; height: 35px; text-align: center; border: 1px solid lightgrey; font-size: 10px; font-size: 900; border-radius: 5px;}
+
+        #filter .state_option {margin-top: 4px;}
+        #filter .state_option table {width: 100%; line-height: 24px; padding: 6px;}
+        #filter .state_option table td{width: 33.3%; height: 35px; text-align: center; background-color: lightpink; font-size: 12px; font-size: 900; border-radius: 5px;}
+        
+        #filter .confirm {position: absolute; right: 16px; bottom: 16px; text-align: center; padding: 4px 12px; }
         
         
     </style>
@@ -69,10 +84,12 @@
             <section class="total_board"><span class="total">54</span><span class="total_orders">orders</span></section>
             <section class="list_board">
                 <ul>
+                    <a href="./orders.html">
                     <li class="normal">
                         <span class="state">대기</span>
                         <span class="date">2020-03-18,16:44:15</span>
                     </li>
+                    </a>
                     <li class="fail">
                         <span class="state">거절</span>
                         <span class="date">2020-03-18,16:44:15</span>
@@ -88,7 +105,7 @@
         <footer>
             <nav>
                 <ul>
-                    <li class="nav_list"><i class="fas fa-list-alt"></i></li>
+                    <li class="nav_list"><a href="index.html"><i class="fas fa-list-alt"></i></a></li>
                     <li class="nav_orders"><i class="fas fa-users"></i></li>
                     <li class="nav_stats"><i class="fas fa-chart-bar"></i></li>
                     <li class="nav_mypage"><i class="fas fa-cog"></i></li>
@@ -96,40 +113,48 @@
             </nav>
         </footer>
 
-        <div id="filter" style="display: none;">
-            <section class="fil_head">
-                <div class="title">FILTER</div>
-                <div class="close"><a><i class="fas fa-times"></i></a></div>
-            </section>
-            <section class="date_option">
-                <div class="selector">
-                    <div class="start date">
-                        <label>시작일</label><input type="date" value="2020-01-01">
+        <!-- filter -->
+        <div id="filter" style="display:none">
+            <div class="box">
+                <section class="fil_head">
+                    <div class="title">FILTER</div>
+                </section>
+                <section class="date_option">
+                    <div class="selector">
+                            <input type="date" id="sdate" value="2020-01-01"><span>-</span><input type="date" id="edate" value="2020-03-20">
                     </div>
-                    <div class="end date">
-                        <label>종료일</label><input type="date" value="2020-03-20">
+                    <div class="shortcuts">
+                        <table>
+                            <tr>
+                                <td><a>오늘</a></td>
+                                <td><a>어제</a></td>
+                                <td><a>이번주</a></td>
+                            </tr>
+                            <tr>
+                                <td>최근7일</td>
+                                <td>이번달</td>
+                                <td>지난달</td>
+                            </tr>
+                        </table>
                     </div>
-                </div>
-                <div class="shortcuts">
-                    <ul>
-                        <li>
-                            <div class="today">오늘</div>
-                        </li>
-                        <li>
-                            <div class="today">어제</div>
-                        </li>
-                        <li>
-                            <div class="today">7일전</div>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <section class="state_option">
-            </section>
+                </section>
+                <section class="state_option">
+                    <table>
+                        <tr>
+                            <td><a>대기</a></td>
+                            <td><a>거절</a></td>
+                            <td><a>결재</a></td>
+                        </tr>
+                    </table>
+                </section>
+                <section class="confirm">
+                    <div class="apply">저장하고 닫기</div>
+                </section>
+            </div>
         </div>
 
         <script>
-            $('.close').on('click',function(){
+            $('.apply').on('click',function(){
                 $('#filter').fadeOut();
             })
         </script>
