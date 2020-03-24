@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta name="viewport" content="width=320,minimum-scale=1.0,maximum-scale=4.0,user-scalable=no">
+        <meta name="keywords" content="">			
+        <meta name="description" content="">		
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />			
+    </head>
+    <style>
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 22px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+    html, body, div, ul, ol, li {margin: 0; padding: 0; font-size: 12px;}
+    a, a:hover, a:link, a:visited, a:focus {text-decoration: none; color: inherit;}
+    ul {list-style: none;}
+
+
+    #loading {width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; align-items: center;}
+    #app {margin: 0 auto; width: 100vw; height: 100vh; width: 320px; background-color:#141c1f; color: white;}
+    
+    header {height: 30px; display: flex; justify-content: space-between; align-items: center; padding: 8px;}
+    header .account_name {font-weight: 700;}
+    header i {font-size: 18px;}
+    
+    main .date_board {padding: 8px; font-weight: 700;}
+    main .date_board .date_distance {margin: 0 5px;}
+
+    main .tab_board ul {overflow-x: auto; white-space: nowrap; padding: 8px;}
+    main .tab_board ul li {display: inline-block; padding-right: 8px;}
+
+    main .chart_board .option {background-color: #03bafc; width: 95vw; margin: 0 auto; display: flex; height: 30px; align-items: center; justify-content: space-around; margin-top: 10px;}
+    main .chart_board .option #year_month {font-size: 16px; font-weight: 900;}
+    main .chart_board .chart {background-color: white; color: black;margin: 0 auto; width: 95vw; height: 100%; margin-top: 10px;}
+    main .chart_board .chart #calendar_table {width: 100%; border: 1px solid black; text-align: center; border-collapse: collapse;}
+    main .chart_board .chart #calendar_table tr td {border: 1px solid #efefef; font-size: 8px; color: #aaaaaa; padding-bottom: 30px;}
+    main .chart_board .chart #calendar_table tr.ths td {font-size: unset; color: black;  padding-bottom: 0; line-height: 25px;}
+
+
+
+    footer nav ul {display: flex; width: 320px; height: 48px; background-color: black; position: fixed; bottom: 0; justify-content: space-around; align-items: center;}
+    footer nav ul li {font-size: 18px;}
+
+</style>
+    <body>
+        <div id="app">
+            <header>
+                <div class="account_name">로또리치</div>
+            </header>
+            <main>
+                <section class="date_board">
+                    <span class="start_date">2020-03-10</span><span class="date_distance">~</span><span class="end_date">2020-03-18</span>
+                </section>
+                <section class="tab_board">
+                    <ul>
+                        <li style="border-bottom: 2px solid red;">월별</li>
+                        <li>chart2</li>
+                        <li>chart3</li>
+                        <li>chart4</li>
+                        <li>chart5</li>
+                        <li>chart6</li>
+                        <li>chart7</li>
+                        <li>chart8</li>
+                    </ul>
+                </section>
+                <section class="chart_board">
+                    <div class="option">
+                        <div class="prev_month"><i class="material-icons">chevron_left</i></div>
+                        <div id="year_month"></div>
+                        <div class="next_month"><i class="material-icons">chevron_right</i></div>
+                    </div>
+
+                    <div class="chart" id="tab01">
+                        <table id="calendar_table">
+                            <tr class="ths">
+                                <td>일</td>
+                                <td>월</td>
+                                <td>화</td>
+                                <td>수</td>
+                                <td>목</td>
+                                <td>금</td>
+                                <td>토</td>
+                            </tr>
+                        </table>
+                        <script>
+                            let today = new Date();
+                            let todayYear = today.getFullYear();
+                            let todayMonth = today.getMonth() + 1;
+                            let today_yearMonth = todayYear + " - " + todayMonth;
+                            $('#year_month').append(today_yearMonth);
+                            
+                            let firstDate = new Date(today.getFullYear(), today.getMonth(),1);
+                            let lastDate = new Date(today.getFullYear(), today.getMonth()+1,0);
+                            let day = firstDate.getDay();
+                            let calendar = document.getElementById("calendar_table");
+                            let week = Math.ceil(lastDate.getDate()/7) + 1;
+                          
+                            
+                    
+                            function buildCalendar(){
+                                let leftDays = 7;
+                                let setDays = 1;
+                                for(i = 1; i < week; i++){
+                                    let row = calendar.insertRow();
+                                    while(day != 0){
+                                        row.insertCell().innerHTML = "";
+                                        day -= 1;
+                                        leftDays -= 1;
+                                    } 
+                                    let nextMonthDate = 1;
+                                    while(leftDays != 0){
+                                        if(setDays > lastDate.getDate()){
+                                            row.insertCell().innerHTML = nextMonthDate;
+                                            leftDays -= 1;
+                                            nextMonthDate += 1;
+                                        }else{
+                                            row.insertCell().innerHTML = setDays;
+                                            setDays +=1;
+                                            leftDays -= 1;
+                                        }
+                                    }
+                                    leftDays = 7;
+                                }
+                            }
+    
+                            buildCalendar();
+                    
+                        </script>
+                    </div>
+
+                </section>
+            </main>
+
+            <footer>
+                <nav>
+                    <ul>
+                        <li class="nav_list"><a href="index.html"><i class="material-icons">home</i></a></li>
+                        <li class="nav_orders"><a href="orders.html"><i class="material-icons">assignment</i></a></li>
+                        <li class="nav_stats"><i class="material-icons">pie_chart</i></li>
+                        <li class="nav_mypage"><i class="material-icons">settings</i></li>
+                    </ul>
+                </nav>
+            </footer>
+    
+    </div>
+    </body>
+</html>
