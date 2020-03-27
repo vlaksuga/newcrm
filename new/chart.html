@@ -330,6 +330,7 @@
                         </div>
                     </div>
                     <script>
+
                         $(function () {
 
                             $(".tablinks").on("click", function () {
@@ -351,9 +352,11 @@
                                 lastpkey = 9999999999999999999999;
                                 var bbb = $(this).data("d");
                                 $(".details").slideUp();
-                                if($(bbb).css("display","none")){
-                                    $(bbb).slideDown();             
+                                if($(bbb).css("display")=="none"){
+                                    $(bbb).slideDown();
+                                    return false;         
                                 }else{
+                                    $(bbb).slideUp();
                                     return false;
                                 }
                             });
