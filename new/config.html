@@ -56,6 +56,16 @@
     .config_list ul li {padding: 4px 8px;}
     .config_list ul li .box {border-radius: 2px; padding: 8px; background-color: white; color: black; font-weight: 900;}
 
+    main .chart_board .chart .player { margin: 8px 0; }
+    main .chart_board .chart .player .summary {border-radius: 5px; padding: 8px 0; display: flex; justify-content: space-between; align-items: center; width: 100%; background-color: white; color: black;}
+    main .chart_board .chart .player .summary .user {display: flex; justify-content: space-between; align-items: center; width: 30%; padding-left: 8px;}
+    main .chart_board .chart .player .summary .user .name {font-weight: 700;}
+    main .chart_board .chart .player .summary .total {padding-right: 8px;}
+    main .chart_board .chart .player .details {width: 100%; padding-top: 8px;}
+    main .chart_board .chart .player .details .states {display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 8px 0;}
+    main .chart_board .chart .player .details .states .title{padding-left: 8px;}
+    main .chart_board .chart .player .details .states .values {padding-right: 8px;}
+
 
     footer nav ul {display: flex; width: 320px; height: 48px; background-color: black; position: fixed; bottom: 0; justify-content: space-around; align-items: center;}
     footer nav ul li {font-size: 18px;}
@@ -70,7 +80,7 @@
             <main>
                 <section class="config_list">
                     <ul>
-                        <a onclick="javascript:alert('준비중');">
+                        <a href="./notice.html">
                             <li>
                                 <div class="box">
                                     <div class="title">공지사항</div>
