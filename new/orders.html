@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=320,minimum-scale=1.0,maximum-scale=4.0,user-scalable=no">
     <meta name="keywords" content="">			
@@ -82,7 +82,7 @@
     <div id="app">
 
         <header>
-            <div class="account_name">로또리치</div>
+            <div class="account_name">{{ account_name }}</div>
             <!-- <div class="option_dots"><a><i class="fas fa-ellipsis-h"></i></a></div> -->
         </header>
 
@@ -104,7 +104,7 @@
                                     <td class="income_value">2020-03-18, 16:46:45</td>
                                 </tr>
                                 <tr>
-                                    <td class="income_label">이름</td>
+                                    <td class="income_label">{{}}</td>
                                     <td class="income_value">김태경</td>
                                 </tr>
                                 <tr>
@@ -171,10 +171,12 @@
                     </li>
                 </ul>
             </section>
+
             <section class="buttons">
                 <a onclick="saveOrder();"><div class="save">저장</div></a>
                 <a onclick="deleteOrder();"><div class="del">삭제</div></a>
             </section>
+            
             <script>
                 function saveOrder(){
                     if(confirm('변경된 내용을 저장할까요?')){

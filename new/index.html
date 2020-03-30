@@ -4,41 +4,17 @@
 <head>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=320,minimum-scale=1.0,maximum-scale=4.0,user-scalable=no">
     <meta name="keywords" content="">			
     <meta name="description" content="">		
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />			
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />		
     <style>
-    .material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 22px;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1.4;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
+        .material-icons {font-family: 'Material Icons'; font-weight: normal; font-style: normal; font-size: 22px;  /* Preferred icon size */ display: inline-block; line-height: 1.4; text-transform: none; letter-spacing: normal; word-wrap: normal; white-space: nowrap; direction: ltr; /* Support for all WebKit browsers. */ -webkit-font-smoothing: antialiased; /* Support for Safari and Chrome. */ text-rendering: optimizeLegibility; /* Support for Firefox. */ -moz-osx-font-smoothing: grayscale; /* Support for IE. */ font-feature-settings: 'liga';}
 
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
-
-        
-}
         html {background-color:#222a35;}
         html, body, div, ul, ol, li {margin: 0; padding: 0; font-size: 12px;}
         a, a:hover, a:link, a:visited, a:focus {text-decoration: none; color: inherit;}
@@ -49,12 +25,12 @@
         #app {margin: 0 auto; width: 100vw; height: 100vh; width: 320px; color: white;}
         
         header {height: 40px; display: flex; justify-content: space-between; align-items: center; padding:0; position: fixed; top:0; left: 0; width: 320px; background-color: #222a35;}
-        header .account_name {font-weight: 700; padding-left: 14px; font-size: 14px;}
+        header .shop_name {font-weight: 700; padding-left: 14px; font-size: 14px;}
         header i {font-size: 18px; padding-right: 8px;}
 
         main {padding-top: 40px;}
         
-        main .date_board {padding: 8px; font-weight: 700;}
+        main .date_board {padding: 12px; font-weight: 700;}
         main .date_board .date_distance {margin: 0 5px;}
 
         main .screen_board .total_board {background-color: #03bafc; display: flex; align-items: baseline; padding: 24px 8px;}
@@ -102,144 +78,38 @@
 </head>
 
 <body>
-    <div id="loading">
-        <img src="img/Preloader_7.gif">
-    </div>
-
-    <script>
-        $(document).ready(function() {
-            $('#loading').hide();
-            $('#app').fadeIn(500);
-        });
-    </script>
-    <div id="app" style="display: none;">
+   
+    <div id="app">
 
         <header>
-            <div class="account_name">로또리치</div>
-            <div class="option_dots"><a><i class="material-icons">more_horiz</i></a></div>
+            <div class="shop_name">{{ shop_name }}</div>
+            <div class="option_dots"><i class="material-icons">more_horiz</i></div>
         </header>
-
-        <script>
-            $('.option_dots').on('click',function(){
-                $('#filter').fadeIn();
-            })
-        </script>
 
         <main>
             <section class="date_board">
-                <span class="start_date">2020-03-10</span><span class="date_distance">~</span><span class="end_date">2020-03-18</span>
+                <span class="start_date">{{ start_date }}</span>
+                <span class="date_distance">~</span>
+                <span class="end_date">{{ end_date }}</span>
+
             </section>
+
             <section class="screen_board">
                 <ul>
                     <li class="total_board">
-                        <span class="total">54</span><span class="total_orders">orders</span>
+                        <span class="total" id="total_order">{{ total_order }}</span><span class="total_orders">orders</span>
                     </li>
                 </ul>
             </section>
+
             <section class="list_board">
                 <ul>
-                    <a href="./orders.html">
-                        <li class="normal">
-                            <span class="state">대기</span>
-                            <span class="date">2020-03-18,16:44:15</span>
+                    <a v-bind:href="order_link">
+                        <li v-bind:class="state_class">
+                            <span class="state">{{ state_name }}</span>
+                            <span class="date">{{ order_date }}</span>
                         </li>
                     </a>
-                    <a href="./orders.html">
-                        <li class="normal">
-                            <span class="state">대기</span>
-                            <span class="date">2020-03-18,16:44:15</span>
-                        </li>
-                    </a>
-                    <a href="./orders.html">
-                        <li class="normal">
-                            <span class="state">대기</span>
-                            <span class="date">2020-03-18,16:44:15</span>
-                        </li>
-                    </a>
-                    <a href="./orders.html">
-                        <li class="normal">
-                            <span class="state">대기</span>
-                            <span class="date">2020-03-18,16:44:15</span>
-                        </li>
-                    </a>
-                    <li class="fail">
-                        <span class="state">거절</span>
-                        <span class="date">2020-03-18,16:44:15</span>
-                    </li>
-                    <li class="success">
-                        <span class="state">결재</span>
-                        <span class="date">2020-03-18,16:44:15</span>
-                    </li>
-                    <a href="./orders.html">
-                        <li class="normal">
-                            <span class="state">대기</span>
-                            <span class="date">2020-03-18,16:44:15</span>
-                        </li>
-                    </a>
-                    <li class="fail">
-                        <span class="state">거절</span>
-                        <span class="date">2020-03-18,16:44:15</span>
-                    </li>
-                    <li class="success">
-                        <span class="state">결재</span>
-                        <span class="date">2020-03-18,16:44:15</span>
-                    </li>
-                    <a href="./orders.html">
-                        <li class="normal">
-                            <span class="state">대기</span>
-                            <span class="date">2020-03-18,16:44:15</span>
-                        </li>
-                    </a>
-                    <li class="fail">
-                        <span class="state">거절</span>
-                        <span class="date">2020-03-18,16:44:15</span>
-                    </li>
-                    <li class="success">
-                        <span class="state">결재</span>
-                        <span class="date">2020-03-18,16:44:15</span>
-                    </li>
-                    <a href="./orders.html">
-                        <li class="normal">
-                            <span class="state">대기</span>
-                            <span class="date">2020-03-18,16:44:15</span>
-                        </li>
-                    </a>
-                    <li class="fail">
-                        <span class="state">거절</span>
-                        <span class="date">2020-03-18,16:44:15</span>
-                    </li>
-                    <li class="success">
-                        <span class="state">결재</span>
-                        <span class="date">2020-03-18,16:44:15</span>
-                    </li>
-                    <a href="./orders.html">
-                        <li class="normal">
-                            <span class="state">대기</span>
-                            <span class="date">2020-03-18,16:44:15</span>
-                        </li>
-                    </a>
-                    <li class="fail">
-                        <span class="state">거절</span>
-                        <span class="date">2020-03-18,16:44:15</span>
-                    </li>
-                    <li class="success">
-                        <span class="state">결재</span>
-                        <span class="date">2020-03-18,16:44:15</span>
-                    </li>
-                    <a href="./orders.html">
-                        <li class="normal">
-                            <span class="state">대기</span>
-                            <span class="date">2020-03-18,16:44:15</span>
-                        </li>
-                    </a>
-                    <li class="fail">
-                        <span class="state">거절</span>
-                        <span class="date">2020-03-18,16:44:15</span>
-                    </li>
-                    <li class="success">
-                        <span class="state">결재</span>
-                        <span class="date">2020-03-18,16:44:15</span>
-                    </li>
                 </ul>
             </section>
         </main>
@@ -256,14 +126,14 @@
         </footer>
 
         <!-- filter -->
-        <div id="filter" style="display:none">
+        <div id="filter" style="display: none;">
             <div class="box">
                 <section class="fil_head">
                     <div class="title">FILTER</div>
                 </section>
                 <section class="date_option">
                     <div class="selector">
-                        <input type="date" id="sdate" value="2020-01-01"><span>-</span><input type="date" id="edate" value="2020-03-20">
+                        <input type="date" id="sdate" v-model="start_date" value="2020-01-01"><span>-</span><input type="date" id="edate" v-model="end_date">
                     </div>
 
                     <div class="shortcuts">
@@ -295,14 +165,36 @@
                 </section>
             </div>
         </div>
-
-        <script>
-            $('.apply').on('click',function(){
-                $('#filter').fadeOut();
-            })
-        </script>
-
     </div>
+    
+    <script>
+        /* STATIC */
+        
+        var ordercnt = 54;
+        var OBJ = {"Pid":1, "shop_name":"로또리치", "state_class":"normal", "state_name":"대기", "order_date":"2020-03-12, 16:12:22"}
+        /* VUE */
+        var app = new Vue({
+            el : '#app',
+            data : {
+                shop_name : OBJ.shop_name,
+                start_date : '2020-03-01',
+                end_date : '2020-03-30',
+                total_order : ordercnt,
+                state_class : OBJ.state_class,
+                state_name : OBJ.state_name,
+                order_link : './orders.html?Pid=' + OBJ.Pid,
+                order_date : OBJ.order_date
+            }
+        })
+
+        $('.option_dots').on('click', function(){
+            $('#filter').fadeIn();
+        })
+
+        $('.apply').on('click', function(){
+            $('#filter').fadeOut();
+        })
+    </script>
 </body>
 
 </html>

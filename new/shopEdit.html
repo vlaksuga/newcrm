@@ -90,6 +90,18 @@
     main .shop_list .tab#sh02 .list .precontent {width: 95%; margin: 0 auto; font-size: 10px; font-family: inherit; font-weight: 700; white-space: normal; line-height: 2; border: none; height: 90%; resize: none; background-color: transparent; padding-left: 8px;}
     main .shop_list .tab#sh02 .list .precontent:focus {outline: none;}
 
+
+    main .shop_list .tab#sh03 .list { margin: 8px auto 16px; width: 95vw;}
+    main .shop_list .tab#sh03 .list .list_title {margin-bottom: 8px; font-weight: 900;}
+    main .shop_list .tab#sh03 .list .summary {border-radius: 5px; padding: 8px 0; display: flex; justify-content: space-between; align-items: center; width: 100%; background-color: white; color: black;}
+    main .shop_list .tab#sh03 .list .summary .box {align-items: center; padding-left: 8px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; width: 100%;}
+    main .shop_list .tab#sh03 .list .summary .box .title {font-weight: 900; font-size: 10px; width: 100%; border: none;}
+    main .shop_list .tab#sh03 .list .summary .box .title:focus {outline: none;}
+    main .shop_list .tab#sh03 .list .summary .edit {padding-right: 8px; color: #aaaaaa; font-size: 10px;}
+    main .shop_list .tab#sh03 .list .details {width: 100%; padding-top: 8px; background-color: white; border-radius: 5px; margin-top: 8px; height: 100px;}
+    main .shop_list .tab#sh03 .list .precontent {width: 95%; margin: 0 auto; font-size: 10px; font-family: inherit; font-weight: 700; white-space: normal; line-height: 2; border: none; height: 90%; resize: none; background-color: transparent; padding-left: 8px;}
+    main .shop_list .tab#sh03 .list .precontent:focus {outline: none;}
+
     #add_column {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.8); z-index: 2;}
     #add_column .box {position: relative; margin: 100px auto; background-color:white; width: 95vw; height: 50vw; border-radius: 5px; color: black;}
     #add_column .col_head {height: 30px; padding: 8px;}
@@ -104,7 +116,7 @@
             <header>
                 <div class="title_box">
                     <div class="icon"><a href="javascript:history.back();"><i class="material-icons">navigate_before</i></a></div>
-                    <div class="title">SHOP EDITOR</div>
+                    <div class="title">주문설정</div>
                 </div>
                 <div class="save"><a onclick="saveChange()">저장하기</a></div>
             </header>
@@ -114,6 +126,7 @@
                     <ul>
                         <li class="tablinks active" data-s="#sh01">기본설정</li>
                         <li class="tablinks" data-s="#sh02">컬럼설정</li>
+                        <li class="tablinks" data-s="#sh03">중복설정</li>
                     </ul>
                 </section>
 
@@ -233,6 +246,42 @@
 
                         </div>
                     </div>
+
+                    <div class="tab" id="sh03" style="display: none;">
+                    
+                        <div class="list">
+                            <div class="list_title">
+                                <span>중복대상</span>
+                            </div>
+                    
+                            <div class="summary">
+                                <div class="box">
+                                    <ul>
+                                        <li><input type="checkbox">이름</li>
+                                        <li><input type="checkbox">전화번호</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="list">
+                            <div class="list_title">
+                                <span>중복처리</span>
+                            </div>
+
+                            <div class="summary">
+                                <div class="box">
+                                    <select>
+                                        <option>자동삭제</option>
+                                        <option>노출</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    
+                    </div>
+
                 </section>
 
                 <script>
