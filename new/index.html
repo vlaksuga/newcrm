@@ -80,39 +80,41 @@
 <body>
    
     <div id="app">
-
-        <header>
+    
+        <header id="header">
             <div class="shop_name">{{ shop_name }}</div>
             <div class="option_dots"><i class="material-icons">more_horiz</i></div>
         </header>
-
+    
         <main>
             <section class="date_board">
                 <span class="start_date">{{ start_date }}</span>
-                <span class="date_distance">~</span>
+                <span class="date_distance">/</span>
                 <span class="end_date">{{ end_date }}</span>
-
+    
             </section>
-
+    
             <section class="screen_board">
                 <ul>
                     <li class="total_board">
-                        <span class="total" id="total_order">{{ total_order }}</span><span class="total_orders">orders</span>
+                        <span class="total">{{ total_order }}</span><span class="total_orders">orders</span>
                     </li>
                 </ul>
             </section>
 
             <section class="list_board">
                 <ul>
-                    <a v-bind:href="order_link">
-                        <li v-bind:class="state_class">
-                            <span class="state">{{ state_name }}</span>
-                            <span class="date">{{ order_date }}</span>
+                    <a v-for="order in orders" v-bind:href="'./orders.html?pid=' + order.pid">
+                        <li v-bind:class="order.state_class">
+                            <span class="state">{{ order.state_name }}</span>
+                            <span class="date">{{ order.REGDATE }}</span>
                         </li>
                     </a>
                 </ul>
             </section>
+
         </main>
+
 
         <footer>
             <nav>
@@ -124,6 +126,7 @@
                 </ul>
             </nav>
         </footer>
+
 
         <!-- filter -->
         <div id="filter" style="display: none;">
@@ -165,25 +168,59 @@
                 </section>
             </div>
         </div>
-    </div>
-    
-    <script>
-        /* STATIC */
         
+    </div>
+
+    <script>
+        /* date */
+        var initDate = new Date();
+        var todayYear = initDate.getFullYear();
+        var todayMonth = ("0"+(initDate.getMonth() + 1)).slice(-2);
+        var todayDate = ("0"+(initDate.getDate())).slice(-2);
+        var today = todayYear + "-" + todayMonth + "-" + todayDate;
+        var firstMonthday = todayYear + "-" + todayMonth + "-01"
+
+        /* data */
+        let currentUser = {shopname:"로또리치"}
+        let selectedOrders = [
+            {pid: "1", state_name: "대기", state_class: "normal", REGDATE: "2020-03-26, 16:34:23"},
+            {pid: "2", state_name: "거절", state_class: "fail", REGDATE: "2020-03-26, 16:34:23"},
+            {pid: "3", state_name: "완료", state_class: "success", REGDATE: "2020-03-26, 16:34:23"},
+            {pid: "4", state_name: "재통화", state_class: "normal", REGDATE: "2020-03-26, 16:34:23"}
+        ];
+
+        
+
         var ordercnt = 54;
-        var OBJ = {"Pid":1, "shop_name":"로또리치", "state_class":"normal", "state_name":"대기", "order_date":"2020-03-12, 16:12:22"}
-        /* VUE */
-        var app = new Vue({
-            el : '#app',
+
+        /* VUE instances*/
+
+        new Vue({
+            el : '#header',
             data : {
-                shop_name : OBJ.shop_name,
-                start_date : '2020-03-01',
-                end_date : '2020-03-30',
-                total_order : ordercnt,
-                state_class : OBJ.state_class,
-                state_name : OBJ.state_name,
-                order_link : './orders.html?Pid=' + OBJ.Pid,
-                order_date : OBJ.order_date
+                shop_name : currentUser.shopname                
+            }
+        })
+
+        new Vue({
+            el : '.date_board',
+            data : {
+                start_date : firstMonthday,
+                end_date : today
+            }
+        })
+
+        new Vue({
+            el : '.total_board',
+            data : {
+                total_order : selectedOrders.length
+            }
+        })
+
+        new Vue({
+            el : '.list_board',
+            data : {
+                orders : selectedOrders
             }
         })
 

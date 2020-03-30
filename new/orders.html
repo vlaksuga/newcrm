@@ -46,16 +46,16 @@
         #app {margin: 0 auto; width: 100vw; height: 100vh; width: 320px; color: white;}
         
         header {height: 30px; display: flex; justify-content: space-between; align-items: center; padding: 8px;}
-        header .account_name {font-weight: 700; padding-left: 6px; font-size: 14px;}
+        header .shop_name {font-weight: 700; padding-left: 6px; font-size: 14px;}
         header i {font-size: 18px;}
         
 
         main .order_board {padding: 8px;}
         main .order_board ul li {border-radius: 5px; background-color: white; color: black; padding: 12px 8px; display: flex; justify-content: space-between; margin-bottom: 8px; height: 70vh; overflow-y: auto;}
         main .order_board ul li .content_list {width: 100%;}
-        main .order_board ul li .content_list .income {line-height: 24px; border-bottom: 1px solid #eeeeee; width: 100%;}
-        main .order_board ul li .content_list .income .income_label {font-weight: 900; width: 30%; vertical-align: top;}
-        main .order_board ul li .content_list .income .income_value {width: 70%;}
+        main .order_board ul li .content_list .order {line-height: 24px; border-bottom: 1px solid #eeeeee; width: 100%;}
+        main .order_board ul li .content_list .order .order_label {font-weight: 900; width: 30%; vertical-align: top;}
+        main .order_board ul li .content_list .order .order_value {width: 70%;}
 
         main .order_board ul li .content_list .handler {line-height: 24px; border-bottom: 1px solid #eeeeee; width: 100%;}
         main .order_board ul li .content_list .handler .handler_label {font-weight: 900; width: 30%; vertical-align: top;}
@@ -82,15 +82,8 @@
     <div id="app">
 
         <header>
-            <div class="account_name">{{ account_name }}</div>
-            <!-- <div class="option_dots"><a><i class="fas fa-ellipsis-h"></i></a></div> -->
+            <div class="shop_name">{{ shop_name }}</div>
         </header>
-
-        <script>
-            $('.option_dots').on('click',function(){
-                $('#filter').fadeIn(500);
-            })
-        </script>
 
         <main>
             <section class="order_board">
@@ -98,31 +91,21 @@
                     <li>
                         <div class="content_list">
 
-                            <table class="income">
-                                <tr>
-                                    <td class="income_label">입력시간</td>
-                                    <td class="income_value">2020-03-18, 16:46:45</td>
-                                </tr>
-                                <tr>
-                                    <td class="income_label">{{}}</td>
-                                    <td class="income_value">김태경</td>
-                                </tr>
-                                <tr>
-                                    <td class="income_label">연락처</td>
-                                    <td class="income_value">010-9947-3474</td>
-                                </tr>
-                                <tr>
-                                    <td class="income_label">경로</td>
-                                    <td class="income_value">1130</td>
-                                </tr>
+                            <table class="order" id="order_table">
+                                <tbody>
+                                    <tr v-for="item in items">
+                                        <td class="order_label">{{item.label}}</td>
+                                        <td class="order_value">{{item.value}}</td>
+                                    </tr>
+                                </tbody>
                             </table>
 
-                            <table class="handler">
+                            <table class="handler" id="handler_table">
                                 <tr>
                                     <td class="handler_label">유효성</td>
                                     <td class="handler_value">
                                         <select>
-                                            <option value="1" selected>유효</option>
+                                            <option value="1">유효</option>
                                             <option value="0">무효</option>
                                         </select>
                                     </td>
@@ -141,8 +124,8 @@
                                     <td class="handler_value">
                                         <select>
                                             <option value="0" selected>ALL</option>
-                                            <option value="1">PLAYER1</option>
-                                            <option value="2">PLAYER2</option>
+                                            <option value="PLAYER1">PLAYER1</option>
+                                            <option value="PLAYER2">PLAYER2</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -166,7 +149,8 @@
                                     </td>
                                 </tr>
                             </table>
-                            <textarea placeholder="코멘트를 남겨주세요"></textarea>
+                            
+                            <textarea placeholder="COMMENTS..."></textarea>
                         </div>
                     </li>
                 </ul>
@@ -178,19 +162,7 @@
             </section>
             
             <script>
-                function saveOrder(){
-                    if(confirm('변경된 내용을 저장할까요?')){
-                        alert('저장하였습니다.');
-                    }
-                };
 
-                function deleteOrder(){
-                    if(prompt('"삭제확인"을 입력해주세요')=="삭제확인"){
-                        alert('삭제하였습니다');
-                    }else{
-                        alert('삭제하지 못했습니다.');
-                    };
-                };
             </script>
         </main>
 
@@ -205,42 +177,44 @@
             </nav>
         </footer>
 
-        <div id="filter" style="display: none;">
-            <section class="fil_head">
-                <div class="title">FILTER</div>
-                <div class="close"><a><i class="fas fa-times"></i></a></div>
-            </section>
-            <section class="date_option">
-                <div class="selector">
-                    <div class="start date">
-                        <label>시작일</label><input type="date" value="2020-01-01">
-                    </div>
-                    <div class="end date">
-                        <label>종료일</label><input type="date" value="2020-03-20">
-                    </div>
-                </div>
-                <div class="shortcuts">
-                    <ul>
-                        <li>
-                            <div class="today">오늘</div>
-                        </li>
-                        <li>
-                            <div class="today">어제</div>
-                        </li>
-                        <li>
-                            <div class="today">7일전</div>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <section class="state_option">
-            </section>
-        </div>
 
         <script>
-            $('.close').on('click',function(){
-                $('#filter').fadeOut();
-            })
+
+            var currentShopName = "로또리치";
+
+            var currentOrder = [
+                {label:"DATE", value:"2020-03-30, 12:22:42", wname:"REGDATE"},
+                {label:"이름", value: "김태경", wname:"NAME"},
+                {label:"연락처", value: "01099473474", wname:"PHONE"}
+            ];
+
+            var shopName = new Vue({
+                el: '.shop_name',
+                data: {
+                    shop_name: currentShopName
+                }
+            });
+
+            var orderTable = new Vue({
+                el: '#order_table',
+                data: {
+                    items: currentOrder
+                }
+            });
+
+            function saveOrder() {
+                if (confirm('변경된 내용을 저장할까요?')) {
+                    alert('저장하였습니다.');
+                }
+            };
+
+            function deleteOrder() {
+                if (prompt('"삭제확인"을 입력해주세요') == "삭제확인") {
+                    alert('삭제하였습니다');
+                } else {
+                    alert('삭제하지 못했습니다.');
+                };
+            };
         </script>
 
     </div>
