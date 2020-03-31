@@ -224,6 +224,7 @@
         var selectedStartDate = firstMonthday;
         var selectedEndDate = todayNow;
 
+        /* datas  */
         let currentUser = { shopname: "로또리치" }
         let selectedPlayersOrders = [
             { username: "김태경", userid: "tekiteki", state_normal_cnt: 24, state_fail_cnt: 22, state_success_cnt: 7 },
@@ -325,7 +326,7 @@
                 cell.innerHTML = i;
                 cnt = cnt + 1;
                 if (cnt % 7 == 1) {
-                    cell.innerHTML = "<font color=#FF9090>" + i
+                    cell.innerHTML = "<font color=#FF9090>" + i;
                 }
                 if (cnt % 7 == 0) {
                     cell.innerHTML = "<font color=#7ED5E4>" + i

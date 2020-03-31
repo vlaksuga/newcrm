@@ -52,7 +52,8 @@
 
         main .order_board {padding: 8px;}
         main .order_board ul li {border-radius: 5px; background-color: white; color: black; padding: 12px 8px; display: flex; justify-content: space-between; margin-bottom: 8px; height: 70vh; overflow-y: auto;}
-        main .order_board ul li .content_list {width: 100%;}
+        main .order_board ul li .content_list {width: 100%; padding: 8px;}
+        main .order_board ul li .content_list .order_nav {display: flex; width: 100%; justify-content: space-between; align-items: center; padding-bottom: 8px;}
         main .order_board ul li .content_list .order {line-height: 24px; border-bottom: 1px solid #eeeeee; width: 100%;}
         main .order_board ul li .content_list .order .order_label {font-weight: 900; width: 30%; vertical-align: top;}
         main .order_board ul li .content_list .order .order_value {width: 70%;}
@@ -61,9 +62,9 @@
         main .order_board ul li .content_list .handler .handler_label {font-weight: 900; width: 30%; vertical-align: top;}
         main .order_board ul li .content_list .handler .handler_value {width: 70%;}
         main .order_board ul li .content_list .handler .handler_value select {width: 60%; border: none; border-bottom: 1px solid #efefef;}
-        main .order_board ul li .content_list textarea {width: 100%; height: 250px; margin-top: 8px; border: none; resize: none; font-size: 10px;}
+        main .order_board ul li .content_list textarea {width: 98%; height: 150px; margin-top: 8px; border: 1px solid #777777; resize: none; font-size: 10px;}
 
-        main .buttons {display: flex; justify-content: space-around;}
+        main .buttons {display: flex; justify-content: space-around; position: fixed; bottom: 75px; width: 100%;}
 
 
         footer nav ul {display: flex; width: 320px; height: 48px; background-color: black; position: fixed; bottom: 0; justify-content: space-around; align-items: center;}
@@ -86,12 +87,15 @@
         </header>
 
         <main>
-            <section class="order_board">
+            <section class="order_board" id="order_table">
                 <ul>
                     <li>
                         <div class="content_list">
+                            <div class="order_nav">
+                                <i class="material-icons"><a @click="prevorder">arrow_left</a></i> <i class="material-icons"><a @click="nextorder">arrow_right</a></i>
+                            </div>
 
-                            <table class="order" id="order_table">
+                            <table class="order">
                                 <tbody>
                                     <tr v-for="item in items">
                                         <td class="order_label">{{item.label}}</td>
@@ -182,10 +186,25 @@
 
             var currentShopName = "로또리치";
 
-            var currentOrder = [
+            let currentOrderSet = [
                 {label:"DATE", value:"2020-03-30, 12:22:42", wname:"REGDATE"},
                 {label:"이름", value: "김태경", wname:"NAME"},
-                {label:"연락처", value: "01099473474", wname:"PHONE"}
+                {label:"연락처", value: "01099473474", wname:"PHONE"},
+                {label:"기타", value: "등등", wname:"ETC"}
+            ];
+
+            let prevOrderSet = [
+                {label:"DATE", value:"2020-03-29, 12:22:42", wname:"REGDATE"},
+                {label:"이름", value: "전태경", wname:"NAME"},
+                {label:"연락처", value: "454545454", wname:"PHONE"},
+                {label:"기타", value: "치기", wname:"ETC"}
+            ];
+
+            let nextOrderSet = [
+                {label:"DATE", value:"2020-03-31, 12:22:42", wname:"REGDATE"},
+                {label:"이름", value: "경경경", wname:"NAME"},
+                {label:"연락처", value: "4123123123", wname:"PHONE"},
+                {label:"기타", value: "치기", wname:"ETC"}
             ];
 
             var shopName = new Vue({
@@ -198,9 +217,18 @@
             var orderTable = new Vue({
                 el: '#order_table',
                 data: {
-                    items: currentOrder
+                    items: currentOrderSet
+                },
+                methods : {
+                    prevorder : function() {
+                        this.items = prevOrderSet;
+                    },
+                    nextorder : function() {
+                        this.items = nextOrderSet;
+                    }
                 }
             });
+
 
             function saveOrder() {
                 if (confirm('변경된 내용을 저장할까요?')) {
