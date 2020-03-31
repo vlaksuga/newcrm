@@ -208,7 +208,8 @@
                         {label: "이름", wname : "NAME"},
                         {label: "연락처", wname : "PHONE"},
                         {label: "기타", wname : "ETC"}
-                    ]
+                    ],
+                    shopstate : "ok"
                 }                       
 
             var shopName = new Vue({
@@ -340,18 +341,19 @@
                 }
             });
 
-            function getCurrent () {
-                var g_aval = $('#data_aval').value;
-                var g_pickable = $('#data_pickable').value;
-                var g_pickplayerpid = $('#data_pickplayerpid').value;
-                var g_state = $('#data_state').value;
-                var g_overlap = $('#data_overlap').value;
-            }
+            
 
             function saveOrder() {
                 if (confirm('변경된 내용을 저장할까요?')) {
-                    alert(currentcolset);
-                }
+                    let g_aval = $('#data_aval').val();
+                    let g_pickable = $('#data_pickable').val();
+                    let g_pickplayerpid = $('#data_pickplayerpid').val();
+                    let g_state = $('#data_state').val();
+                    let g_overlap = $('#data_overlap').val();
+                    let g_comment = $('#data_comment').val();
+                    var g_set = [g_aval, g_pickable, g_pickplayerpid, g_state, g_state, g_overlap, g_comment];
+                    alert(g_set);
+                    }
             };
 
             function deleteOrder() {

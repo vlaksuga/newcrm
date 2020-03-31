@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=320,minimum-scale=1.0,maximum-scale=4.0,user-scalable=no">
@@ -81,11 +81,8 @@
    
     <div id="app">
     
-        <header id="header">
-            <div class="shop_name">{{ shop_name }}</div>
-            <div class="option_dots"><i class="material-icons">more_horiz</i></div>
-        </header>
-    
+        <header></header>
+
         <main>
             <section class="date_board">
                 <span class="start_date">{{ start_date }}</span>
@@ -116,16 +113,8 @@
         </main>
 
 
-        <footer>
-            <nav>
-                <ul>
-                    <li class="nav_list"><a href="index.html"><i class="material-icons">home</i></a></li>
-                    <li class="nav_orders"><a href="orders.html"><i class="material-icons">assignment</i></a></li>
-                    <li class="nav_stats"><a href="chart.html"><i class="material-icons">pie_chart</i></a></li>
-                    <li class="nav_mypage"><a href="config.html"><i class="material-icons">settings</i></a></li>
-                </ul>
-            </nav>
-        </footer>
+        <footer></footer>
+
 
 
         <!-- filter -->
@@ -172,6 +161,9 @@
     </div>
 
     <script>
+        $('header').load('tile/header.html');
+        $('footer').load('tile/footer.html');
+
         /* date */
         var initDate = new Date();
         var todayYear = initDate.getFullYear();
@@ -194,7 +186,7 @@
         /* VUE instances*/
 
         new Vue({
-            el : '#header',
+            el : 'header',
             data : {
                 shop_name : currentUser.shopname                
             }
@@ -229,6 +221,8 @@
         $('.apply').on('click', function(){
             $('#filter').fadeOut();
         })
+
+
     </script>
 </body>
 
