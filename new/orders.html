@@ -97,9 +97,9 @@
 
                             <table class="order">
                                 <tbody>
-                                    <tr v-for="item in items">
-                                        <td class="order_label">{{item.label}}</td>
-                                        <td class="order_value">{{item.value}}</td>
+                                    <tr v-for="list in colset">
+                                        <td class="order_label">{{list.label}}</td>
+                                        <td class="order_value">{{list.value}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -108,7 +108,7 @@
                                 <tr>
                                     <td class="handler_label">유효성</td>
                                     <td class="handler_value">
-                                        <select>
+                                        <select v-bind:value="handler.aval" id="data_aval">
                                             <option value="1">유효</option>
                                             <option value="0">무효</option>
                                         </select>
@@ -117,8 +117,8 @@
                                 <tr>
                                     <td class="handler_label">분배설정</td>
                                     <td class="handler_value">
-                                        <select>
-                                            <option value="1" selected>OPEN</option>
+                                        <select v-bind:value="handler.pickable" id="data_pickable">
+                                            <option value="1">OPEN</option>
                                             <option value="0">CLOSE</option>
                                         </select>
                                     </td>
@@ -126,18 +126,17 @@
                                 <tr>
                                     <td class="handler_label">담당자</td>
                                     <td class="handler_value">
-                                        <select>
-                                            <option value="0" selected>ALL</option>
-                                            <option value="PLAYER1">PLAYER1</option>
-                                            <option value="PLAYER2">PLAYER2</option>
+                                        <select v-bind:value="handler.pickplayerpid" id="data_pickplayerpid">
+                                            <option value="1">PLAYER1</option>
+                                            <option value="2">PLAYER2</option>
                                         </select>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="handler_label">처리상태</td>
                                     <td class="handler_value">
-                                        <select>
-                                            <option value="1" selected>대기</option>
+                                        <select v-bind:value="handler.state" id="data_state">
+                                            <option value="1">대기</option>
                                             <option value="2">거절</option>
                                             <option value="3">완료</option>
                                         </select>
@@ -146,15 +145,15 @@
                                 <tr>
                                     <td class="handler_label">중복</td>
                                     <td class="handler_value">
-                                        <select>
-                                            <option value="1" selected>중복</option>
-                                            <option value="2">아님</option>
+                                        <select v-bind:value="handler.overlap" id="data_overlap">
+                                            <option value="1">중복</option>
+                                            <option value="0">아님</option>
                                         </select>
                                     </td>
                                 </tr>
                             </table>
                             
-                            <textarea placeholder="COMMENTS..."></textarea>
+                            <textarea v-bind:value="handler.comment" placeholder="COMMENTS..." id="data_comment"></textarea>
                         </div>
                     </li>
                 </ul>
@@ -183,56 +182,175 @@
 
 
         <script>
-
-            var currentShopName = "로또리치";
-
-            let currentOrderSet = [
-                {label:"DATE", value:"2020-03-30, 12:22:42", wname:"REGDATE"},
-                {label:"이름", value: "김태경", wname:"NAME"},
-                {label:"연락처", value: "01099473474", wname:"PHONE"},
-                {label:"기타", value: "등등", wname:"ETC"}
-            ];
-
-            let prevOrderSet = [
-                {label:"DATE", value:"2020-03-29, 12:22:42", wname:"REGDATE"},
-                {label:"이름", value: "전태경", wname:"NAME"},
-                {label:"연락처", value: "454545454", wname:"PHONE"},
-                {label:"기타", value: "치기", wname:"ETC"}
-            ];
-
-            let nextOrderSet = [
-                {label:"DATE", value:"2020-03-31, 12:22:42", wname:"REGDATE"},
-                {label:"이름", value: "경경경", wname:"NAME"},
-                {label:"연락처", value: "4123123123", wname:"PHONE"},
-                {label:"기타", value: "치기", wname:"ETC"}
-            ];
+            /* sample-data */
+            var currentShop = {
+                    shopPid : 1,
+                    shopid : "lottorich",
+                    shopname : "로또리치",
+                    acode : 680,
+                    bcode : "sdkwody",
+                    player : [
+                        {
+                            Pid : 1,
+                            id : "tekiteki",
+                            pw : "kim31010",
+                            name : "PLAYER01"
+                        },
+                        {
+                            Pid : 2,
+                            id : "gold",
+                            pw : "kangjh",
+                            name : "PLAYER02"
+                        }
+                    ],
+                    colset : [
+                        {label: "DATE", wname : "REGDATE"},
+                        {label: "이름", wname : "NAME"},
+                        {label: "연락처", wname : "PHONE"},
+                        {label: "기타", wname : "ETC"}
+                    ]
+                }                       
 
             var shopName = new Vue({
                 el: '.shop_name',
                 data: {
-                    shop_name: currentShopName
+                    shop_name: currentShop.shopname
                 }
             });
+
+            let currentOrder = [
+                    {
+                        orderid: 1,
+                        colset : [
+                            { label: "DATE", value: "2020-03-30, 12:22:42", wname: "REGDATE" },
+                            { label: "이름", value: "김태경", wname: "NAME" },
+                            { label: "연락처", value: "01099473474", wname: "PHONE" },
+                            { label: "기타", value: "등등", wname: "ETC" }
+                        ],
+                        aval: 0,
+                        pickable : 1,
+                        pickplayerpid : 1,
+                        state : 1,
+                        overlap : 0,
+                        comment : "첫번째 주문입니다."
+                    },
+                    {
+                        orderid: 2,
+                        colset : [
+                            { label: "DATE", value: "2020-03-31, 12:22:42", wname: "REGDATE" },
+                            { label: "이름", value: "강지형", wname: "NAME" },
+                            { label: "연락처", value: "456675454", wname: "PHONE" },
+                            { label: "기타", value: "등등등등", wname: "ETC" }
+                        ],
+                        aval:1,
+                        pickable : 0,
+                        pickplayerpid : 2,
+                        state : 2,
+                        overlap : 1,
+                        comment : "두번째 주문 메모에유"
+                    },
+                    {
+                        orderid: 3,
+                        colset : [
+                            { label: "DATE", value: "2020-03-31, 12:22:42", wname: "REGDATE" },
+                            { label: "이름", value: "이명락", wname: "NAME" },
+                            { label: "연락처", value: "4646457507", wname: "PHONE" },
+                            { label: "기타", value: "등등등222등", wname: "ETC" }
+                        ],
+                        aval:1,
+                        pickable : 1,
+                        pickplayerpid : null,
+                        state : 3,
+                        overlap : 1,
+                        comment : "3번째 주문인게라"
+                    }
+                ];
+
+            var initIndex = 0;
+
+            let currentcolset = currentOrder[initIndex].colset;
+            let currentAval = currentOrder[initIndex].aval;
+            let currentPickable = currentOrder[initIndex].pickable;
+            let currentpickplayerpid = currentOrder[initIndex].pickplayerpid;
+            let currentState = currentOrder[initIndex].state;
+            let currentOverlap = currentOrder[initIndex].overlap;
+            let currentComment = currentOrder[initIndex].comment;
+
 
             var orderTable = new Vue({
                 el: '#order_table',
                 data: {
-                    items: currentOrderSet
+                    colset : currentcolset,
+                    handler : {
+                        aval : currentAval,
+                        pickable : currentPickable,
+                        pickplayerpid : currentpickplayerpid,
+                        state : currentState,
+                        overlap : currentOverlap,
+                        comment : currentComment
+                    }
                 },
                 methods : {
                     prevorder : function() {
-                        this.items = prevOrderSet;
+                        if(initIndex > currentOrder.length-2){
+                            alert('이전 주문이 없어요 ㅠㅠ')
+                        } else {
+                            $('#order_table').hide();
+                            initIndex++;
+                            currentcolset = currentOrder[initIndex].colset;
+                            currentAval = currentOrder[initIndex].aval;
+                            currentPickable = currentOrder[initIndex].pickable;
+                            currentpickplayerpid = currentOrder[initIndex].pickplayerpid;
+                            currentState = currentOrder[initIndex].state;
+                            currentOverlap = currentOrder[initIndex].overlap;
+                            currentComment = currentOrder[initIndex].comment;
+                            this.colset = currentcolset;
+                            this.handler.aval = currentAval;
+                            this.handler.pickable = currentPickable;
+                            this.handler.pickplayerpid = currentpickplayerpid;
+                            this.handler.state = currentState;
+                            this.handler.overlap = currentOverlap;
+                            this.handler.comment = currentComment;
+                            $('#order_table').fadeIn();
+                        }
                     },
                     nextorder : function() {
-                        this.items = nextOrderSet;
+                        if(initIndex <= 0){
+                            alert('마지막 주문이에요 ㅜ0ㅜ')
+                        } else {
+                            $('#order_table').hide();
+                            initIndex--;
+                            currentcolset = currentOrder[initIndex].colset;
+                            currentAval = currentOrder[initIndex].aval;
+                            currentPickable = currentOrder[initIndex].pickable;
+                            currentpickplayerpid = currentOrder[initIndex].pickplayerpid;
+                            currentState = currentOrder[initIndex].state;
+                            currentOverlap = currentOrder[initIndex].overlap;
+                            currentComment = currentOrder[initIndex].comment;
+                            this.colset = currentcolset;
+                            this.handler.aval = currentAval;
+                            this.handler.pickable = currentPickable;
+                            this.handler.pickplayerpid = currentpickplayerpid;
+                            this.handler.state = currentState;
+                            this.handler.overlap = currentOverlap;
+                            this.handler.comment = currentComment;                       
+                            $('#order_table').fadeIn();
+                        }
                     }
                 }
             });
 
+            function getCurrent () {
+                var g_aval = $('#data_aval').value;
+                var g_pickable = $('#data_pickable').value;
+                var g_pickplayerpid = $('#data_pickplayerpid').value;
+                var g_state = $('#data_state').value;
+                var g_overlap = $('#data_overlap').value;
+            }
 
             function saveOrder() {
                 if (confirm('변경된 내용을 저장할까요?')) {
-                    alert('저장하였습니다.');
+                    alert(currentcolset);
                 }
             };
 
