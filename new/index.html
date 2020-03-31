@@ -81,7 +81,10 @@
    
     <div id="app">
     
-        <header></header>
+        <header>
+            <div class="shop_name">{{ shop_name }}</div>
+            <div class="option_dots"><i class="material-icons">more_horiz</i></div>
+        </header>
 
         <main>
             <section class="date_board">
@@ -161,6 +164,7 @@
     </div>
 
     <script>
+
         $('header').load('tile/header.html');
         $('footer').load('tile/footer.html');
 
