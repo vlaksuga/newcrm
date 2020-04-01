@@ -3,15 +3,14 @@
 
 <head>
     <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/vue.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=320,minimum-scale=1.0,maximum-scale=4.0,user-scalable=no">
-    <meta name="keywords" content="">			
-    <meta name="description" content="">		
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />			
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link href="./css/style.css" rel="stylesheet">		
     <style>
 
 .material-icons {
@@ -38,16 +37,6 @@
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
-        html {background-color:#222a35;}
-        html, body, div, ul, ol, li {margin: 0; padding: 0; font-size: 12px;}
-        a, a:hover, a:link, a:visited, a:focus {text-decoration: none; color: inherit;}
-        ul {list-style: none;}
-
-        #app {margin: 0 auto; width: 100vw; height: 100vh; width: 320px; color: white;}
-        
-        header {height: 30px; display: flex; justify-content: space-between; align-items: center; padding: 8px;}
-        header .shop_name {font-weight: 700; padding-left: 6px; font-size: 14px;}
-        header i {font-size: 18px;}
         
 
         main .order_board {padding: 8px;}
@@ -67,8 +56,6 @@
         main .buttons {display: flex; justify-content: space-around; position: fixed; bottom: 75px; width: 100%;}
 
 
-        footer nav ul {display: flex; width: 320px; height: 48px; background-color: black; position: fixed; bottom: 0; justify-content: space-around; align-items: center;}
-        footer nav ul li {font-size: 18px;}
 
         #filter {position: fixed; top: 0; right: 0; width: 75vw; height: 100vh; background-color: rgba(0, 0, 0, 1); z-index: 2;}
         #filter .fil_head {display: flex; justify-content: space-between; align-items: center; height: 30px; padding: 8px;}
@@ -82,9 +69,12 @@
 
     <div id="app">
 
-        <header>
-            <div class="shop_name">{{ shop_name }}</div>
-        </header>
+        <div id="header2">
+            <div class="title">
+                <span class="icons"><a onclick="history.back();"><img src="img/icon/icon_arrow_back.png"></a></span>
+                <span class="titlename">주문</span>
+            </div>
+        </div>
 
         <main>
             <section class="order_board" id="order_table">
@@ -172,16 +162,20 @@
         <footer>
             <nav>
                 <ul>
-                    <li class="nav_list"><a href="index.html"><i class="material-icons">home</i></a></li>
-                    <li class="nav_orders"><a href="orders.html"><i class="material-icons">assignment</i></a></li>
-                    <li class="nav_stats"><a href="chart.html"><i class="material-icons">pie_chart</i></a></li>
-                    <li class="nav_mypage"><a href="config.html"><i class="material-icons">settings</i></a></li>
+                    <li class="nav_list"><a href="index.html"><img src="img/icon/icon_home.png"></a></li>
+                    <li class="nav_orders"><a href="orders.html"><img src="img/icon/icon_description.png"></a></li>
+                    <li class="nav_stats"><a href="chart.html"><img src="img/icon/icon_chart.png"></a></li>
+                    <li class="nav_mypage"><a href="config.html"><img src="img/icon/icon_settings.png"></a></li>
                 </ul>
             </nav>
         </footer>
 
 
         <script>
+            /* layout */
+        
+            $('footer').load('tile/footer.html');
+
             /* sample-data */
             var currentShop = {
                     shopPid : 1,
