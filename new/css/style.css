@@ -1,0 +1,73 @@
+/* COMMON */
+
+html, body, div, ul, ol, li {margin: 0; padding: 0; font-size: 12px;}
+a, a:hover, a:link, a:visited, a:focus {text-decoration: none; color: inherit;}
+ul {list-style: none;}
+
+.shadow {box-shadow: 8px 8px 8px rgba(0,0,0,0.03), -8px -8px 8px rgba(0,0,0,0.03), -8px 8px 8px rgba(0,0,0,0.03), 8px 8px 8px rgba(0,0,0,0.03);}
+.sticky {position: fixed; top:0; padding-top: 8px; transition: top 0.2s ease-in-out;} 
+
+
+
+#loading {width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; align-items: center;}
+#app {margin: 0 auto; width: 100vw; height: 100vh; width: 320px; background-color: rgba(0, 0, 0, 0.01);}
+
+header {height: 100px; width: 320px; background-color: white; position: relative;}
+header .avatar img {width: 40px; height: 40px; min-width: 30px; min-height: 30px; max-width: 40px; max-height: 40px;}
+header .shop {font-weight: 700; padding-left: 14px; font-size: 14px; padding-top: 44px; display: flex; justify-content: flex-start; align-items: center; position: sticky;}
+header .shop .info {padding-left: 4px; height: 40px; display: flex; flex-direction: column; justify-content: center; opacity: 1;}
+header .shop .info .name {font-weight: 900;}
+header .shop .info .comment {font-size: 8px; color: #aaaaaa;}
+header .option {width: 320px; text-align: right; background-color: white; position: fixed; top: 0; left: 0;}
+header .option img {width:25px; height: 25px; padding: 8px;}
+
+
+
+main {padding-top: 0px;}
+
+main .screen_board {padding: 8px;}
+main .screen_board .total_board {font-weight: 700; border-radius: 5px; background-color: turquoise; padding: 16px;}
+main .screen_board .total_board .content {display: flex; justify-content: flex-end; align-items: baseline;}
+main .screen_board .total_board .total {font-size: 24px; font-weight: 900; padding-top: 8px;}
+main .screen_board .total_board .total_orders{font-size: 18px; font-weight: 900; margin-left: 4px;}
+
+main .date_board {padding: 8px; font-weight: 700;}
+main .date_board .title {padding: 8px; color: #cccccc;}
+main .date_board ul li {border-radius: 5px; background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; margin-bottom: 8px;}
+main .date_board ul li .start_date, main .date_board ul li .end_date {color: #aaaaaa;}
+
+main .list_board {padding: 8px; padding-bottom: 50px; font-weight: 700;}
+main .list_board .title {padding: 8px; color: #cccccc;}
+main .list_board ul li {border-radius: 5px; background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; margin-bottom: 8px;}
+main .list_board ul li.fail .state {color: tomato;}
+main .list_board ul li.success .state {color: turquoise;}
+main .list_board ul li .state {font-weight: 700;}
+main .list_board ul li .date {color: #aaaaaa;}
+
+footer nav ul {display: flex; width: 320px; height: 48px; position: fixed; bottom: 0; justify-content: space-around; align-items: center; background-color: white; border-top: 1px solid #eeeeee;}
+footer nav ul li {font-size: 18px;}
+footer nav ul li img {width: 25px; height: 25px;}
+
+#filter {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.8); z-index: 2;}
+#filter .box {position: relative; margin: 100px auto; background-color:white; width: 95vw; height: 95vw; border-radius: 5px; color: black;}
+#filter .fil_head {height: 30px; padding: 8px;}
+#filter .fil_head .title {font-weight: 900;}
+
+
+
+#filter .date_option .selector {display: flex; justify-content: space-around; align-items: center; }
+#filter .date_option .selector .date{display: flex; justify-content: space-between; align-items: center; padding: 4px 8px;}
+#filter .date_option .selector .date label {font-weight: 700;}
+#filter .date_option .selector .date input {border: 1px solid #eeeeee;}
+#filter .date_option .shortcuts {margin-top: 4px;}
+#filter .date_option .shortcuts table {width: 100%; line-height: 24px; padding: 6px;}
+#filter .date_option .shortcuts table td{width: 33.3%; height: 35px; text-align: center; border: 1px solid lightgrey; font-size: 10px; font-size: 900; border-radius: 5px;}
+
+#filter .state_option {margin-top: 4px;}
+#filter .state_option table {width: 100%; line-height: 24px; padding: 6px;}
+#filter .state_option table td{width: 33.3%; height: 35px; text-align: center;  font-size: 12px; font-size: 900; border-radius: 5px;}
+#filter .state_option table td.normal {background-color: white; color: black; border: 1px solid black;}
+#filter .state_option table td.fail {background-color: tomato; color: white; }
+#filter .state_option table td.success {background-color: lightseagreen; color: white; }
+
+#filter .confirm {position: absolute; right: 16px; bottom: 16px; text-align: center; padding: 4px 12px; }

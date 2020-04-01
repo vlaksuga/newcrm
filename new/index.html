@@ -4,77 +4,13 @@
 <head>
     <meta charset="utf-8">
     <script src="./js/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./js/vue.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=320,minimum-scale=1.0,maximum-scale=4.0,user-scalable=no">
-    <meta name="keywords" content="">			
-    <meta name="description" content="">		
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />		
-    <style>
-        .material-icons {font-family: 'Material Icons'; font-weight: normal; font-style: normal; font-size: 22px;  /* Preferred icon size */ display: inline-block; line-height: 1.4; text-transform: none; letter-spacing: normal; word-wrap: normal; white-space: nowrap; direction: ltr; /* Support for all WebKit browsers. */ -webkit-font-smoothing: antialiased; /* Support for Safari and Chrome. */ text-rendering: optimizeLegibility; /* Support for Firefox. */ -moz-osx-font-smoothing: grayscale; /* Support for IE. */ font-feature-settings: 'liga';}
-
-        html {background-color:#222a35;}
-        html, body, div, ul, ol, li {margin: 0; padding: 0; font-size: 12px;}
-        a, a:hover, a:link, a:visited, a:focus {text-decoration: none; color: inherit;}
-        ul {list-style: none;}
-
-
-        #loading {width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; align-items: center;}
-        #app {margin: 0 auto; width: 100vw; height: 100vh; width: 320px; color: white;}
-        
-        header {height: 40px; display: flex; justify-content: space-between; align-items: center; padding:0; position: fixed; top:0; left: 0; width: 320px; background-color: #222a35;}
-        header .shop_name {font-weight: 700; padding-left: 14px; font-size: 14px;}
-        header i {font-size: 18px; padding-right: 8px;}
-
-        main {padding-top: 40px;}
-        
-        main .date_board {padding: 12px; font-weight: 700;}
-        main .date_board .date_distance {margin: 0 5px;}
-
-        main .screen_board .total_board {background-color: #03bafc; display: flex; align-items: baseline; padding: 24px 8px;}
-        main .screen_board .total_board .total {font-size: 36px; font-weight: 900;}
-        main .screen_board .total_board .total_orders{font-size: 18px; font-weight: 900; margin-left: 4px;}
-
-        main .list_board {padding: 8px; padding-bottom: 50px;}
-        main .list_board ul li {border-radius: 5px; background-color: white; color: black; padding: 12px 8px; display: flex; justify-content: space-between; margin-bottom: 8px;}
-        main .list_board ul li.fail {background-color: tomato; color: white;}
-        main .list_board ul li.fail .date {color: white;}
-        main .list_board ul li.success {background-color: lightseagreen; color: white;}
-        main .list_board ul li.success .date {color: white;}
-        main .list_board ul li .state {font-weight: 700;}
-        main .list_board ul li .date {color: #aaaaaa;}
-
-        footer nav ul {display: flex; width: 320px; height: 48px; background-color: black; position: fixed; bottom: 0; justify-content: space-around; align-items: center;}
-        footer nav ul li {font-size: 18px;}
-
-        #filter {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.8); z-index: 2;}
-        #filter .box {position: relative; margin: 100px auto; background-color:white; width: 95vw; height: 95vw; border-radius: 5px; color: black;}
-        #filter .fil_head {height: 30px; padding: 8px;}
-        #filter .fil_head .title {font-weight: 900;}
-
-
-
-        #filter .date_option .selector {display: flex; justify-content: space-around; align-items: center; }
-        #filter .date_option .selector .date{display: flex; justify-content: space-between; align-items: center; padding: 4px 8px;}
-        #filter .date_option .selector .date label {font-weight: 700;}
-        #filter .date_option .selector .date input {border: 1px solid #eeeeee;}
-        #filter .date_option .shortcuts {margin-top: 4px;}
-        #filter .date_option .shortcuts table {width: 100%; line-height: 24px; padding: 6px;}
-        #filter .date_option .shortcuts table td{width: 33.3%; height: 35px; text-align: center; border: 1px solid lightgrey; font-size: 10px; font-size: 900; border-radius: 5px;}
-
-        #filter .state_option {margin-top: 4px;}
-        #filter .state_option table {width: 100%; line-height: 24px; padding: 6px;}
-        #filter .state_option table td{width: 33.3%; height: 35px; text-align: center;  font-size: 12px; font-size: 900; border-radius: 5px;}
-        #filter .state_option table td.normal {background-color: white; color: black; border: 1px solid black;}
-        #filter .state_option table td.fail {background-color: tomato; color: white; }
-        #filter .state_option table td.success {background-color: lightseagreen; color: white; }
-        
-        #filter .confirm {position: absolute; right: 16px; bottom: 16px; text-align: center; padding: 4px 12px; }
-        
-        
-    </style>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link href="./css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -82,32 +18,55 @@
     <div id="app">
     
         <header>
-            <div class="shop_name">{{ shop_name }}</div>
-            <div class="option_dots"><i class="material-icons">more_horiz</i></div>
+            <div class="option">
+                <img src="img/icon/icon_more_horiz.png">
+            </div>
+            <div class="shop">
+                <div id="avatar" class="avatar">
+                    <img id="avaimg" src="img/icon/icon_default.png">
+                </div>
+                <div id='shop_info' class="info">
+                    <div class="name">{{ shop_name }}</div>
+                    <div class="comment">SHOP 정보보기</div>
+                </div>
+            </div>
         </header>
 
+
         <main>
-            <section class="date_board">
-                <span class="start_date">{{ start_date }}</span>
-                <span class="date_distance">/</span>
-                <span class="end_date">{{ end_date }}</span>
-    
-            </section>
-    
+                
             <section class="screen_board">
                 <ul>
                     <li class="total_board">
-                        <span class="total">{{ total_order }}</span><span class="total_orders">orders</span>
+                        <div class="title">주문합계</div>
+                        <div class="content"><span class="total">{{ total_order }}</span><span class="total_orders">orders</span></div>
                     </li>
                 </ul>
             </section>
 
+            <section class="date_board">
+                <div class="title">기간 Duration</div>
+                <ul>
+                    <li class="shadow">
+                        <span class="label">시작일</span>
+                        <span class="start_date">{{ start_date }}</span>
+                        
+                    </li>
+                    <li class="shadow">
+                        <span class="label">종료일</span>
+                        <span class="end_date">{{ end_date }}</span>
+                    </li>
+                </ul>
+            </section>
+
+
             <section class="list_board">
+                <div class="title">주문 Orders</div>
                 <ul>
                     <a v-for="order in orders" v-bind:href="'./orders.html?pid=' + order.pid">
-                        <li v-bind:class="order.state_class">
+                        <li v-bind:class="order.state_class" class="shadow">
                             <span class="state">{{ order.state_name }}</span>
-                            <span class="date">{{ order.REGDATE }}</span>
+                            <span class="date">{{ order.REGDATE}}</span>
                         </li>
                     </a>
                 </ul>
@@ -116,7 +75,16 @@
         </main>
 
 
-        <footer></footer>
+        <footer>
+            <nav>
+                <ul>
+                    <li class="nav_list"><a href="index.html"><img src="img/icon/icon_home.png"></a></li>
+                    <li class="nav_orders"><a href="orders.html"><img src="img/icon/icon_description.png"></a></li>
+                    <li class="nav_stats"><a href="chart.html"><img src="img/icon/icon_chart.png"></a></li>
+                    <li class="nav_mypage"><a href="config.html"><img src="img/icon/icon_settings.png"></a></li>
+                </ul>
+            </nav>
+        </footer>
 
 
 
@@ -164,69 +132,108 @@
     </div>
 
     <script>
-
-        $('header').load('tile/header.html');
-        $('footer').load('tile/footer.html');
-
         /* date */
         var initDate = new Date();
         var todayYear = initDate.getFullYear();
-        var todayMonth = ("0"+(initDate.getMonth() + 1)).slice(-2);
-        var todayDate = ("0"+(initDate.getDate())).slice(-2);
+        var todayMonth = ("0" + (initDate.getMonth() + 1)).slice(-2);
+        var todayDate = ("0" + (initDate.getDate())).slice(-2);
         var today = todayYear + "-" + todayMonth + "-" + todayDate;
         var firstMonthday = todayYear + "-" + todayMonth + "-01"
 
         /* data */
-        let currentUser = {shopname:"로또리치"}
+        let currentUser = { shopname: "로또리치" }
         let selectedOrders = [
-            {pid: "1", state_name: "대기", state_class: "normal", REGDATE: "2020-03-26, 16:34:23"},
-            {pid: "2", state_name: "거절", state_class: "fail", REGDATE: "2020-03-26, 16:34:23"},
-            {pid: "3", state_name: "완료", state_class: "success", REGDATE: "2020-03-26, 16:34:23"},
-            {pid: "4", state_name: "재통화", state_class: "normal", REGDATE: "2020-03-26, 16:34:23"}
+            { pid: "1", state_name: "대기", state_class: "normal", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "2", state_name: "거절", state_class: "fail", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "3", state_name: "완료", state_class: "success", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "4", state_name: "재통화", state_class: "normal", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "5", state_name: "재통화", state_class: "normal", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "6", state_name: "완료", state_class: "success", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "1", state_name: "대기", state_class: "normal", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "2", state_name: "거절", state_class: "fail", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "3", state_name: "완료", state_class: "success", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "4", state_name: "재통화", state_class: "normal", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "5", state_name: "재통화", state_class: "normal", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "6", state_name: "완료", state_class: "success", REGDATE: "2020-03-26, 16:34:23" }
         ];
 
-        
+
 
         /* VUE instances*/
 
         new Vue({
-            el : 'header',
-            data : {
-                shop_name : currentUser.shopname                
+            el: 'header',
+            data: {
+                shop_name: currentUser.shopname
             }
         })
 
         new Vue({
-            el : '.date_board',
-            data : {
-                start_date : firstMonthday,
-                end_date : today
+            el: '.date_board',
+            data: {
+                start_date: firstMonthday,
+                end_date: today
             }
         })
 
         new Vue({
-            el : '.total_board',
-            data : {
-                total_order : selectedOrders.length
+            el: '.total_board',
+            data: {
+                total_order: selectedOrders.length
             }
         })
 
         new Vue({
-            el : '.list_board',
-            data : {
-                orders : selectedOrders
+            el: '.list_board',
+            data: {
+                orders: selectedOrders
             }
         })
 
-        $('.option_dots').on('click', function(){
+        $('.option').on('click', function () {
             $('#filter').fadeIn();
         })
 
-        $('.apply').on('click', function(){
+        $('.apply').on('click', function () {
             $('#filter').fadeOut();
         })
 
+        var avaoff = document.getElementById('avaimg');
+        var posY = avaoff.offsetTop;
+        var lastScrollTop = 0;
 
+        $(window).scroll(function (event) {
+            var st = $(this).scrollTop();
+            if (st > lastScrollTop) {
+                $('#avaimg').css('width', '-=1px');
+                $('#avaimg').css('height', '-=1px');
+                $('#shop_info').css('opacity', '-=0.1');
+            } else {
+                if (window.pageYOffset + 8 >= posY) {
+                    return false;
+                } else {
+                    $('#avaimg').css('width', '+=1px');
+                    $('#avaimg').css('height', '+=1px');
+                    $('#shop_info').css('opacity', '+=0.1');
+                };
+            }
+            lastScrollTop = st;
+        });
+
+        $(window).scroll(function () {
+            addsticky();
+        });
+
+
+        function addsticky() {
+            if (window.pageYOffset + 8 >= posY) {
+                $('#avatar').addClass('sticky');
+                $('#shop_info').hide();
+            } else {
+                $('#avatar').removeClass('sticky');
+                $('#shop_info').show();
+            }
+        }
     </script>
 </body>
 
