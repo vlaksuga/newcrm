@@ -13,10 +13,12 @@
     <link href="./css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="showApp()">
+    <div id="loading" style="display: none;">
+        <img src="img/icon/icon_default.png">
+    </div>
    
-    <div id="app">
-    
+    <div id="app">    
         <header>
             <div class="option">
                 <img src="img/icon/icon_more_horiz.png">
@@ -27,7 +29,7 @@
                 </div>
                 <div id='shop_info' class="info">
                     <div class="name">{{ shop_name }}</div>
-                    <div class="comment">SHOP 정보보기</div>
+                    <div class="comment">ADMIN</div>
                 </div>
             </div>
         </header>
@@ -91,47 +93,38 @@
         <!-- filter -->
         <div id="filter" style="display: none;">
             <div class="box">
-                <section class="fil_head">
-                    <div class="title">FILTER</div>
-                </section>
-                <section class="date_option">
-                    <div class="selector">
-                        <input type="date" id="sdate" v-model="start_date" value="2020-01-01"><span>-</span><input type="date" id="edate" v-model="end_date">
-                    </div>
-
-                    <div class="shortcuts">
-                        <table>
-                            <tr>
-                                <td><a>오늘</a></td>
-                                <td><a>어제</a></td>
-                                <td><a>이번주</a></td>
-                            </tr>
-                            <tr>
-                                <td>최근7일</td>
-                                <td>이번달</td>
-                                <td>지난달</td>
-                            </tr>
-                        </table>
-                    </div>
-                </section>
-                <section class="state_option">
-                    <table>
-                        <tr>
-                            <td class="normal"><a>대기</a></td>
-                            <td class="fail"><a>거절</a></td>
-                            <td class="success"><a>결재</a></td>
-                        </tr>
-                    </table>
-                </section>
-                <section class="confirm">
-                    <div class="apply">닫기</div>
-                </section>
+                <form id="state_form">
+                    <section class="filter_head">
+                        <div class="title">주문상태 보기 선택</div>
+                        <div class="close"><img src="img/icon/icon_close.png"></div>
+                    </section>
+        
+                    <section class="state_option">
+        
+                        <ul>
+                            <li v-for="state in states">
+                                <label class="container">
+                                    <span class="statename">{{state.state_name}}</span>
+                                    <input type="checkbox" v-model="state.val">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
+        
+                    </section>
+                </form>
             </div>
         </div>
 
     </div>
 
     <script>
+        /* preloader */
+
+        function showApp(){
+            $('#loading').fadeOut();
+        }
+
         /* date */
         var initDate = new Date();
         var todayYear = initDate.getFullYear();
@@ -141,22 +134,28 @@
         var firstMonthday = todayYear + "-" + todayMonth + "-01"
 
         /* data */
-        let currentUser = { shopname: "로또리치" }
+        let currentUser = {shopname: "로또리치"}
         let selectedOrders = [
             { pid: "1", state_name: "대기", state_class: "normal", REGDATE: "2020-03-26, 16:34:23" },
             { pid: "2", state_name: "거절", state_class: "fail", REGDATE: "2020-03-26, 16:34:23" },
-            { pid: "3", state_name: "완료", state_class: "success", REGDATE: "2020-03-26, 16:34:23" },
-            { pid: "4", state_name: "재통화", state_class: "normal", REGDATE: "2020-03-26, 16:34:23" },
-            { pid: "5", state_name: "재통화", state_class: "normal", REGDATE: "2020-03-26, 16:34:23" },
-            { pid: "6", state_name: "완료", state_class: "success", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "3", state_name: "결재", state_class: "success", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "6", state_name: "결재", state_class: "success", REGDATE: "2020-03-26, 16:34:23" },
             { pid: "1", state_name: "대기", state_class: "normal", REGDATE: "2020-03-26, 16:34:23" },
             { pid: "2", state_name: "거절", state_class: "fail", REGDATE: "2020-03-26, 16:34:23" },
-            { pid: "3", state_name: "완료", state_class: "success", REGDATE: "2020-03-26, 16:34:23" },
-            { pid: "4", state_name: "재통화", state_class: "normal", REGDATE: "2020-03-26, 16:34:23" },
-            { pid: "5", state_name: "재통화", state_class: "normal", REGDATE: "2020-03-26, 16:34:23" },
-            { pid: "6", state_name: "완료", state_class: "success", REGDATE: "2020-03-26, 16:34:23" }
+            { pid: "3", state_name: "결재", state_class: "success", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "6", state_name: "결재", state_class: "success", REGDATE: "2020-03-26, 16:34:23" }
         ];
 
+        let orderStateKind = [
+            {state_name:"대기", state_class:"normal", val:true},
+            {state_name:"부재", state_class:"normal", val:false},
+            {state_name:"본인아님", state_class:"normal", val:true},
+            {state_name:"결번", state_class:"normal", val:true},
+            {state_name:"가망", state_class:"normal", val:false},
+            {state_name:"대기", state_class:"normal", val:true},
+            {state_name:"거절", state_class:"fail", val:false},
+            {state_name:"결재", state_class:"normal", val:true}
+        ];
 
 
         /* VUE instances*/
@@ -173,7 +172,7 @@
             data: {
                 start_date: firstMonthday,
                 end_date: today
-            }
+            }                
         })
 
         new Vue({
@@ -190,13 +189,20 @@
             }
         })
 
-        $('.option').on('click', function () {
-            $('#filter').fadeIn();
+        new Vue({
+            el : '#state_form',
+            data : {
+                states : orderStateKind
+            }
         })
 
-        $('.apply').on('click', function () {
+        $('.option').on('click', function () {
+            $('#filter').fadeIn();
+        });
+
+        $('.close').on('click', function () {
             $('#filter').fadeOut();
-        })
+        });
 
         var avaoff = document.getElementById('avaimg');
         var posY = avaoff.offsetTop;
@@ -205,16 +211,16 @@
         $(window).scroll(function (event) {
             var st = $(this).scrollTop();
             if (st > lastScrollTop) {
-                $('#avaimg').css('width', '-=1px');
-                $('#avaimg').css('height', '-=1px');
-                $('#shop_info').css('opacity', '-=0.1');
+                $('#avaimg').css('width', '-=2px');
+                $('#avaimg').css('height', '-=2px');
+                $('#shop_info').css('opacity', '-=0.2');
             } else {
                 if (window.pageYOffset + 8 >= posY) {
                     return false;
                 } else {
-                    $('#avaimg').css('width', '+=1px');
-                    $('#avaimg').css('height', '+=1px');
-                    $('#shop_info').css('opacity', '+=0.1');
+                    $('#avaimg').css('width', '+=2px');
+                    $('#avaimg').css('height', '+=2px');
+                    $('#shop_info').css('opacity', '+=0.2');
                 };
             }
             lastScrollTop = st;

@@ -9,16 +9,25 @@ ul {list-style: none;}
 
 
 
-#loading {width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; align-items: center;}
+#loading {width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; align-items: center; z-index: 9999; position: fixed;}
+#loading img {width: 100px; height: 100px; -webkit-animation: spin 2s linear infinite; animation: spin 2s linear infinite;}
 #app {margin: 0 auto; width: 100vw; height: 100vh; width: 320px; background-color: rgba(0, 0, 0, 0.01);}
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
 
-header {height: 100px; width: 320px; background-color: white; position: relative;}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+header {width: 320px; background-color: white; position: relative;}
 header .avatar img {width: 40px; height: 40px; min-width: 30px; min-height: 30px; max-width: 40px; max-height: 40px;}
 header .shop {font-weight: 700; padding-left: 14px; font-size: 14px; padding-top: 44px; display: flex; justify-content: flex-start; align-items: center; position: sticky;}
 header .shop .info {padding-left: 4px; height: 40px; display: flex; flex-direction: column; justify-content: center; opacity: 1;}
 header .shop .info .name {font-weight: 900;}
 header .shop .info .comment {font-size: 8px; color: #aaaaaa;}
-header .option {width: 320px; text-align: right; background-color: white; position: fixed; top: 0; left: 0;}
+header .option {width: 320px; height: 44px; text-align: right; background-color: white; position: fixed; top: 0; left: 0;}
 header .option img {width:25px; height: 25px; padding: 8px;}
 
 
@@ -48,12 +57,12 @@ footer nav ul {display: flex; width: 320px; height: 48px; position: fixed; botto
 footer nav ul li {font-size: 18px;}
 footer nav ul li img {width: 25px; height: 25px;}
 
-#filter {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.8); z-index: 2;}
-#filter .box {position: relative; margin: 100px auto; background-color:white; width: 95vw; height: 95vw; border-radius: 5px; color: black;}
-#filter .fil_head {height: 30px; padding: 8px;}
-#filter .fil_head .title {font-weight: 900;}
-
-
+/* filter */
+#filter {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 2;}
+#filter .box {position: fixed; bottom:0; left: 0; background-color:white; width: 100vw; height: 75vh; border-top-left-radius: 15px; border-top-right-radius: 15px; overflow-y: auto;}
+#filter .filter_head {padding: 16px; display: flex; justify-content: space-between; align-items: center;}
+#filter .filter_head .title {font-weight: 900;}
+#filter .filter_head .close img {width: 20px; height: 20px;}
 
 #filter .date_option .selector {display: flex; justify-content: space-around; align-items: center; }
 #filter .date_option .selector .date{display: flex; justify-content: space-between; align-items: center; padding: 4px 8px;}
@@ -63,11 +72,12 @@ footer nav ul li img {width: 25px; height: 25px;}
 #filter .date_option .shortcuts table {width: 100%; line-height: 24px; padding: 6px;}
 #filter .date_option .shortcuts table td{width: 33.3%; height: 35px; text-align: center; border: 1px solid lightgrey; font-size: 10px; font-size: 900; border-radius: 5px;}
 
-#filter .state_option {margin-top: 4px;}
-#filter .state_option table {width: 100%; line-height: 24px; padding: 6px;}
-#filter .state_option table td{width: 33.3%; height: 35px; text-align: center;  font-size: 12px; font-size: 900; border-radius: 5px;}
-#filter .state_option table td.normal {background-color: white; color: black; border: 1px solid black;}
-#filter .state_option table td.fail {background-color: tomato; color: white; }
-#filter .state_option table td.success {background-color: lightseagreen; color: white; }
+#filter .state_option ul li .container {background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; position: relative;}
+#filter .state_option ul li .container .statename {font-weight: 900;}
+#filter .state_option ul li .container input {position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0;}
+#filter .state_option ul li .container .checkmark {position: absolute; top: 18px; right: 16px; height: 10px; width: 10px; background-color: none; border-radius: 50%;}
+#filter .state_option ul li .container .checkmark::after {content: ""; position: absolute; display: none;}
+#filter .state_option ul li .container input:checked ~ .checkmark {background-color: #aaaaaa;}
+#filter .state_option ul li .container input:checked ~ .statename {color: tomato;}
 
 #filter .confirm {position: absolute; right: 16px; bottom: 16px; text-align: center; padding: 4px 12px; }
