@@ -46,15 +46,22 @@
     main .chart_board .chart .state .title {padding-left: 12px; font-weight: 900;}
     main .chart_board .chart .state .values {color: black; font-weight: 900;}
 
-    main .chart_board .chart .player { margin: 8px 0; }
-    main .chart_board .chart .player .summary {border-radius: 5px; padding: 8px 0; display: flex; justify-content: space-between; align-items: center; width: 100%; background-color: white; color: black;}
-    main .chart_board .chart .player .summary .user {display: flex; justify-content: space-between; align-items: center; width: 30%; padding-left: 8px;}
+    main .chart_board .chart .player { margin: 8px 0;}
+    
+    main .chart_board .chart .player .summary {border-radius: 5px; display: flex; justify-content: space-between; align-items: center; width: 100%; background-color: white; color: black;  padding: 16px 0;}
+    main .chart_board .chart .player .summary.active {background-color: #cccccc;}
+    main .chart_board .chart .player .summary .user {padding-left: 16px;}
+    main .chart_board .chart .player .summary .total {padding-right: 16px;}
     main .chart_board .chart .player .summary .user .name {font-weight: 700;}
-    main .chart_board .chart .player .summary .total {padding-right: 8px;}
-    main .chart_board .chart .player .details {width: 100%; padding-top: 8px;}
-    main .chart_board .chart .player .details .states {display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 8px 0;}
-    main .chart_board .chart .player .details .states .title{padding-left: 8px;}
-    main .chart_board .chart .player .details .states .values {padding-right: 8px;}
+
+    main .chart_board .chart .player .details {background-color: white; border-radius: 5px; margin-top: 8px;}
+
+    main .chart_board .chart .player .details .states {display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.02);}
+    main .chart_board .chart .player .details .states .title {padding-left: 16px; font-weight: 700;}
+    main .chart_board .chart .player .details .states .title.normal{color: #777777;}
+    main .chart_board .chart .player .details .states .title.fail{color: tomato;}
+    main .chart_board .chart .player .details .states .title.success{color: turquoise;;}
+    main .chart_board .chart .player .details .states .values {padding-right: 16px;}
 
 </style>
     <body>
@@ -69,13 +76,14 @@
             <main>
                 <section class="tab_board" style="padding-top: 50px;">
                     <ul>
-                        <li class="tablinks active" data-t="#tab02">진행상태</li>
-                        <li class="tablinks" data-t="#tab03">담당자별</li>
                         <li class="tablinks" data-t="#tab01">월별</li>
+                        <li class="tablinks" data-t="#tab02">진행상태</li>
+                        <li class="tablinks  active" data-t="#tab03">담당자별</li>
                     </ul>
                 </section>
                 <section class="chart_board">
 
+                    <!-- 월별  -->
 
                     <div class="chart" id="tab01" style="display: none;">
 
@@ -97,7 +105,9 @@
                         </table>
                     </div>
 
-                    <div class="chart" id="tab02">
+                    <!-- 진행상태 -->
+
+                    <div class="chart" id="tab02" style="display: none;">
                         <section class="option">
                             <span class="start_date">{{start_date}}</span><span class="date_distance">/</span><span class="end_date">{{end_date}}</span>
                         </section>
@@ -107,7 +117,9 @@
                                 </div>
                     </div>
 
-                    <div class="chart" id="tab03" style="display: none;">
+                    <!-- 담당자별 -->
+
+                    <div class="chart" id="tab03">
 
                         <section class="option">
                             <span class="start_date">{{start_date}}</span><span class="date_distance">/</span><span class="end_date">{{end_date}}</span>
@@ -117,35 +129,18 @@
 
                             <div class="summary shadow" v-bind:data-d="'#'+player.userid">
                                 <div class="user">
-                                    <span class="icon"><i class="material-icons">contact_phone</i></span>
                                     <span class="name">{{ player.username }}</span>
                                 </div>
                                 <div class="total">
-                                    <span class="num">{{(player.state_normal_cnt)+(player.state_fail_cnt)+(player.state_success_cnt)}}</span>
-                                    <span class="orders">orders</span>
+                                    <span class="num">{{ player.totalAll }}</span>
                                 </div>
                             </div>
 
                             <div class="details" style="display: none;" v-bind:id="player.userid">
-                                <div class="states">
-                                    <div class="title">대기</div>
+                                <div class="states" v-for="list in player.list">
+                                    <div class="title" v-bind:class="list.state_class">{{ list.state_name }}</div>
                                     <div class="values">
-                                        <span class="num">{{ player.state_normal_cnt }}</span>
-                                        <span class="orders">orders</span>
-                                    </div>
-                                </div>
-                                <div class="states">
-                                    <div class="title">거절</div>
-                                    <div class="values">
-                                        <span class="num">{{ player.state_fail_cnt }}</span>
-                                        <span class="orders">orders</span>
-                                    </div>
-                                </div>
-                                <div class="states">
-                                    <div class="title">성공</div>
-                                    <div class="values">
-                                        <span class="num">{{ player.state_success_cnt }}</span>
-                                        <span class="orders">orders</span>
+                                        <span class="num">{{ list.total }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -188,21 +183,46 @@
         let currentUser = { shopname: "로또리치" }
 
         let stateKindTotal = [
-            {state_name:"대기", state_class:"normal", total:24},
-            {state_name:"부재", state_class:"normal", total:42},
-            {state_name:"본인아님", state_class:"normal", total:6},
-            {state_name:"결번", state_class:"normal", total:17},
-            {state_name:"가망", state_class:"normal", total:84},
-            {state_name:"대기", state_class:"normal", total:16},
-            {state_name:"거절", state_class:"fail", total:24},
-            {state_name:"결재", state_class:"success", total:44},
-        ];
-
+                { state_name: "대기", state_class: "normal", total: 24 },
+                { state_name: "부재", state_class: "normal", total: 42 },
+                { state_name: "본인아님", state_class: "normal", total: 6 },
+                { state_name: "결번", state_class: "normal", total: 17 },
+                { state_name: "가망", state_class: "normal", total: 84 },
+                { state_name: "거절", state_class: "fail", total: 24 },
+                { state_name: "결재", state_class: "success", total: 44 },
+            ];
+        
 
         let selectedPlayersOrders = [
-            { username: "김태경", userid: "tekiteki", state_normal_cnt: 24, state_fail_cnt: 22, state_success_cnt: 7 },
-            { username: "강지형", userid: "kangjh", state_normal_cnt: 11, state_fail_cnt: 4, state_success_cnt: 7 }
-        ]
+                {
+                    username: "김태경",
+                    userid: "tekiteki",
+                    list: [
+                        { state_name: "대기", state_class: "normal", total: 24 },
+                        { state_name: "부재", state_class: "normal", total: 42 },
+                        { state_name: "본인아님", state_class: "normal", total: 6 },
+                        { state_name: "결번", state_class: "normal", total: 17 },
+                        { state_name: "가망", state_class: "normal", total: 84 },
+                        { state_name: "거절", state_class: "fail", total: 24 },
+                        { state_name: "결재", state_class: "success", total: 44 },
+                    ],
+                    totalAll : 241
+                },
+                {
+                    username: "강지형",
+                    userid: "kangjh",
+                    list: [
+                        { state_name: "대기", state_class: "normal", total: 49 },
+                        { state_name: "부재", state_class: "normal", total: 44 },
+                        { state_name: "본인아님", state_class: "normal", total: 23 },
+                        { state_name: "결번", state_class: "normal", total: 4 },
+                        { state_name: "가망", state_class: "normal", total: 8 },
+                        { state_name: "거절", state_class: "fail", total: 44 },
+                        { state_name: "결재", state_class: "success", total: 44 },
+                    ],
+                    totalAll : 216
+                }
+            ]
 
         new Vue({
             el: 'header',
@@ -212,6 +232,7 @@
         })
 
         new Vue({
+            name : '진행상태',
             el: '#tab02',
             data: {
                 start_date: selectedStartDate,
@@ -221,6 +242,7 @@
         })
 
         new Vue({
+            name : '담당자별',
             el: '#tab03',
             data: {
                 start_date: selectedStartDate,
@@ -249,12 +271,16 @@
             $(".summary").on("click", function () {
                 lastpkey = 9999999999999999999999;
                 var bbb = $(this).data("d");
+
+                $(".summary").removeClass("active");
+                $(this).addClass("active");
                 $(".details").slideUp();
                 if ($(bbb).css("display") == "none") {
                     $(bbb).slideDown();
                     return false;
                 } else {
                     $(bbb).slideUp();
+                    $(".summary").removeClass("active");
                     return false;
                 }
             });
