@@ -2,63 +2,32 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="./js/jquery-3.4.1.min.js"></script>
+        <script src="./js/vue.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=320,minimum-scale=1.0,maximum-scale=4.0,user-scalable=no">
-        <meta name="keywords" content="">			
-        <meta name="description" content="">		
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />			
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link href="./css/style.css" rel="stylesheet">		
     </head>
     <style>
 
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 22px;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1.4;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
-}
-    html {background-color:#222a35;}
-    html, body, div, ul, ol, li {margin: 0; padding: 0; font-size: 12px;}
-    a, a:hover, a:link, a:visited, a:focus {text-decoration: none; color: inherit;}
-    ul {list-style: none;}
-
-
-    #loading {width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; align-items: center;}
-    #app {margin: 0 auto; width: 100vw; height: 100vh; width: 320px; color: white;}
-    
-    header {height: 30px; display: flex; justify-content: space-between; align-items: center; padding: 8px;}
-    header .shop_name {font-weight: 700;}
-    header i {font-size: 18px;}
+    header {width: 320px; position: relative;}
+    header .title {width: 320px; height: 44px; background-color: white; position: fixed; top: 0; left: 0; display: flex; justify-content: flex-start; align-items: center;}
+    header .title .icons img {width: 25px; height: 25px; padding-left: 8px; display: block;}
+    header .title .titlename {margin-left: 8px; font-weight: 900;}
     
     main .date_board {padding: 8px; font-weight: 700;}
     main .date_board .date_distance {margin: 0 5px;}
 
-    main .tab_board ul {overflow-x: auto; white-space: nowrap; padding: 8px;}
-    main .tab_board ul li {display: inline-block; padding-right: 50px;}
-    main .tab_board .tablinks.active {font-weight: 900; font-size: 16px;}
+    main .tab_board ul {overflow-x: auto; white-space: nowrap; padding: 8px; display: flex;}
+    main .tab_board ul li {width: 33.3%; padding: 8px;}
+    main .tab_board .tablinks {text-align: center; color: #aaaaaa;}
+    main .tab_board .tablinks.active {font-weight: 900; border-bottom: 1px solid #cccccc; color: black;}
 
-    main .chart_board .option {background-color: #03bafc; display: flex; height: 30px; align-items: center; justify-content: space-around; color: white; font-weight: 700;}
+    main .chart_board .option {background-color: turquoise; display: flex; align-items: center; justify-content: space-around; font-weight: 700; padding: 16px; border-radius: 5px;}
+    main .chart_board .option .icons {width: 20px; height: 20px; display: block;}
     main .chart_board .option input[type="date"] {background-color: transparent; color: white; border:none; outline: none;text-align: center; padding: 0; font-size: 12px; font-weight: 700; font-family: inherit;}
     main .chart_board .option #year_month {font-size: 16px; font-weight: 900;}
     main .chart_board .chart {margin: 0 auto; width: 95vw; height: 100%; margin-top: 10px;}
@@ -70,12 +39,12 @@
     main .chart_board .chart #calendar_table tr td {border: 1px solid #efefef; font-size: 8px; color: #aaaaaa; padding-bottom: 30px;}
     main .chart_board .chart #calendar_table tr.ths td {font-size: unset; color: black;  padding-bottom: 0; line-height: 35px;}
 
-    main .chart_board .chart .state {border-radius: 5px; display: flex; justify-content: space-between; align-items: center; height: 30px; margin: 8px 0;}
-    main .chart_board .chart .state.ready {background-color: white; color: black;}
-    main .chart_board .chart .state.fail {background-color: tomato;}
-    main .chart_board .chart .state.success {background-color: lightseagreen;}
+    main .chart_board .chart .state {border-radius: 5px; display: flex; justify-content: space-between; align-items: center; padding: 16px; margin: 8px 0;}
+    main .chart_board .chart .state.normal {background-color: white; color: black;}
+    main .chart_board .chart .state.fail {color: tomato;}
+    main .chart_board .chart .state.success {color: turquoise;}
     main .chart_board .chart .state .title {padding-left: 12px; font-weight: 900;}
-    main .chart_board .chart .state .values {background-color: #dddddd; width: 100px; text-align: right; border-bottom-right-radius: 5px; border-top-right-radius: 5px; color: black; font-weight: 900; padding-right: 10px; height: 100%; display: flex; justify-content: flex-end; align-items: center;}
+    main .chart_board .chart .state .values {color: black; font-weight: 900;}
 
     main .chart_board .chart .player { margin: 8px 0; }
     main .chart_board .chart .player .summary {border-radius: 5px; padding: 8px 0; display: flex; justify-content: space-between; align-items: center; width: 100%; background-color: white; color: black;}
@@ -87,23 +56,22 @@
     main .chart_board .chart .player .details .states .title{padding-left: 8px;}
     main .chart_board .chart .player .details .states .values {padding-right: 8px;}
 
-
-
-    footer nav ul {display: flex; width: 320px; height: 48px; background-color: black; position: fixed; bottom: 0; justify-content: space-around; align-items: center;}
-    footer nav ul li {font-size: 18px;}
-
 </style>
     <body>
         <div id="app">
             <header>
-                <div class="shop_name">{{ shop_name }}</div>
+                <div class="title">
+                    <span class="icons"><a onclick="history.back();"><img src="img/icon/icon_arrow_back.png"></a></span>
+                    <span class="titlename">통계</span>
+                </div>
             </header>
+
             <main>
-                <section class="tab_board">
+                <section class="tab_board" style="padding-top: 50px;">
                     <ul>
+                        <li class="tablinks active" data-t="#tab02">진행상태</li>
+                        <li class="tablinks" data-t="#tab03">담당자별</li>
                         <li class="tablinks" data-t="#tab01">월별</li>
-                        <li class="tablinks" data-t="#tab02">진행상태</li>
-                        <li class="tablinks  active" data-t="#tab03">담당자별</li>
                     </ul>
                 </section>
                 <section class="chart_board">
@@ -112,9 +80,9 @@
                     <div class="chart" id="tab01" style="display: none;">
 
                         <div class="option">
-                            <div class="prev_month"><a onclick="setPrevMonth();"><i class="material-icons">chevron_left</i></a></div>
+                            <div class="prev_month"><a onclick="setPrevMonth();"><img class="icons" src="img/icon/icon_nav_before.png"></a></div>
                             <div id="calendar_title"></div>
-                            <div class="next_month"><a onclick="setNextMonth();"><i class="material-icons">chevron_right</i></a></div>
+                            <div class="next_month"><a onclick="setNextMonth();"><img class="icons" src="img/icon/icon_nav_next.png"></a></div>
                         </div>
                         <table id="calendar_table">
                             <tr class="ths">
@@ -129,26 +97,17 @@
                         </table>
                     </div>
 
-                    <div class="chart" id="tab02" style="display: none;">
+                    <div class="chart" id="tab02">
                         <section class="option">
                             <span class="start_date">{{start_date}}</span><span class="date_distance">/</span><span class="end_date">{{end_date}}</span>
                         </section>
-                                <div class="state ready">
-                                    <div class="title">대기</div>
-                                    <div class="values">24</div>
-                                </div>
-
-                                <div class="state fail">
-                                    <div class="title">거절</div>
-                                    <div class="values">44</div>
-                                </div>
-                                <div class="state success">
-                                    <div class="title">결재</div>
-                                    <div class="values">10</div>
+                                <div class="state shadow" v-for="list in statetotal" v-bind:class="list.state_class">
+                                    <div class="title">{{list.state_name}}</div>
+                                    <div class="values">{{list.total}}</div>
                                 </div>
                     </div>
 
-                    <div class="chart" id="tab03">
+                    <div class="chart" id="tab03" style="display: none;">
 
                         <section class="option">
                             <span class="start_date">{{start_date}}</span><span class="date_distance">/</span><span class="end_date">{{end_date}}</span>
@@ -156,7 +115,7 @@
 
                         <div class="player" v-for="player in players">
 
-                            <div class="summary" v-bind:data-d="'#'+player.userid">
+                            <div class="summary shadow" v-bind:data-d="'#'+player.userid">
                                 <div class="user">
                                     <span class="icon"><i class="material-icons">contact_phone</i></span>
                                     <span class="name">{{ player.username }}</span>
@@ -225,7 +184,21 @@
         var selectedEndDate = todayNow;
 
         /* datas  */
+        /* data */
         let currentUser = { shopname: "로또리치" }
+
+        let stateKindTotal = [
+            {state_name:"대기", state_class:"normal", total:24},
+            {state_name:"부재", state_class:"normal", total:42},
+            {state_name:"본인아님", state_class:"normal", total:6},
+            {state_name:"결번", state_class:"normal", total:17},
+            {state_name:"가망", state_class:"normal", total:84},
+            {state_name:"대기", state_class:"normal", total:16},
+            {state_name:"거절", state_class:"fail", total:24},
+            {state_name:"결재", state_class:"success", total:44},
+        ];
+
+
         let selectedPlayersOrders = [
             { username: "김태경", userid: "tekiteki", state_normal_cnt: 24, state_fail_cnt: 22, state_success_cnt: 7 },
             { username: "강지형", userid: "kangjh", state_normal_cnt: 11, state_fail_cnt: 4, state_success_cnt: 7 }
@@ -243,6 +216,7 @@
             data: {
                 start_date: selectedStartDate,
                 end_date: selectedEndDate,
+                statetotal : stateKindTotal
             }
         })
 
@@ -326,10 +300,10 @@
                 cell.innerHTML = i;
                 cnt = cnt + 1;
                 if (cnt % 7 == 1) {
-                    cell.innerHTML = "<font color=#FF9090>" + i;
+                    cell.innerHTML = "<font color='tomato'>" + i;
                 }
                 if (cnt % 7 == 0) {
-                    cell.innerHTML = "<font color=#7ED5E4>" + i
+                    cell.innerHTML = "<font color='turquoise'>" + i
                     row = tbcal.insertRow();
                 }
                 if (today.getFullYear() == date.getFullYear() && today.getMonth() == date.getMonth() && i == date.getDate()) {

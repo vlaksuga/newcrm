@@ -32,34 +32,54 @@
         main .screen_board .total_board .total_orders{font-size: 18px; font-weight: 900; margin-left: 4px;}
 
         main .date_board {padding: 8px; font-weight: 700;}
-        main .date_board .title {padding: 8px; color: #cccccc;}
+        main .date_board .titlebox{padding: 8px; color: #cccccc;}
+        
         main .date_board ul li {border-radius: 5px; background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; margin-bottom: 8px;}
         main .date_board ul li .start_date, main .date_board ul li .end_date {color: #aaaaaa;}
 
         main .list_board {padding: 8px; padding-bottom: 50px; font-weight: 700;}
-        main .list_board .title {padding: 8px; color: #cccccc;}
+        main .list_board .titlebox {padding: 8px; color: #cccccc; display: flex; justify-content: space-between;}
+        main .list_board .titlebox img {width: 20px; height: 20px; display: block;}
         main .list_board ul li {border-radius: 5px; background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; margin-bottom: 8px;}
         main .list_board ul li.fail .state {color: tomato;}
         main .list_board ul li.success .state {color: turquoise;}
         main .list_board ul li .state {font-weight: 700;}
         main .list_board ul li .date {color: #aaaaaa;}
 
-
+        footer nav ul {display: flex; width: 320px; height: 48px; position: fixed; bottom: 0; justify-content: space-around; align-items: center; background-color: white; border-top: 1px solid #eeeeee;}
+        footer nav ul li {font-size: 18px;}
+        footer nav ul li img {width: 25px; height: 25px;}
 
         /* filter */
-        #filter {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 2;}
-        #filter .box {position: fixed; bottom:0; left: 0; background-color:white; width: 100vw; height: 75vh; border-top-left-radius: 15px; border-top-right-radius: 15px; overflow-y: auto;}
-        #filter .filter_head {padding: 16px; display: flex; justify-content: space-between; align-items: center;}
-        #filter .filter_head .title {font-weight: 900;}
-        #filter .filter_head .close img {width: 20px; height: 20px;}
+        #filter_sdate {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 2;}
+        #filter_state .box {position: fixed; bottom:0; left: 0; background-color:white; width: 100vw; height: 75vh; border-top-left-radius: 15px; border-top-right-radius: 15px; overflow-y: auto;}
+        #filter_state .filter_head {padding: 16px; display: flex; justify-content: space-between; align-items: center;}
+        #filter_state .filter_head .title {font-weight: 900;}
+        #filter_state .filter_head .close img {width: 20px; height: 20px;}
 
-        #filter .state_option ul li .container {background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; position: relative;}
-        #filter .state_option ul li .container .statename {font-weight: 900;}
-        #filter .state_option ul li .container input {position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0;}
-        #filter .state_option ul li .container .checkmark {position: absolute; top: 18px; right: 16px; height: 10px; width: 10px; background-color: none; border-radius: 50%;}
-        #filter .state_option ul li .container .checkmark::after {content: ""; position: absolute; display: none;}
-        #filter .state_option ul li .container input:checked ~ .checkmark {background-color: #aaaaaa;}
-        #filter .state_option ul li .container input:checked ~ .statename {color: tomato;}
+        #filter_state .state_option ul li .container {background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; position: relative;}
+        #filter_state .state_option ul li .container .statename {font-weight: 900;}
+        #filter_state .state_option ul li .container input {position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0;}
+        #filter_state .state_option ul li .container .checkmark {position: absolute; top: 18px; right: 16px; height: 10px; width: 10px; background-color: none; border-radius: 50%;}
+        #filter_state .state_option ul li .container .checkmark::after {content: ""; position: absolute; display: none;}
+        #filter_state .state_option ul li .container input:checked ~ .checkmark {background-color: #aaaaaa;}
+        #filter_state .state_option ul li .container input:checked ~ .statename {color: tomato;}
+
+
+
+        #filter_state {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 2;}
+        #filter_state .box {position: fixed; bottom:0; left: 0; background-color:white; width: 100vw; height: 75vh; border-top-left-radius: 15px; border-top-right-radius: 15px; overflow-y: auto;}
+        #filter_state .filter_head {padding: 16px; display: flex; justify-content: space-between; align-items: center;}
+        #filter_state .filter_head .title {font-weight: 900;}
+        #filter_state .filter_head .close img {width: 20px; height: 20px;}
+
+        #filter_state .state_option ul li .container {background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; position: relative;}
+        #filter_state .state_option ul li .container .statename {font-weight: 900;}
+        #filter_state .state_option ul li .container input {position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0;}
+        #filter_state .state_option ul li .container .checkmark {position: absolute; top: 18px; right: 16px; height: 10px; width: 10px; background-color: none; border-radius: 50%;}
+        #filter_state .state_option ul li .container .checkmark::after {content: ""; position: absolute; display: none;}
+        #filter_state .state_option ul li .container input:checked ~ .checkmark {background-color: #aaaaaa;}
+        #filter_state .state_option ul li .container input:checked ~ .statename {color: tomato;}
     </style>
 </head>
 
@@ -71,7 +91,7 @@
     <div id="app">    
         <header>
             <div class="option">
-                <a onclick="$('#filter').fadeIn();" id="openF"><img src="img/icon/icon_more_horiz.png"></a>
+
             </div>
             <div class="shop">
                 <div id="avatar" class="avatar">
@@ -97,23 +117,28 @@
             </section>
 
             <section class="date_board">
-                <div class="title">기간 Period</div>
+                <div class="titlebox">기간 Period</div>
                 <ul>
                     <li class="shadow">
                         <span class="label">시작일</span>
                         <span class="start_date">{{ start_date }}</span>
-                        
+                        <input type="date" style="display: none;" id="sdate_picker">
                     </li>
                     <li class="shadow">
                         <span class="label">종료일</span>
                         <span class="end_date">{{ end_date }}</span>
+                        <input type="date" style="display: none;" id="edate_picker">
                     </li>
                 </ul>
             </section>
 
 
             <section class="list_board">
-                <div class="title">주문 orders</div>
+                <div class="titlebox">
+                    <span class="title">주문 Orders</span>
+                    <a onclick="$('#filter_state').fadeIn();" id="openF"><span class="filter"><img src="img/icon/icon_filter_list.png"></span></a>
+                </div>
+
                 <ul>
                     <a v-for="order in orders" v-bind:href="'./orders.html?pid=' + order.pid">
                         <li v-bind:class="order.state_class" class="shadow">
@@ -132,11 +157,36 @@
 
 
         <!-- filter -->
-        <div id="filter" style="display: none;">
+        <div id="filter_state" style="display: none;">
             <div class="box">
                 <form id="state_form">
                     <section class="filter_head">
                         <div class="title">주문상태 보기 선택</div>
+                        <div class="close"><img src="img/icon/icon_close.png"></div>
+                    </section>
+        
+                    <section class="state_option">
+        
+                        <ul>
+                            <li v-for="state in states">
+                                <label class="container">
+                                    <span class="statename">{{state.state_name}}</span>
+                                    <input type="checkbox" v-model="state.val">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
+        
+                    </section>
+                </form>
+            </div>
+        </div>
+
+        <div id="filter_sdate" style="display: none;">
+            <div class="box">
+                <form id="state_form">
+                    <section class="filter_head">
+                        <div class="title">시작일 선택</div>
                         <div class="close"><img src="img/icon/icon_close.png"></div>
                     </section>
         
@@ -249,16 +299,15 @@
             }
         })
 
-        $('#openF').on('click', function () {
-            $('#filter').fadeIn();
-        });
+
 
         $('#avaimg').on('click', function () {
             alert('준비중입니다');
         });
 
+
         $('.close').on('click', function () {
-            $('#filter').fadeOut();
+            $('#filter_state').fadeOut();
         });
 
         var avaoff = document.getElementById('avaimg');
