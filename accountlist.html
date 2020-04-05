@@ -2,72 +2,38 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+        <script src="./js/jquery-3.4.1.min.js"></script>
+        <script src="./js/vue.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=320,minimum-scale=1.0,maximum-scale=4.0,user-scalable=no">
-        <meta name="keywords" content="">			
-        <meta name="description" content="">		
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />			
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link href="./css/style.css" rel="stylesheet">					
     </head>
     <style>
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 22px;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1.4;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
-}
-    html {background-color:#222a35;}
-    html, body, div, ul, ol, li {margin: 0; padding: 0; font-size: 12px;}
-    a, a:hover, a:link, a:visited, a:focus {text-decoration: none; color: inherit;}
-    ul {list-style: none;}
-
-
-    #loading {width: 100vw; height: 100vh; top: 0; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; align-items: center;}
-    #app {margin: 0 auto; width: 100vw; height: 100vh; width: 320px; color: white;}
-    
-    header {height: 30px; display: flex; justify-content: space-between; align-items: center; padding: 8px;}
-    header .title_box {display: flex; justify-content: flex-start; align-items: center;}
-    header .title_box {font-weight: 700;}
-    
+    header {width: 320px; position: relative;}
+    header .title {width: 320px; height: 44px; background-color: white; position: fixed; top: 0; left: 0; display: flex; justify-content: flex-start; align-items: center;}
+    header .title .icons img {width: 25px; height: 25px; padding-left: 8px; display: block;}
+    header .title .titlename {margin-left: 8px; font-weight: 900;}
 
     main .account_list {padding-top: 16px;}
     main .account_list ul li {padding: 4px 8px;}
     main .account_list ul li .box {border-radius: 2px; padding: 8px; background-color: white; color: black; font-weight: 900;}
 
-    main .account_list .list { margin: 8px auto 16px; width: 95vw; MAR}
-    main .account_list .list .list_title {margin-bottom: 8px; font-weight: 900;}
-    main .account_list .list .summary {border-radius: 5px; padding: 8px 0; display: flex; justify-content: space-between; align-items: center; width: 100%; background-color: white; color: black;}
-    main .account_list .list .summary .box {align-items: center; padding-left: 8px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; width: 100%;}
+    main .account_list .list { margin: 8px auto 16px; width: 95vw;}
+    main .account_list .list .list_title {margin-bottom: 8px; padding-left: 8px; font-weight: 900;}
+    main .account_list .list .summary {padding: 12px 0; display: flex; justify-content: space-between; align-items: center; width: 100%; background-color: white; color: black;}
+    main .account_list .list .summary .box {align-items: center; padding-left: 16px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; width: 100%;}
     main .account_list .list .summary .box .title {font-weight: 700; font-size: 10px; width: 100%; border: none;}
     main .account_list .list .summary .box .title:focus {outline: none;}
     main .account_list .list .summary .edit {padding-right: 8px; color: #aaaaaa; font-size: 10px;}
-    main .account_list .list .details {width: 100%; padding-top: 8px; background-color: white; border-radius: 5px; margin-top: 8px; height: 100px;}
+    main .account_list .list .details {width: 100%; padding-top: 8px; background-color: white; margin-top: 8px; height: 100px;}
     main .account_list .list .precontent {width: 95%; margin: 0 auto; font-size: 10px; font-family: inherit; font-weight: 700; white-space: normal; line-height: 2; border: none; height: 90%; resize: none; background-color: transparent; padding-left: 8px;}
     main .account_list .list .precontent:focus {outline: none;}
 
-    main .buttons {display: flex; justify-content: space-around;}
+
+    main .controller {display: flex; justify-content: space-around; position: fixed; bottom: 0px; width: 100%; background-color: white; padding: 16px 0; font-weight: 900;}
 
 
     footer nav ul {display: flex; width: 320px; height: 48px; background-color: black; position: fixed; bottom: 0; justify-content: space-around; align-items: center;}
@@ -77,21 +43,21 @@
     <body>
         <div id="app">
             <header>
-                <div class="title_box">
-                    <div class="icon"><a href="javascript:history.back();"><i class="material-icons">navigate_before</i></a></div>
-                    <div class="title">계정 추가 / 편집</div>
+                <div class="title">
+                    <span class="icons"><a onclick="history.back();"><img src="img/icon/icon_arrow_back.png"></a></span>
+                    <span class="titlename">계정관리</span>
                 </div>
             </header>
 
             <main>
-                <section class="account_list">
+                <section class="account_list" style="padding-top: 50px;">
                     
                     <div class="list">
                         <div class="list_title">
                             <span>이름</span>
                         </div>
 
-                        <div class="summary">
+                        <div class="summary shadow">
                             <div class="box">
                                 <input type="text" class="title" value="PLAYER 01">
                             </div>
@@ -103,7 +69,7 @@
                             <span>ID</span>
                         </div>
 
-                        <div class="summary">
+                        <div class="summary shadow">
                             <div class="box">
                                 <input type="text" class="title" value="VLAKSUGA">
                             </div>
@@ -115,7 +81,7 @@
                             <span>PASSWORD</span>
                         </div>
 
-                        <div class="summary">
+                        <div class="summary shadow">
                             <div class="box">
                                 <input type="password" class="title" value="password">
                             </div>
@@ -127,17 +93,19 @@
                             <span>MEMO</span>
                         </div>
 
-                        <div class="details">
+                        <div class="details shadow">
                             <textarea class="precontent">MEMO</textarea>
                         </div>
 
                     </div>
 
                 </section>
-                <section class="buttons">
-                    <a onclick="saveaccount();"><div class="save">저장</div></a>
-                    <a onclick="deleteaccount();"><div class="del">삭제</div></a>
+                
+                <section class="controller">
+                    <a onclick="saveNotice();"><div class="save">저장</div></a>
+                    <a onclick="deleteNotice();"><div class="del">삭제</div></a>
                 </section>
+
                 <script>
                     function saveaccount(){
                         if(confirm('변경된 내용을 저장할까요?')){
