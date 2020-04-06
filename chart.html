@@ -20,12 +20,13 @@
     
     main .date_board {padding: 8px; font-weight: 700;}
     main .date_board .date_distance {margin: 0 5px;}
-
+    
     main .tab_board ul {overflow-x: auto; white-space: nowrap; padding: 8px; display: flex;}
     main .tab_board ul li {width: 33.3%; padding: 8px;}
     main .tab_board .tablinks {text-align: center; color: #aaaaaa;}
     main .tab_board .tablinks.active {font-weight: 900; border-bottom: 1px solid #cccccc; color: black;}
 
+    main .chart_board {height: 100%; padding-bottom: 50px;}
     main .chart_board .option {background-color: turquoise; display: flex; align-items: center; justify-content: space-around; font-weight: 700; padding: 16px; border-radius: 5px;}
     main .chart_board .option .icons {width: 20px; height: 20px; display: block;}
     main .chart_board .option input[type="date"] {background-color: transparent; color: white; border:none; outline: none;text-align: center; padding: 0; font-size: 12px; font-weight: 700; font-family: inherit;}
@@ -64,8 +65,11 @@
     main .chart_board .chart .player .details .states .values {padding-right: 16px;}
 
 </style>
+
     <body>
+
         <div id="app">
+
             <header>
                 <div class="title">
                     <span class="icons"><a onclick="history.back();"><img src="img/icon/icon_arrow_back.png"></a></span>
@@ -151,10 +155,20 @@
                 </section>
             </main>
 
-            <footer></footer>
+            <footer>
+                <nav>
+                    <ul>
+                        <li class="nav_list"><a href="index.html"><img src="img/icon/icon_home.png"></a></li>
+                        <li class="nav_orders"><a href="orders.html"><img src="img/icon/icon_description.png"></a></li>
+                        <li class="nav_stats"><a href="chart.html"><img src="img/icon/icon_chart.png"></a></li>
+                        <li class="nav_mypage"><a href="config.html"><img src="img/icon/icon_settings.png"></a></li>
+                    </ul>
+                </nav>
+            </footer>
     
     </div>
     </body>
+
     <script>
 
         /* date */

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 
 <head>
@@ -154,7 +153,16 @@
             </section>
         </main>
 
-        <footer></footer>
+        <footer>
+            <nav>
+                <ul>
+                    <li class="nav_list"><a href="index.html"><img src="img/icon/icon_home.png"></a></li>
+                    <li class="nav_orders"><a href="orders.html"><img src="img/icon/icon_description.png"></a></li>
+                    <li class="nav_stats"><a href="chart.html"><img src="img/icon/icon_chart.png"></a></li>
+                    <li class="nav_mypage"><a href="config.html"><img src="img/icon/icon_settings.png"></a></li>
+                </ul>
+            </nav>
+        </footer>
 
         <!-- filter -->
         <div id="popbox_player"  class="popbox" style="display: none;">
@@ -233,9 +241,8 @@
     </div>
     
     <script>
-        /* layout */
-    
-        $('footer').load('tile/footer.html');
+
+
 
         /* sample-data */
         let orderStateKind = [
@@ -288,7 +295,7 @@
                     ],
                     aval: 0,
                     pickable : 1,
-                    pickplayername : 1,
+                    pickplayername : "PLAYER01",
                     state : 1,
                     overlap : 0,
                     comment : "첫번째 주문입니다."
