@@ -21,17 +21,28 @@
         main .order_board .order ul li {border-radius: 5px; background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; margin-bottom: 8px;}
         main .order_board .order .title {padding: 8px; color: #cccccc;}
         main .order_board .handler ul li {border-radius: 5px; background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; margin-bottom: 8px;}
+        main .order_board .handler ul li.fail {border: 1px solid tomato;}
+        main .order_board .handler ul li .handler_value.fail {color: tomato;}
         main .order_board .handler .title {padding: 8px; color: #cccccc;}
         main .order_board .order_nav {position: fixed; top:0px; right:0px}
         main .order_board .order_nav img {width: 25px; height: 25px; padding: 8px;}
 
         main .controller {display: flex; justify-content: space-around; position: fixed; bottom: 48px; width: 100%; background-color: white; padding: 16px 0; font-weight: 900;}
 
+        #popbox_player {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 2;}
+        #popbox_player .box {position: fixed; bottom:0; left: 0; background-color:white; width: 100vw; height: 75vh; border-top-left-radius: 15px; border-top-right-radius: 15px; overflow-y: auto;}
+        #popbox_player .filter_head {padding: 16px; display: flex; justify-content: space-between; align-items: center;}
+        #popbox_player .filter_head .title {font-weight: 900;}
+        #popbox_player .filter_head .close img {width: 20px; height: 20px;}
 
+        #popbox_player .state_option ul li .container {background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; position: relative;}
+        #popbox_player .state_option ul li .container .statename {font-weight: 900;}
+        #popbox_player .state_option ul li .container input {position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0;}
+        #popbox_player .state_option ul li .container .checkmark {position: absolute; top: 18px; right: 16px; height: 10px; width: 10px; background-color: none; border-radius: 50%;}
+        #popbox_player .state_option ul li .container .checkmark::after {content: ""; position: absolute; display: none;}
+        #popbox_player .state_option ul li .container input:checked ~ .checkmark {background-color: #aaaaaa;}
+        #popbox_player .state_option ul li .container input:checked ~ .statename {color: tomato;}
 
-        #filter {position: fixed; top: 0; right: 0; width: 75vw; height: 100vh; background-color: rgba(0, 0, 0, 1); z-index: 2;}
-        #filter .fil_head {display: flex; justify-content: space-between; align-items: center; height: 30px; padding: 8px;}
-        #filter .date_option .selector .date{display: flex; justify-content: space-between; padding: 4px 8px;}
         
         
     </style>
@@ -66,31 +77,39 @@
                 <div class="handler" id="handler_table">
                     <div class="title">처리결과 Result</div>
                     <ul>
-                        <li class="shadow">
-                            <span class="handler_label">유효성</span>
-                            <span class="handler_value" id="data_aval">{{handler.aval}}</span>
-                        </li>
-                        <li class="shadow">
+                        <a @click="toggleAval">
+                            <li class="handler_list shadow" id="list_aval" v-bind:class="handler.aval == 0? 'fail':''">
+                                <span class="handler_label">유효성</span>
+                                <span class="handler_value" v-bind:class="handler.aval == 0? 'fail':''" id="data_aval">{{handler.aval == 0? '무효':'유효'}}</span>
+                            </li>
+                        </a>
+                        <a @click="togglePickable">
+                        <li class="handler_list shadow" id="list_pickable" v-bind:class="handler.pickable == 0? 'fail':''">
                             <span class="handler_label">분배설정</span>
-                            <span class="handler_value" id="data_aval">{{handler.aval}}</span>
-                        </li>
-                        <li class="shadow">
+                            <span class="handler_value" v-bind:class="handler.pickable == 0? 'fail':''" id="data_pickable">{{handler.pickable == 0? '숨김':'분배중'}}</span>
+                            </li>
+                        </a>
+                        <a onclick="$('#popbox_player').fadeIn();">
+                        <li class="handler_list shadow">
                             <span class="handler_label">담당자</span>
-                            <span class="handler_value" id="data_pickplayerpid">{{handler.pickplayerpid}}</span>
+                            <span class="handler_value" id="data_pickplayerpid">{{handler.pickplayerpid == null? '없음': handler.pickplayerpid}}</span>
                         </li>
-                        <li class="shadow">
+                        </a>
+                        <li class="handler_list shadow">
                             <span class="handler_label">주문처리상태</span>
                             <span class="handler_value" id="data_state">{{handler.state}}</span>
                         </li>
-                        <li class="shadow">
+                        <a @click="toggleOverlap">
+                        <li class="handler_list shadow" id="list_overlap" v-bind:class="handler.overlap == 0? 'fail':''">
                             <span class="handler_label">중복</span>
-                            <span class="handler_value" id="data_overlap">{{handler.overlap}}</span>
+                            <span class="handler_value" v-bind:class="handler.overlap == 0? 'fail':''" id="data_overlap">{{handler.overlap == 0? '중복됨':'신규'}}</span>
                         </li>
-                        <li class="shadow">
-                            <span class="handler_label">메모</span>
-                            <span class="handler_value" id="data_comment">{{handler.comment}}</span>
-                        </li>
-                    </ul>
+                        </a>
+                            <li class="handler_list shadow">
+                                <span class="handler_label">메모</span>
+                                <span class="handler_value" id="data_comment">{{handler.comment}}</span>
+                            </li>
+                        </ul>
                 </div>
                 <div class="order_nav">
                    <span><a @click="prevorder"><img src="img/icon/icon_nav_before.png"></a></span>
@@ -106,7 +125,31 @@
 
         <footer></footer>
 
-
+        <!-- filter -->
+        <div id="popbox_player" style="display: none;">
+            <div class="box">
+                <form id="player_form">
+                    <section class="filter_head">
+                        <div class="title">담당자 선택</div>
+                        <div class="close"><img src="img/icon/icon_close.png"></div>
+                    </section>
+        
+                    <section class="state_option">
+        
+                        <ul>
+                            <li v-for="state in states">
+                                <label class="container">
+                                    <span class="statename">{{state.state_name}}</span>
+                                    <input type="checkbox" v-model="state.val">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
+        
+                    </section>
+                </form>
+            </div>
+        </div>
         <script>
             /* layout */
         
@@ -141,13 +184,6 @@
                     ],
                     shopstate : "ok"
                 }                       
-
-            var shopName = new Vue({
-                el: '.shop_name',
-                data: {
-                    shop_name: currentShop.shopname
-                }
-            });
 
             let currentOrder = [
                     {
@@ -209,7 +245,7 @@
 
 
             var orderTable = new Vue({
-                el: '#order_table',
+                el: '#app',
                 data: {
                     colset : currentcolset,
                     handler : {
@@ -221,12 +257,14 @@
                         comment : currentComment
                     }
                 },
-                methods : {
+                methods : {                    
                     prevorder : function() {
                         if(initIndex > currentOrder.length-2){
                             alert('이전 주문이 없습니다')
                         } else {
                             initIndex++;
+                            $('.handler_value').removeClass('fail');
+                            $('.handler_list').removeClass('fail');
                             currentcolset = currentOrder[initIndex].colset;
                             currentAval = currentOrder[initIndex].aval;
                             currentPickable = currentOrder[initIndex].pickable;
@@ -241,6 +279,7 @@
                             this.handler.state = currentState;
                             this.handler.overlap = currentOverlap;
                             this.handler.comment = currentComment;
+                            changedOrder = currentOrder;
                         }
                     },
                     nextorder : function() {
@@ -248,6 +287,8 @@
                             alert('마지막 주문입니다.')
                         } else {
                             initIndex--;
+                            $('.handler_value').removeClass('fail');
+                            $('.handler_list').removeClass('fail');
                             currentcolset = currentOrder[initIndex].colset;
                             currentAval = currentOrder[initIndex].aval;
                             currentPickable = currentOrder[initIndex].pickable;
@@ -263,8 +304,48 @@
                             this.handler.overlap = currentOverlap;
                             this.handler.comment = currentComment;                       
                         }
-                    }
-                }
+                    },
+                    toggleAval : function() {
+                        if($('#data_aval').text() == "무효") {
+                            $('#data_aval').text('유효');
+                            $('#data_aval').removeClass('fail');
+                            $('#list_aval').removeClass('fail');
+                            currentAval = 1;
+                        } else {
+                            $('#data_aval').text('무효');
+                            $('#data_aval').addClass('fail');
+                            $('#list_aval').addClass('fail');
+                            currentAval = 0;
+                        } 
+                    },
+                    togglePickable : function() {
+                        if($('#data_pickable').text() == "숨김") {
+                            $('#data_pickable').text('분배중');
+                            $('#data_pickable').removeClass('fail');
+                            $('#list_pickable').removeClass('fail');
+                            currentPickable = 1;
+                        } else {
+                            $('#data_pickable').text('숨김');
+                            $('#data_pickable').addClass('fail');
+                            $('#list_pickable').addClass('fail');
+                            currentPickable = 0;
+                        } 
+                    },
+                    toggleOverlap : function() {
+                        if($('#data_overlap').text() == "중복됨") {
+                            $('#data_overlap').text('신규');
+                            $('#data_overlap').removeClass('fail');
+                            $('#list_overlap').removeClass('fail');
+                            currentOverlap = 1;
+                        } else {
+                            $('#data_overlap').text('중복됨');
+                            $('#data_overlap').addClass('fail');
+                            $('#list_overlap').addClass('fail');
+                            currentOverlap = 0;
+                        } 
+                    },
+                },
+
             });
 
             
@@ -289,9 +370,15 @@
                     alert('삭제하지 못했습니다.');
                 };
             };
+
+            $('.close').on('click', function () {
+            $('#popbox_player').fadeOut();
+        });
         </script>
 
     </div>
+
+    
     
 </body>
 

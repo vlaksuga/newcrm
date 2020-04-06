@@ -263,41 +263,18 @@
 
         /* VUE instances*/
 
-        new Vue({
-            el: 'header',
-            data: {
-                shop_name: currentUser.shopname
-            }
-        })
-
-        new Vue({
-            el: '.date_board',
-            data: {
-                start_date: firstMonthday,
-                end_date: today
-            }                
-        })
-
-        new Vue({
-            el: '.total_board',
-            data: {
-                total_order: selectedOrders.length
-            }
-        })
-
-        new Vue({
-            el: '.list_board',
-            data: {
-                orders: selectedOrders
-            }
-        })
-
-        new Vue({
-            el : '#state_form',
+        var app = new Vue({
+            el: '#app',
             data : {
+                shop_name: currentUser.shopname,
+                start_date: firstMonthday,
+                end_date: today,
+                total_order: selectedOrders.length,
+                orders: selectedOrders,
                 states : orderStateKind
-            }
-        })
+                }
+            });
+
 
 
 
