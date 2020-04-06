@@ -13,26 +13,23 @@
     </head>
     <style>
 
-
     
     header {width: 320px; position: relative;}
     header .title {width: 320px; height: 44px; background-color: white; position: fixed; top: 0; left: 0; display: flex; justify-content: flex-start; align-items: center;}
     header .title .icons img {width: 25px; height: 25px; padding-left: 8px; display: block;}
     header .title .titlename {margin-left: 8px; font-weight: 900;}
-    
+
+    main .notice_list {padding-top: 16px;}
+    main .notice_list ul li {padding: 4px 8px;}
+    main .notice_list ul li .box {border-radius: 2px; padding: 8px; background-color: white; color: black; font-weight: 900;}
 
     main .notice_list .notice { margin: 8px auto; width: 95vw;}
-    main .notice_list .notice .summary {padding: 16px; border-bottom: 1px solid #efefef;}
-    main .notice_list .notice .summary .title_box .title {font-weight: 700; line-height: 2;}
-    main .notice_list .notice .summary .title_box .title:focus {outline: none;}
-    main .notice_list .notice .summary .edit {padding-right: 8px; color: #aaaaaa; font-size: 10px;}
-    main .notice_list .notice .details {padding: 16px; line-height: 2; font-size: 10px;}
-    main .notice_list .notice .precontent {width: 95%; margin: 0 auto; font-size: 10px; font-family: inherit; font-weight: 700; white-space: normal; line-height: 2; border: none; height: 90%; resize: none; background-color: transparent; padding-left: 8px;}
-    main .notice_list .notice .precontent:focus {outline: none;}
-
-    main .buttons {display: flex; justify-content: space-around;}
-
-    main .controller {display: flex; justify-content: space-around; position: fixed; bottom: 0px; width: 100%; background-color: white; padding: 16px 0; font-weight: 900;}
+    main .notice_list .notice .summary {padding: 16px 0; display: flex; justify-content: space-between; align-items: center; width: 100%; background-color: white; color: black;}
+    main .notice_list .notice .summary .title_box {align-items: center; padding-left: 8px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+    main .notice_list .notice .summary .title_box .title {font-weight: 700; font-size: 10px;}
+    main .notice_list .notice .summary .date {padding-right: 8px; color: #aaaaaa; font-size: 10px;}
+    main .notice_list .notice .details {width: 100%; padding-top: 8px;}
+    main .notice_list .notice .precontent {width: 95vw; margin: 0 auto; font-size: 10px; font-family: inherit; font-weight: 700; white-space: normal; line-height: 2;}
 
 
     footer nav ul {display: flex; width: 320px; height: 48px; background-color: black; position: fixed; bottom: 0; justify-content: space-around; align-items: center;}
@@ -45,49 +42,38 @@
             <header>
                 <div class="title">
                     <span class="icons"><a onclick="history.back();"><img src="img/icon/icon_arrow_back.png"></a></span>
-                    <span class="titlename">2020-04-04</span>
+                    <span class="titlename">공지사항</span>
                 </div>
             </header>
 
             <main>
-                <section class="notice_list" style="padding-top: 40px;">
+                <section class="notice_list" style="padding-top: 50px;">
                     
                     <div class="notice">
-
-                        <div class="summary">
+                        <a href="notice.html">
+                        <div class="summary shadow">
                             <div class="title_box">
+                                <span class="date">2020-04-04</span>
                                 <span class="title">폼 설정하시는 방법</span>
                             </div>
-                        </div>
-
-                        <div class="details">
-                            <span>이곳에 내용이 아주 길게 들어갑니다. 이곳에 내용이 아주 길게 들어갑니다.<br/> 이곳에 내용이 아주 길게 들어갑니다. 이곳에 내용이 아주 길게 들어갑니다. 이곳에 내용이 아주 길게 들어갑니다. </span>
-                        </div>
+                            </div>
+                        </a>
 
                     </div>
-                </section>
 
-                <section class="controller">
-                    <a onclick="saveNotice();"><div class="save">저장</div></a>
-                    <a onclick="deleteNotice();"><div class="del">삭제</div></a>
+                    <div class="notice">
+                        <a href="notice.html">
+                        <div class="summary shadow">
+                            <div class="title_box">
+                                <span class="date">2020-04-01</span>
+                                <span class="title">주문 설정을 하실때는 자세하게 써주셔야 이해할 수 있습니다.</span>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
                 </section>
-                <script>
-                    function saveNotice(){
-                        if(confirm('변경된 내용을 저장할까요?')){
-                            alert('저장하였습니다.');
-                        }
-                    };
-    
-                    function deleteNotice(){
-                        if(prompt('"삭제확인"을 입력해주세요')=="삭제확인"){
-                            alert('삭제하였습니다');
-                        }else{
-                            alert('삭제하지 못했습니다.');
-                        };
-                    };
-                </script>
-            </main>
-    
+            </main>    
     </div>
     </body>
 </html>

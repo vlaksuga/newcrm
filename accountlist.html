@@ -9,35 +9,24 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <link href="./css/style.css" rel="stylesheet">					
+        <link href="./css/style.css" rel="stylesheet">			
     </head>
     <style>
+
+    
     header {width: 320px; position: relative;}
     header .title {width: 320px; height: 44px; background-color: white; position: fixed; top: 0; left: 0; display: flex; justify-content: flex-start; align-items: center;}
     header .title .icons img {width: 25px; height: 25px; padding-left: 8px; display: block;}
     header .title .titlename {margin-left: 8px; font-weight: 900;}
+    
 
-    main .account_list {padding-top: 16px;}
-    main .account_list ul li {padding: 4px 8px;}
-    main .account_list ul li .box {border-radius: 2px; padding: 8px; background-color: white; color: black; font-weight: 900;}
-
-    main .account_list .list { margin: 8px auto 16px; width: 95vw;}
-    main .account_list .list .list_title {margin-bottom: 8px; padding-left: 8px; font-weight: 900;}
-    main .account_list .list .summary {padding: 12px 0; display: flex; justify-content: space-between; align-items: center; width: 100%; background-color: white; color: black;}
-    main .account_list .list .summary .box {align-items: center; padding-left: 16px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; width: 100%;}
-    main .account_list .list .summary .box .title {font-weight: 700; font-size: 10px; width: 100%; border: none;}
-    main .account_list .list .summary .box .title:focus {outline: none;}
-    main .account_list .list .summary .edit {padding-right: 8px; color: #aaaaaa; font-size: 10px;}
-    main .account_list .list .details {width: 100%; padding-top: 8px; background-color: white; margin-top: 8px; height: 100px;}
-    main .account_list .list .precontent {width: 95%; margin: 0 auto; font-size: 10px; font-family: inherit; font-weight: 700; white-space: normal; line-height: 2; border: none; height: 90%; resize: none; background-color: transparent; padding-left: 8px;}
-    main .account_list .list .precontent:focus {outline: none;}
-
-
-    main .controller {display: flex; justify-content: space-around; position: fixed; bottom: 0px; width: 100%; background-color: white; padding: 16px 0; font-weight: 900;}
-
-
-    footer nav ul {display: flex; width: 320px; height: 48px; background-color: black; position: fixed; bottom: 0; justify-content: space-around; align-items: center;}
-    footer nav ul li {font-size: 18px;}
+    main .account_list .account { margin: 8px auto; width: 95vw;}
+    main .account_list .account .summary {border-radius: 5px; padding: 16px 0; display: flex; justify-content: space-between; align-items: center; width: 100%; background-color: white; color: black;}
+    main .account_list .account .summary .title_box {align-items: center; padding-left: 16px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; width: 85%;}
+    main .account_list .account .summary .title_box .player {font-weight: 700; font-size: 10px;}
+    main .account_list .account .summary .edit {padding-right: 8px; color: #aaaaaa; font-size: 10px;}
+    main .account_list .account .details {width: 100%; padding-top: 8px;}
+    main .account_list .account .precontent {width: 95vw; margin: 0 auto; font-size: 10px; font-family: inherit; font-weight: 700; white-space: normal; line-height: 2;}
 
 </style>
     <body>
@@ -52,77 +41,46 @@
             <main>
                 <section class="account_list" style="padding-top: 50px;">
                     
-                    <div class="list">
-                        <div class="list_title">
-                            <span>이름</span>
-                        </div>
+                    <a href="account.html">
+                    <div class="account shadow">
 
-                        <div class="summary shadow">
-                            <div class="box">
-                                <input type="text" class="title" value="PLAYER 01">
+                        <div class="summary">
+                            <div class="title_box">
+                                <span class="player">PLAYER 01</span>
                             </div>
                         </div>
+
                     </div>
+                </a>
 
-                    <div class="list">
-                        <div class="list_title">
-                            <span>ID</span>
-                        </div>
+                    <a href="account.html">
+                    <div class="account shadow">
 
-                        <div class="summary shadow">
-                            <div class="box">
-                                <input type="text" class="title" value="VLAKSUGA">
+                        <div class="summary">
+                            <div class="title_box">
+                                <span class="player">PLAYER 02</span>
                             </div>
                         </div>
+
                     </div>
+                    </a>
 
-                    <div class="list">
-                        <div class="list_title">
-                            <span>PASSWORD</span>
-                        </div>
+                    <a href="account.html">
+                    <div class="account shadow">
 
-                        <div class="summary shadow">
-                            <div class="box">
-                                <input type="password" class="title" value="password">
+                        <div class="summary">
+                            <div class="title_box">
+                                <span class="player">PLAYER 03</span>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="list">
-                        <div class="list_title">
-                            <span>MEMO</span>
-                        </div>
-
-                        <div class="details shadow">
-                            <textarea class="precontent">MEMO</textarea>
-                        </div>
 
                     </div>
+                </a>
 
                 </section>
-                
-                <section class="controller">
-                    <a onclick="saveNotice();"><div class="save">저장</div></a>
-                    <a onclick="deleteNotice();"><div class="del">삭제</div></a>
-                </section>
 
-                <script>
-                    function saveaccount(){
-                        if(confirm('변경된 내용을 저장할까요?')){
-                            alert('저장하였습니다.');
-                        }
-                    };
-    
-                    function deleteaccount(){
-                        if(prompt('"삭제확인"을 입력해주세요')=="삭제확인"){
-                            alert('삭제하였습니다');
-                        }else{
-                            alert('삭제하지 못했습니다.');
-                        };
-                    };
-                </script>
             </main>
-    
+            
     </div>
     </body>
 </html>
