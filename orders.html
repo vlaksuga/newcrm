@@ -23,25 +23,49 @@
         main .order_board .handler ul li {border-radius: 5px; background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; margin-bottom: 8px;}
         main .order_board .handler ul li.fail {border: 1px solid tomato;}
         main .order_board .handler ul li .handler_value.fail {color: tomato;}
+        .memo_result {padding: 16px; min-height: 300px; font-size: 10px; color: #777777; border-radius: 5px;}
         main .order_board .handler .title {padding: 8px; color: #cccccc;}
         main .order_board .order_nav {position: fixed; top:0px; right:0px}
-        main .order_board .order_nav img {width: 25px; height: 25px; padding: 8px;}
+        main .order_board .order_nav img {width: 25px; height: 25px; padding: 10px;}
 
         main .controller {display: flex; justify-content: space-around; position: fixed; bottom: 48px; width: 100%; background-color: white; padding: 16px 0; font-weight: 900;}
 
         #popbox_player {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 2;}
-        #popbox_player .box {position: fixed; bottom:0; left: 0; background-color:white; width: 100vw; height: 75vh; border-top-left-radius: 15px; border-top-right-radius: 15px; overflow-y: auto;}
+        #popbox_player .box {position: fixed; bottom:0; left: 0; background-color:white; width: 100vw; height: 400px; border-top-left-radius: 15px; border-top-right-radius: 15px; overflow-y: auto;}
         #popbox_player .filter_head {padding: 16px; display: flex; justify-content: space-between; align-items: center;}
         #popbox_player .filter_head .title {font-weight: 900;}
         #popbox_player .filter_head .close img {width: 20px; height: 20px;}
 
-        #popbox_player .state_option ul li .container {background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; position: relative;}
-        #popbox_player .state_option ul li .container .statename {font-weight: 900;}
-        #popbox_player .state_option ul li .container input {position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0;}
-        #popbox_player .state_option ul li .container .checkmark {position: absolute; top: 18px; right: 16px; height: 10px; width: 10px; background-color: none; border-radius: 50%;}
-        #popbox_player .state_option ul li .container .checkmark::after {content: ""; position: absolute; display: none;}
-        #popbox_player .state_option ul li .container input:checked ~ .checkmark {background-color: #aaaaaa;}
-        #popbox_player .state_option ul li .container input:checked ~ .statename {color: tomato;}
+        #popbox_player .option ul li .container {background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; position: relative;}
+        #popbox_player .option ul li .container .playername {font-weight: 900;}
+        #popbox_player .option ul li .container input {position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0;}
+        #popbox_player .option ul li .container .checkmark {position: absolute; top: 18px; right: 16px; height: 10px; width: 10px; background-color: none; border-radius: 50%;}
+        #popbox_player .option ul li .container .checkmark::after {content: ""; position: absolute; display: none;}
+        #popbox_player .option ul li .container input:checked ~ .checkmark {background-color: #aaaaaa;}
+        #popbox_player .option ul li .container input:checked ~ .playername {color: tomato;}
+
+        #popbox_state {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 2;}
+        #popbox_state .box {position: fixed; bottom:0; left: 0; background-color:white; width: 100vw; height: 400px; border-top-left-radius: 15px; border-top-right-radius: 15px; overflow-y: auto;}
+        #popbox_state .filter_head {padding: 16px; display: flex; justify-content: space-between; align-items: center;}
+        #popbox_state .filter_head .title {font-weight: 900;}
+        #popbox_state .filter_head .close img {width: 20px; height: 20px;}
+
+        #popbox_state .option ul li .container {background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; position: relative;}
+        #popbox_state .option ul li .container .statename {font-weight: 900;}
+        #popbox_state .option ul li .container input {position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0;}
+        #popbox_state .option ul li .container .checkmark {position: absolute; top: 18px; right: 16px; height: 10px; width: 10px; background-color: none; border-radius: 50%;}
+        #popbox_state .option ul li .container .checkmark::after {content: ""; position: absolute; display: none;}
+        #popbox_state .option ul li .container input:checked ~ .checkmark {background-color: #aaaaaa;}
+        #popbox_state .option ul li .container input:checked ~ .playername {color: tomato;}
+
+        #popbox_comment {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 2;}
+        #popbox_comment .box {position: fixed; top:0; left: 0; background-color:white; width: 100vw; height: 400px; overflow-y: auto;}
+        #popbox_comment .filter_head {padding: 16px; display: flex; justify-content: space-between; align-items: center;}
+        #popbox_comment .filter_head .title {font-weight: 900;}
+        #popbox_comment .filter_head .close img {width: 20px; height: 20px;}
+
+        #popbox_comment .option ul li .container {background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; position: relative;}
+        #popbox_comment .option ul li .container textarea {font-weight: 700; font-size: 10px; line-height: 2; width: 100%; height: 300px; border: none; resize: none;}
 
         
         
@@ -80,36 +104,43 @@
                         <a @click="toggleAval">
                             <li class="handler_list shadow" id="list_aval" v-bind:class="handler.aval == 0? 'fail':''">
                                 <span class="handler_label">유효성</span>
-                                <span class="handler_value" v-bind:class="handler.aval == 0? 'fail':''" id="data_aval">{{handler.aval == 0? '무효':'유효'}}</span>
+                                <span class="handler_value" v-bind:class="handler.aval == 0? 'fail':''"
+                                    id="data_aval">{{handler.aval == 0? '무효':'유효'}}</span>
                             </li>
                         </a>
                         <a @click="togglePickable">
-                        <li class="handler_list shadow" id="list_pickable" v-bind:class="handler.pickable == 0? 'fail':''">
-                            <span class="handler_label">분배설정</span>
-                            <span class="handler_value" v-bind:class="handler.pickable == 0? 'fail':''" id="data_pickable">{{handler.pickable == 0? '숨김':'분배중'}}</span>
+                            <li class="handler_list shadow" id="list_pickable" v-bind:class="handler.pickable == 0? 'fail':''">
+                                <span class="handler_label">분배설정</span>
+                                <span class="handler_value" v-bind:class="handler.pickable == 0? 'fail':''"
+                                    id="data_pickable">{{handler.pickable == 0? '숨김':'분배중'}}</span>
                             </li>
                         </a>
                         <a onclick="$('#popbox_player').fadeIn();">
-                        <li class="handler_list shadow">
-                            <span class="handler_label">담당자</span>
-                            <span class="handler_value" id="data_pickplayerpid">{{handler.pickplayerpid == null? '없음': handler.pickplayerpid}}</span>
-                        </li>
-                        </a>
-                        <li class="handler_list shadow">
-                            <span class="handler_label">주문처리상태</span>
-                            <span class="handler_value" id="data_state">{{handler.state}}</span>
-                        </li>
-                        <a @click="toggleOverlap">
-                        <li class="handler_list shadow" id="list_overlap" v-bind:class="handler.overlap == 0? 'fail':''">
-                            <span class="handler_label">중복</span>
-                            <span class="handler_value" v-bind:class="handler.overlap == 0? 'fail':''" id="data_overlap">{{handler.overlap == 0? '중복됨':'신규'}}</span>
-                        </li>
-                        </a>
                             <li class="handler_list shadow">
-                                <span class="handler_label">메모</span>
-                                <span class="handler_value" id="data_comment">{{handler.comment}}</span>
+                                <span class="handler_label">담당자</span>
+                                <span class="handler_value"
+                                    id="data_pickplayername">{{handler.pickplayername == null? '없음': handler.pickplayername}}</span>
                             </li>
-                        </ul>
+                        </a>
+                        <a onclick="$('#popbox_state').fadeIn();">
+                            <li class="handler_list shadow">
+                                <span class="handler_label">주문처리상태</span>
+                                <span class="handler_value" id="data_state">{{handler.state}}</span>
+                            </li>
+                        </a>
+                        <a @click="toggleOverlap">
+                            <li class="handler_list shadow" id="list_overlap" v-bind:class="handler.overlap == 0? 'fail':''">
+                                <span class="handler_label">중복</span>
+                                <span class="handler_value" v-bind:class="handler.overlap == 0? 'fail':''"
+                                    id="data_overlap">{{handler.overlap == 0? '중복됨':'신규'}}</span>
+                            </li>
+                        </a>
+                        <a onclick="$('#popbox_comment').fadeIn();">
+                            <div class="shadow memo_result" id="data_comment">
+                                {{handler.comment}}
+                            </div>
+                        </a>
+                    </ul>
                 </div>
                 <div class="order_nav">
                    <span><a @click="prevorder"><img src="img/icon/icon_nav_before.png"></a></span>
@@ -126,7 +157,7 @@
         <footer></footer>
 
         <!-- filter -->
-        <div id="popbox_player" style="display: none;">
+        <div id="popbox_player"  class="popbox" style="display: none;">
             <div class="box">
                 <form id="player_form">
                     <section class="filter_head">
@@ -134,13 +165,13 @@
                         <div class="close"><img src="img/icon/icon_close.png"></div>
                     </section>
         
-                    <section class="state_option">
+                    <section class="option">
         
                         <ul>
-                            <li v-for="state in states">
+                            <li v-for="player in players">
                                 <label class="container">
-                                    <span class="statename">{{state.state_name}}</span>
-                                    <input type="checkbox" v-model="state.val">
+                                    <span class="playername">{{player.name}}</span>
+                                    <input type="radio" name="player">
                                     <span class="checkmark"></span>
                                 </label>
                             </li>
@@ -150,233 +181,294 @@
                 </form>
             </div>
         </div>
-        <script>
-            /* layout */
+
+        <div id="popbox_state" class="popbox"  style="display: none;">
+            <div class="box">
+                <form id="state_form">
+                    <section class="filter_head">
+                        <div class="title">주문처리상태 선택</div>
+                        <div class="close"><img src="img/icon/icon_close.png"></div>
+                    </section>
         
-            $('footer').load('tile/footer.html');
+                    <section class="option">
+        
+                        <ul>
+                            <li v-for="statelist in statelists">
+                                <label class="container">
+                                    <span class="statename">{{statelist.state_name}}</span>
+                                    <input type="radio" name="player">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
+        
+                    </section>
+                </form>
+            </div>
+        </div>
 
-            /* sample-data */
-            var currentShop = {
-                    shopPid : 1,
-                    shopid : "lottorich",
-                    shopname : "로또리치",
-                    acode : 680,
-                    bcode : "sdkwody",
-                    player : [
-                        {
-                            Pid : 1,
-                            id : "tekiteki",
-                            pw : "kim31010",
-                            name : "PLAYER01"
-                        },
-                        {
-                            Pid : 2,
-                            id : "gold",
-                            pw : "kangjh",
-                            name : "PLAYER02"
-                        }
-                    ],
-                    colset : [
-                        {label: "DATE", wname : "REGDATE"},
-                        {label: "이름", wname : "NAME"},
-                        {label: "연락처", wname : "PHONE"},
-                        {label: "기타", wname : "ETC"}
-                    ],
-                    shopstate : "ok"
-                }                       
-
-            let currentOrder = [
-                    {
-                        orderid: 1,
-                        colset : [
-                            { label: "DATE", value: "2020-03-30, 12:22:42", wname: "REGDATE" },
-                            { label: "이름", value: "김태경", wname: "NAME" },
-                            { label: "연락처", value: "01099473474", wname: "PHONE" },
-                            { label: "기타", value: "등등", wname: "ETC" }
-                        ],
-                        aval: 0,
-                        pickable : 1,
-                        pickplayerpid : 1,
-                        state : 1,
-                        overlap : 0,
-                        comment : "첫번째 주문입니다."
-                    },
-                    {
-                        orderid: 2,
-                        colset : [
-                            { label: "DATE", value: "2020-03-31, 12:22:42", wname: "REGDATE" },
-                            { label: "이름", value: "강지형", wname: "NAME" },
-                            { label: "연락처", value: "456675454", wname: "PHONE" },
-                            { label: "기타", value: "등등등등", wname: "ETC" }
-                        ],
-                        aval:1,
-                        pickable : 0,
-                        pickplayerpid : 2,
-                        state : 2,
-                        overlap : 1,
-                        comment : "두번째 주문 메모에유"
-                    },
-                    {
-                        orderid: 3,
-                        colset : [
-                            { label: "DATE", value: "2020-03-31, 12:22:42", wname: "REGDATE" },
-                            { label: "이름", value: "이명락", wname: "NAME" },
-                            { label: "연락처", value: "4646457507", wname: "PHONE" },
-                            { label: "기타", value: "등등등222등", wname: "ETC" }
-                        ],
-                        aval:1,
-                        pickable : 1,
-                        pickplayerpid : null,
-                        state : 3,
-                        overlap : 1,
-                        comment : "3번째 주문인게라"
-                    }
-                ];
-
-            var initIndex = 0;
-
-            let currentcolset = currentOrder[initIndex].colset;
-            let currentAval = currentOrder[initIndex].aval;
-            let currentPickable = currentOrder[initIndex].pickable;
-            let currentpickplayerpid = currentOrder[initIndex].pickplayerpid;
-            let currentState = currentOrder[initIndex].state;
-            let currentOverlap = currentOrder[initIndex].overlap;
-            let currentComment = currentOrder[initIndex].comment;
-
-
-            var orderTable = new Vue({
-                el: '#app',
-                data: {
-                    colset : currentcolset,
-                    handler : {
-                        aval : currentAval,
-                        pickable : currentPickable,
-                        pickplayerpid : currentpickplayerpid,
-                        state : currentState,
-                        overlap : currentOverlap,
-                        comment : currentComment
-                    }
-                },
-                methods : {                    
-                    prevorder : function() {
-                        if(initIndex > currentOrder.length-2){
-                            alert('이전 주문이 없습니다')
-                        } else {
-                            initIndex++;
-                            $('.handler_value').removeClass('fail');
-                            $('.handler_list').removeClass('fail');
-                            currentcolset = currentOrder[initIndex].colset;
-                            currentAval = currentOrder[initIndex].aval;
-                            currentPickable = currentOrder[initIndex].pickable;
-                            currentpickplayerpid = currentOrder[initIndex].pickplayerpid;
-                            currentState = currentOrder[initIndex].state;
-                            currentOverlap = currentOrder[initIndex].overlap;
-                            currentComment = currentOrder[initIndex].comment;
-                            this.colset = currentcolset;
-                            this.handler.aval = currentAval;
-                            this.handler.pickable = currentPickable;
-                            this.handler.pickplayerpid = currentpickplayerpid;
-                            this.handler.state = currentState;
-                            this.handler.overlap = currentOverlap;
-                            this.handler.comment = currentComment;
-                            changedOrder = currentOrder;
-                        }
-                    },
-                    nextorder : function() {
-                        if(initIndex <= 0){
-                            alert('마지막 주문입니다.')
-                        } else {
-                            initIndex--;
-                            $('.handler_value').removeClass('fail');
-                            $('.handler_list').removeClass('fail');
-                            currentcolset = currentOrder[initIndex].colset;
-                            currentAval = currentOrder[initIndex].aval;
-                            currentPickable = currentOrder[initIndex].pickable;
-                            currentpickplayerpid = currentOrder[initIndex].pickplayerpid;
-                            currentState = currentOrder[initIndex].state;
-                            currentOverlap = currentOrder[initIndex].overlap;
-                            currentComment = currentOrder[initIndex].comment;
-                            this.colset = currentcolset;
-                            this.handler.aval = currentAval;
-                            this.handler.pickable = currentPickable;
-                            this.handler.pickplayerpid = currentpickplayerpid;
-                            this.handler.state = currentState;
-                            this.handler.overlap = currentOverlap;
-                            this.handler.comment = currentComment;                       
-                        }
-                    },
-                    toggleAval : function() {
-                        if($('#data_aval').text() == "무효") {
-                            $('#data_aval').text('유효');
-                            $('#data_aval').removeClass('fail');
-                            $('#list_aval').removeClass('fail');
-                            currentAval = 1;
-                        } else {
-                            $('#data_aval').text('무효');
-                            $('#data_aval').addClass('fail');
-                            $('#list_aval').addClass('fail');
-                            currentAval = 0;
-                        } 
-                    },
-                    togglePickable : function() {
-                        if($('#data_pickable').text() == "숨김") {
-                            $('#data_pickable').text('분배중');
-                            $('#data_pickable').removeClass('fail');
-                            $('#list_pickable').removeClass('fail');
-                            currentPickable = 1;
-                        } else {
-                            $('#data_pickable').text('숨김');
-                            $('#data_pickable').addClass('fail');
-                            $('#list_pickable').addClass('fail');
-                            currentPickable = 0;
-                        } 
-                    },
-                    toggleOverlap : function() {
-                        if($('#data_overlap').text() == "중복됨") {
-                            $('#data_overlap').text('신규');
-                            $('#data_overlap').removeClass('fail');
-                            $('#list_overlap').removeClass('fail');
-                            currentOverlap = 1;
-                        } else {
-                            $('#data_overlap').text('중복됨');
-                            $('#data_overlap').addClass('fail');
-                            $('#list_overlap').addClass('fail');
-                            currentOverlap = 0;
-                        } 
-                    },
-                },
-
-            });
-
-            
-
-            function saveOrder() {
-                if (confirm('변경된 내용을 저장할까요?')) {
-                    let g_aval = $('#data_aval').val();
-                    let g_pickable = $('#data_pickable').val();
-                    let g_pickplayerpid = $('#data_pickplayerpid').val();
-                    let g_state = $('#data_state').val();
-                    let g_overlap = $('#data_overlap').val();
-                    let g_comment = $('#data_comment').val();
-                    var g_set = [g_aval, g_pickable, g_pickplayerpid, g_state, g_state, g_overlap, g_comment];
-                    alert(g_set);
-                    }
-            };
-
-            function deleteOrder() {
-                if (prompt('"삭제확인"을 입력해주세요') == "삭제확인") {
-                    alert('삭제하였습니다');
-                } else {
-                    alert('삭제하지 못했습니다.');
-                };
-            };
-
-            $('.close').on('click', function () {
-            $('#popbox_player').fadeOut();
-        });
-        </script>
+        <div id="popbox_comment" class="popbox"  style="display: none;">
+            <div class="box">
+                <form id="comment_form">
+                    <section class="filter_head">
+                        <div class="title">메모수정</div>
+                        <div class="close"><img src="img/icon/icon_close.png"></div>
+                    </section>
+        
+                    <section class="option">
+        
+                        <ul>
+                            <li>
+                                <div class="container">
+                                <textarea v-model="handler.comment"></textarea>
+                            </div>
+                            </li>
+                        </ul>
+        
+                    </section>
+                </form>
+            </div>
+        </div>
 
     </div>
+    
+    <script>
+        /* layout */
+    
+        $('footer').load('tile/footer.html');
+
+        /* sample-data */
+        let orderStateKind = [
+            {state_name:"대기", state_class:"normal", val:true},
+            {state_name:"부재", state_class:"normal", val:false},
+            {state_name:"본인아님", state_class:"normal", val:true},
+            {state_name:"결번", state_class:"normal", val:true},
+            {state_name:"가망", state_class:"normal", val:false},
+            {state_name:"거절", state_class:"fail", val:false},
+            {state_name:"결재", state_class:"success", val:true}
+        ];
+
+        var currentShop = {
+                shopPid : 1,
+                shopid : "lottorich",
+                shopname : "로또리치",
+                acode : 680,
+                bcode : "sdkwody",
+                player : [
+                    {
+                        Pid : 1,
+                        id : "tekiteki",
+                        pw : "kim31010",
+                        name : "PLAYER 01"
+                    },
+                    {
+                        Pid : 2,
+                        id : "gold",
+                        pw : "kangjh",
+                        name : "PLAYER 02"
+                    }
+                ],
+                colset : [
+                    {label: "DATE", wname : "REGDATE"},
+                    {label: "이름", wname : "NAME"},
+                    {label: "연락처", wname : "PHONE"},
+                    {label: "기타", wname : "ETC"}
+                ],
+                shopstate : "ok"
+            }                       
+
+        let currentOrder = [
+                {
+                    orderid: 1,
+                    colset : [
+                        { label: "DATE", value: "2020-03-30, 12:22:42", wname: "REGDATE" },
+                        { label: "이름", value: "김태경", wname: "NAME" },
+                        { label: "연락처", value: "01099473474", wname: "PHONE" },
+                        { label: "기타", value: "등등", wname: "ETC" }
+                    ],
+                    aval: 0,
+                    pickable : 1,
+                    pickplayername : 1,
+                    state : 1,
+                    overlap : 0,
+                    comment : "첫번째 주문입니다."
+                },
+                {
+                    orderid: 2,
+                    colset : [
+                        { label: "DATE", value: "2020-03-31, 12:22:42", wname: "REGDATE" },
+                        { label: "이름", value: "강지형", wname: "NAME" },
+                        { label: "연락처", value: "456675454", wname: "PHONE" },
+                        { label: "기타", value: "등등등등", wname: "ETC" }
+                    ],
+                    aval:1,
+                    pickable : 0,
+                    pickplayername : "PLAYER01",
+                    state : 2,
+                    overlap : 1,
+                    comment : "두번째 주문 메모에유"
+                },
+                {
+                    orderid: 3,
+                    colset : [
+                        { label: "DATE", value: "2020-03-31, 12:22:42", wname: "REGDATE" },
+                        { label: "이름", value: "이명락", wname: "NAME" },
+                        { label: "연락처", value: "4646457507", wname: "PHONE" },
+                        { label: "기타", value: "등등등222등", wname: "ETC" }
+                    ],
+                    aval:1,
+                    pickable : 1,
+                    pickplayername : null,
+                    state : 3,
+                    overlap : 1,
+                    comment : "3번째 주문인게라"
+                }
+            ];
+
+        var initIndex = 0;
+
+        let currentcolset = currentOrder[initIndex].colset;
+        let currentAval = currentOrder[initIndex].aval;
+        let currentPickable = currentOrder[initIndex].pickable;
+        let currentpickplayername = currentOrder[initIndex].pickplayername;
+        let currentState = currentOrder[initIndex].state;
+        let currentOverlap = currentOrder[initIndex].overlap;
+        let currentComment = currentOrder[initIndex].comment;
+
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                colset : currentcolset,
+                handler : {
+                    aval : currentAval,
+                    pickable : currentPickable,
+                    pickplayername : currentpickplayername,
+                    state : currentState,
+                    overlap : currentOverlap,
+                    comment : currentComment
+                },
+                players : currentShop.player,
+                statelists : orderStateKind
+            },
+            methods : {                    
+                prevorder : function() {
+                    if(initIndex > currentOrder.length-2){
+                        alert('이전 주문이 없습니다')
+                    } else {
+                        initIndex++;
+                        $('.handler_value').removeClass('fail');
+                        $('.handler_list').removeClass('fail');
+                        currentcolset = currentOrder[initIndex].colset;
+                        currentAval = currentOrder[initIndex].aval;
+                        currentPickable = currentOrder[initIndex].pickable;
+                        currentpickplayername = currentOrder[initIndex].pickplayername;
+                        currentState = currentOrder[initIndex].state;
+                        currentOverlap = currentOrder[initIndex].overlap;
+                        currentComment = currentOrder[initIndex].comment;
+                        this.colset = currentcolset;
+                        this.handler.aval = currentAval;
+                        this.handler.pickable = currentPickable;
+                        this.handler.pickplayername = currentpickplayername;
+                        this.handler.state = currentState;
+                        this.handler.overlap = currentOverlap;
+                        this.handler.comment = currentComment;
+                        changedOrder = currentOrder;
+                    }
+                },
+                nextorder : function() {
+                    if(initIndex <= 0){
+                        alert('마지막 주문입니다.')
+                    } else {
+                        initIndex--;
+                        $('.handler_value').removeClass('fail');
+                        $('.handler_list').removeClass('fail');
+                        currentcolset = currentOrder[initIndex].colset;
+                        currentAval = currentOrder[initIndex].aval;
+                        currentPickable = currentOrder[initIndex].pickable;
+                        currentpickplayername = currentOrder[initIndex].pickplayername;
+                        currentState = currentOrder[initIndex].state;
+                        currentOverlap = currentOrder[initIndex].overlap;
+                        currentComment = currentOrder[initIndex].comment;
+                        this.colset = currentcolset;
+                        this.handler.aval = currentAval;
+                        this.handler.pickable = currentPickable;
+                        this.handler.pickplayername = currentpickplayername;
+                        this.handler.state = currentState;
+                        this.handler.overlap = currentOverlap;
+                        this.handler.comment = currentComment;                       
+                    }
+                },
+                toggleAval : function() {
+                    if($('#data_aval').text() == "무효") {
+                        $('#data_aval').text('유효');
+                        $('#data_aval').removeClass('fail');
+                        $('#list_aval').removeClass('fail');
+                        currentAval = 1;
+                    } else {
+                        $('#data_aval').text('무효');
+                        $('#data_aval').addClass('fail');
+                        $('#list_aval').addClass('fail');
+                        currentAval = 0;
+                    } 
+                },
+                togglePickable : function() {
+                    if($('#data_pickable').text() == "숨김") {
+                        $('#data_pickable').text('분배중');
+                        $('#data_pickable').removeClass('fail');
+                        $('#list_pickable').removeClass('fail');
+                        currentPickable = 1;
+                    } else {
+                        $('#data_pickable').text('숨김');
+                        $('#data_pickable').addClass('fail');
+                        $('#list_pickable').addClass('fail');
+                        currentPickable = 0;
+                    } 
+                },
+                toggleOverlap : function() {
+                    if($('#data_overlap').text() == "중복됨") {
+                        $('#data_overlap').text('신규');
+                        $('#data_overlap').removeClass('fail');
+                        $('#list_overlap').removeClass('fail');
+                        currentOverlap = 1;
+                    } else {
+                        $('#data_overlap').text('중복됨');
+                        $('#data_overlap').addClass('fail');
+                        $('#list_overlap').addClass('fail');
+                        currentOverlap = 0;
+                    } 
+                },
+            },
+
+        });
+
+        
+
+        function saveOrder() {
+            if (confirm('변경된 내용을 저장할까요?')) {
+                let g_aval = $('#data_aval').val();
+                let g_pickable = $('#data_pickable').val();
+                let g_pickplayername = $('#data_pickplayername').val();
+                let g_state = $('#data_state').val();
+                let g_overlap = $('#data_overlap').val();
+                let g_comment = $('#data_comment').val();
+                var g_set = [g_aval, g_pickable, g_pickplayername, g_state, g_state, g_overlap, g_comment];
+                alert(g_set);
+                }
+        };
+
+        function deleteOrder() {
+            if (prompt('"삭제확인"을 입력해주세요') == "삭제확인") {
+                alert('삭제하였습니다');
+            } else {
+                alert('삭제하지 못했습니다.');
+            };
+        };
+
+        $('.close').on('click', function () {
+        $('.popbox').fadeOut();
+    });
+    </script>
 
     
     
