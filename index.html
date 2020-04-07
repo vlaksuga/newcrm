@@ -122,12 +122,10 @@
                     <li class="shadow" id="sdate">
                         <span class="label">시작일</span>
                         <span class="start_date">{{ start_date }}</span>
-                        <input type="date" style="opacity: 0;" max="9999-12-31" id="sdate_picker">
                     </li>
                     <li class="shadow" id="edate">
                         <span class="label">종료일</span>
                         <span class="end_date">{{ end_date }}</span>
-                        <input type="date" style="opacity: 0;" max="9999-12-31" id="edate_picker">
                     </li>
                 </ul>
             </section>
@@ -163,7 +161,8 @@
             </nav>
         </footer>
 
-
+        <input type="date" style="opacity: 0;" max="9999-12-31" id="sdate_picker" v-model="start_date">
+        <input type="date" style="opacity: 0;" max="9999-12-31" id="edate_picker" v-model="end_date">
 
         <!-- filter -->
         <div id="filter_state" style="display: none;">
@@ -329,8 +328,11 @@
         };
 
         $('#sdate').on('click', function(){
-            alert('sss')
             $('#sdate_picker').focus();
+        });
+
+        $('#edate').on('click', function(){
+            $('#edate_picker').focus();
         });
     </script>
 </body>
