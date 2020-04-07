@@ -176,7 +176,7 @@
         </footer>
 
         <!-- sdate_calendar  -->
-        <div class="cal_box" id="sdate_calender" style="display: none;">
+        <div class="cal_box" id="edate_calender" style="display: none;">
             <div class="wrap">
                 <div class="calendar">
         
@@ -316,25 +316,25 @@
 
         /* calendar */
 
-        var initED = new Date();
-        var date = new Date();
+        var calday = initED;
+        var selectDate = new Date(); // 오늘 날짜 비교용
 
         function setPrevMonth() {
-            initED = new Date(initED.getFullYear(), initED.getMonth() - 1, initED.getDate());
+            calday = new Date(calday.getFullYear(), calday.getMonth() - 1, calday.getDate());
             buildCalendar();
         }
 
         function setNextMonth() {
-            initED = new Date(initED.getFullYear(), initED.getMonth() + 1, initED.getDate());
+            calday = new Date(calday.getFullYear(), calday.getMonth() + 1, calday.getDate());
             buildCalendar();
         }
 
         function buildCalendar() {
-            var nMonth = new Date(initED.getFullYear(), initED.getMonth(), 1);
-            var lastDate = new Date(initED.getFullYear(), initED.getMonth() + 1, 0);
+            var nMonth = new Date(calday.getFullYear(), calday.getMonth(), 1);
+            var lastDate = new Date(calday.getFullYear(), calday.getMonth() + 1, 0);
             var tbcal = document.getElementById("start_calendar_table");
             var yearmonth = document.getElementById("calendar_title");
-            yearmonth.innerHTML = initED.getFullYear() + "년 " + (initED.getMonth() + 1) + "월";
+            yearmonth.innerHTML = calday.getFullYear() + "년 " + (calday.getMonth() + 1) + "월";
 
 
             while (tbcal.rows.length > 1) {
@@ -353,8 +353,10 @@
             for (i = 1; i <= lastDate.getDate(); i++) {
                 cell = row.insertCell();
                 cell.innerHTML = i;
-                cell.setAttribute("s-val", initED.getFullYear() + "-" + ("0" + (initED.getMonth() + 1)).slice(-2) + "-" + ("0" + i).slice(-2));
-                cell.classList.add('sd');
+                cell.setAttribute("e-yyyy", calday.getFullYear());
+                cell.setAttribute("e-mm", calday.getMonth());
+                cell.setAttribute("e-dd", ("0" + i).slice(-2));
+                cell.classList.add('ed');
                 cnt = cnt + 1;
                 if (cnt % 7 == 1) {
                     cell.innerHTML = "<font color='tomato'>" + i;
@@ -363,8 +365,8 @@
                     cell.innerHTML = "<font color='turquoise'>" + i
                     row = tbcal.insertRow();
                 }
-                if (initED.getFullYear() == date.getFullYear() && initED.getMonth() == date.getMonth() && i == date.getDate()) {
-                    cell.bgColor = "#cccccc";
+                if (calday.getFullYear() == selectDate.getFullYear() && calday.getMonth() == selectDate.getMonth() && i == selectDate.getDate()) {
+                    cell.bgColor = "#eeeeee";
                 }
             }
 
@@ -374,15 +376,22 @@
         
 
 
-        $('#sdate').on('click',function(){
-           $('#sdate_calender').fadeIn(); 
+        $('#edate').on('click',function(){
+           $('#edate_calender').fadeIn(); 
         });
 
-        $('.sd').on("click",function(){
-            var sval = $(this).attr('s-val');
-            app.start_date = sval;
-            $('#sdate_calender').fadeOut();
-        })
+        $('.ed').on("click", function(){
+            var ey =  $(this).attr('e-yyyy');
+            var em = $(this).attr('e-mm');
+            var realem = Number(em) + 1;
+            var emShow = ("0" + realem).slice(-2);
+            var ed = $(this).attr('e-dd')
+            var endval = ey + "-" + emShow + '-' + ed;
+            initED.setFullYear(ey, em, ed);
+            app.end_date = endval;
+            $('#edate_calender').fadeOut();
+            calday = initED;
+        });
 
 
 
