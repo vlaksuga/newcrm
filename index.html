@@ -119,12 +119,12 @@
             <section class="date_board">
                 <div class="titlebox">기간 Period</div>
                 <ul>
-                    <li class="shadow">
+                    <li class="shadow" id="sdate">
                         <span class="label">시작일</span>
                         <span class="start_date">{{ start_date }}</span>
-                        <input type="date" style="display: none;" id="sdate_picker">
+                        <input type="date" id="sdate_picker">
                     </li>
-                    <li class="shadow">
+                    <li class="shadow" id="edate">
                         <span class="label">종료일</span>
                         <span class="end_date">{{ end_date }}</span>
                         <input type="date" style="display: none;" id="edate_picker">
@@ -247,11 +247,11 @@
             { pid: "1", state_name: "대기", state_class: "normal", REGDATE: "2020-03-26, 16:34:23" },
             { pid: "2", state_name: "거절", state_class: "fail", REGDATE: "2020-03-26, 16:34:23" },
             { pid: "3", state_name: "결재", state_class: "success", REGDATE: "2020-03-26, 16:34:23" },
-            { pid: "6", state_name: "결재", state_class: "success", REGDATE: "2020-03-26, 16:34:23" },
-            { pid: "1", state_name: "대기", state_class: "normal", REGDATE: "2020-03-26, 16:34:23" },
-            { pid: "2", state_name: "거절", state_class: "fail", REGDATE: "2020-03-26, 16:34:23" },
-            { pid: "3", state_name: "결재", state_class: "success", REGDATE: "2020-03-26, 16:34:23" },
-            { pid: "6", state_name: "결재", state_class: "success", REGDATE: "2020-03-26, 16:34:23" }
+            { pid: "4", state_name: "결재", state_class: "success", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "5", state_name: "대기", state_class: "normal", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "6", state_name: "거절", state_class: "fail", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "7", state_name: "결재", state_class: "success", REGDATE: "2020-03-26, 16:34:23" },
+            { pid: "8", state_name: "결재", state_class: "success", REGDATE: "2020-03-26, 16:34:23" }
         ];
 
         let orderStateKind = [
@@ -327,6 +327,7 @@
                 $('#shop_info').show();
             }
         }
+
     </script>
 </body>
 
