@@ -122,12 +122,12 @@
                     <li class="shadow" id="sdate">
                         <span class="label">시작일</span>
                         <span class="start_date">{{ start_date }}</span>
-                        <input type="date" id="sdate_picker" style="visibility: hidden;">
+                        <input type="date" style="opacity: 0;" max="9999-12-31" id="sdate_picker">
                     </li>
                     <li class="shadow" id="edate">
                         <span class="label">종료일</span>
                         <span class="end_date">{{ end_date }}</span>
-                        <input type="date" style="display: none;" id="edate_picker">
+                        <input type="date" style="opacity: 0;" max="9999-12-31" id="edate_picker">
                     </li>
                 </ul>
             </section>
@@ -326,12 +326,12 @@
                 $('#avatar').removeClass('sticky');
                 $('#shop_info').show();
             }
-        }
+        };
 
         $('#sdate').on('click', function(){
+            alert('sss')
             $('#sdate_picker').focus();
-        })
-
+        });
     </script>
 </body>
 
