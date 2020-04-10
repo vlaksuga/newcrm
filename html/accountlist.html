@@ -15,9 +15,11 @@
 
     
     header {width: 320px; position: relative;}
-    header .title {width: 320px; height: 44px; background-color: white; position: fixed; top: 0; left: 0; display: flex; justify-content: flex-start; align-items: center;}
+    header .title {width: 320px; height: 44px; background-color: white; position: fixed; top: 0; left: 0; display: flex; align-items: center; justify-content: space-between;}
+    header .title .titlebox {display: flex; justify-content: flex-start; align-items: center;}
     header .title .icons img {width: 25px; height: 25px; padding-left: 8px; display: block;}
     header .title .titlename {margin-left: 8px; font-weight: 900;}
+    header .title .addbox .add {color: tomato; font-weight: 900; padding-right: 16px;}
     
 
     main .account_list .account { margin: 8px auto; width: 95vw;}
@@ -33,8 +35,13 @@
         <div id="app">
             <header>
                 <div class="title">
-                    <span class="icons"><a onclick="history.back();"><img src="img/icon/icon_arrow_back.png"></a></span>
-                    <span class="titlename">계정관리</span>
+                    <div class="titlebox">
+                        <span class="icons"><a onclick="history.back();"><img src="img/icon/icon_arrow_back.png"></a></span>
+                        <span class="titlename">계정관리</span>
+                    </div>
+                    <div class="addbox">
+                        <span class="add"><a>등록</a></span>
+                    </div>
                 </div>
             </header>
 

@@ -15,9 +15,11 @@
 
     
     header {width: 320px; position: relative;}
-    header .title {width: 320px; height: 44px; background-color: white; position: fixed; top: 0; left: 0; display: flex; justify-content: flex-start; align-items: center;}
+    header .title {width: 320px; height: 44px; background-color: white; position: fixed; top: 0; left: 0; display: flex; align-items: center; justify-content: space-between;}
+    header .title .titlebox {display: flex; justify-content: flex-start; align-items: center;}
     header .title .icons img {width: 25px; height: 25px; padding-left: 8px; display: block;}
     header .title .titlename {margin-left: 8px; font-weight: 900;}
+    header .title .addbox .add {color: tomato; font-weight: 900; padding-right: 16px;}
 
     main .notice_list {padding-top: 16px;}
     main .notice_list ul li {padding: 4px 8px;}
@@ -30,6 +32,7 @@
     main .notice_list .notice .summary .date {padding-right: 8px; color: #aaaaaa; font-size: 10px;}
     main .notice_list .notice .details {width: 100%; padding-top: 8px;}
     main .notice_list .notice .precontent {width: 95vw; margin: 0 auto; font-size: 10px; font-family: inherit; font-weight: 700; white-space: normal; line-height: 2;}
+    main .notice_list .noticenone {font-size: 10px; text-align: center; color: #aaaaaa;}
 
 
     footer nav ul {display: flex; width: 320px; height: 48px; background-color: black; position: fixed; bottom: 0; justify-content: space-around; align-items: center;}
@@ -41,8 +44,13 @@
 
             <header>
                 <div class="title">
-                    <span class="icons"><a onclick="history.back();"><img src="img/icon/icon_arrow_back.png"></a></span>
-                    <span class="titlename">공지사항</span>
+                    <div class="titlebox">
+                        <span class="icons"><a onclick="history.back();"><img src="img/icon/icon_arrow_back.png"></a></span>
+                        <span class="titlename">공지사항</span>
+                    </div>
+                    <div class="addbox">
+                        <span class="add"><a>등록</a></span>
+                    </div>
                 </div>
             </header>
 
@@ -72,6 +80,9 @@
                         </a>
                     </div>
 
+                    <div class="noticenone">
+                        공지사항이 없습니다.
+                    </div>
                 </section>
             </main>    
     </div>

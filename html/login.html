@@ -17,7 +17,7 @@
             .input_box {display: flex; flex-direction: column; width: 70vw; justify-content: space-between; align-items: center; margin: 0 auto; height: 90px; margin-top: 20px;}
             .input_box input {width: 100%; border: none; padding: 12px;}
             .check_box {margin: 0 auto; width: 70vw; font-size: 10px; display: flex; justify-content: flex-start; align-items: center; height: 30px;}
-            .submit_btn {margin: 0 auto; width: 70vw; text-align: center; background-color: #cccccc; font-size: 12px; padding: 8px; margin-top: 30px; font-weight: 900;}
+            .submit_btn {margin: 0 auto; width: 70vw; text-align: center; background-color: #cccccc; font-size: 12px; padding: 8px; margin-top: 30px; font-weight: 900; letter-spacing: 4px;}
             .add_on {margin:0 auto; font-size: 8px; width: 70vw; text-align: center; margin-top: 30px;}
 
             footer {position: absolute; bottom: 24px; left: 0; font-size: 8px; width: 100vw; text-align: center; color: #777777;}
@@ -25,29 +25,19 @@
     </head>
     <body>
         <div id="app">
-            <section class="logo">
-                <img src="./img/logo/default.png">
-            </section>
-            <section class="input_box">
-                <input type="text" placeholder="ID" class="shadow">
-                <input type="password" placeholder="PASSWORD" class="shadow">
-            </section>
-            <section class="check_box">
-                <input type="checkbox"><label>로그인 상태 유지</label>
-            </section>
-            <section class="submit_btn">LOGIN</section>
-            <section class="add_on">
-                <span>관리자에게 문의하기</span>
-            </section>
-            <footer>
-                <span>POWERED BY VLAKSUGA COMPANY</span>
-            </footer>
+            <main>
+                <section class="logo">
+                    <img src="./img/logo/default.png">
+                </section>
+                <section class="input_box">
+                    <input type="text" placeholder="ID" class="shadow">
+                    <input type="password" placeholder="PASSWORD" class="shadow">
+                </section>
+                <section class="submit_btn">LOGIN</section>
+                <section class="add_on">
+                    <span>관리자에게 문의하기</span>
+                </section>
+            </main>
         </div>
-        <script>
-            $('.submit_btn').on("click", function(){
-                alert('로그인 작동');
-                location.href="./index.html";
-            });
-        </script>
     </body>
 </html>
