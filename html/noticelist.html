@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="./js/jquery-3.4.1.min.js"></script>
+        <script src="./js/vue.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta name="viewport" content="width=320,minimum-scale=1.0,maximum-scale=4.0,user-scalable=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link href="./css/style.css" rel="stylesheet">				
+    </head>
+    <style>
+
+    
+    header {width: 320px; position: relative;}
+    header .title {width: 320px; height: 44px; background-color: white; position: fixed; top: 0; left: 0; display: flex; justify-content: flex-start; align-items: center;}
+    header .title .icons img {width: 25px; height: 25px; padding-left: 8px; display: block;}
+    header .title .titlename {margin-left: 8px; font-weight: 900;}
+
+    main .notice_list {padding-top: 16px;}
+    main .notice_list ul li {padding: 4px 8px;}
+    main .notice_list ul li .box {border-radius: 2px; padding: 8px; background-color: white; color: black; font-weight: 900;}
+
+    main .notice_list .notice { margin: 8px auto; width: 95vw;}
+    main .notice_list .notice .summary {padding: 16px 0; display: flex; justify-content: space-between; align-items: center; width: 100%; background-color: white; color: black;}
+    main .notice_list .notice .summary .title_box {align-items: center; padding-left: 8px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+    main .notice_list .notice .summary .title_box .title {font-weight: 700; font-size: 10px;}
+    main .notice_list .notice .summary .date {padding-right: 8px; color: #aaaaaa; font-size: 10px;}
+    main .notice_list .notice .details {width: 100%; padding-top: 8px;}
+    main .notice_list .notice .precontent {width: 95vw; margin: 0 auto; font-size: 10px; font-family: inherit; font-weight: 700; white-space: normal; line-height: 2;}
+
+
+    footer nav ul {display: flex; width: 320px; height: 48px; background-color: black; position: fixed; bottom: 0; justify-content: space-around; align-items: center;}
+    footer nav ul li {font-size: 18px;}
+
+</style>
+    <body>
+        <div id="app">
+
+            <header>
+                <div class="title">
+                    <span class="icons"><a onclick="history.back();"><img src="img/icon/icon_arrow_back.png"></a></span>
+                    <span class="titlename">공지사항</span>
+                </div>
+            </header>
+
+            <main>
+                <section class="notice_list" style="padding-top: 50px;">
+                    
+                    <div class="notice">
+                        <a href="notice.html">
+                        <div class="summary shadow">
+                            <div class="title_box">
+                                <span class="date">2020-04-04</span>
+                                <span class="title">폼 설정하시는 방법</span>
+                            </div>
+                            </div>
+                        </a>
+
+                    </div>
+
+                    <div class="notice">
+                        <a href="notice.html">
+                        <div class="summary shadow">
+                            <div class="title_box">
+                                <span class="date">2020-04-01</span>
+                                <span class="title">주문 설정을 하실때는 자세하게 써주셔야 이해할 수 있습니다.</span>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
+                </section>
+            </main>    
+    </div>
+    </body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=320,minimum-scale=1.0,maximum-scale=4.0,user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes"> 
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link href="./css/style.css" rel="stylesheet">
+    <style>
+
+        header {width: 320px; background-color: white; position: relative;}
+        header .avatar img {width: 40px; height: 40px; min-width: 30px; min-height: 30px; max-width: 40px; max-height: 40px;}
+        header .shop {font-weight: 700; padding-left: 14px; font-size: 14px; padding-top: 44px; display: flex; justify-content: flex-start; align-items: center; position: sticky;}
+        header .shop .info {padding-left: 4px; height: 40px; display: flex; flex-direction: column; justify-content: center; opacity: 1;}
+        header .shop .info .name {font-weight: 900;}
+        header .shop .info .kind {font-size: 8px; color: #aaaaaa;}
+        header .option {width: 320px; height: 44px; text-align: right; background-color: white; position: fixed; top: 0; left: 0;}
+        header .option img {width:25px; height: 25px; padding: 8px;}
+
+
+
+        main {padding-top: 0px;}
+
+        main .screen_board {padding: 8px;}
+        main .screen_board .total_board {font-weight: 700; border-radius: 5px; background-color: turquoise; padding: 16px;}
+        main .screen_board .total_board .content {display: flex; justify-content: flex-end; align-items: baseline;}
+        main .screen_board .total_board .total {font-size: 24px; font-weight: 900; padding-top: 8px;}
+        main .screen_board .total_board .total_orders{font-size: 18px; font-weight: 900; margin-left: 4px;}
+
+        main .date_board {padding: 8px; font-weight: 700;}
+        main .date_board .titlebox{padding: 8px; color: #cccccc;}
+        main .date_board ul li {border-radius: 5px; background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; margin-bottom: 8px;}
+        main .date_board ul li .start_date, main .date_board ul li .end_date {color: #aaaaaa;}
+        main .date_board .shortcut {display: flex; justify-content: space-between; align-items: center; padding: 8px;}
+        main .date_board .shortcut div {padding: 4px 8px; font-size: 8px; color: #aaaaaa;; }
+        main .date_board .shortcut div:first-child {padding-left: 0;}
+        main .date_board .shortcut div:last-child {padding-right: 0;}
+
+        main .list_board {padding: 8px; padding-bottom: 50px; font-weight: 700;}
+        main .list_board .titlebox {padding: 8px; color: #cccccc; display: flex; justify-content: space-between;}
+        main .list_board .titlebox img {width: 20px; height: 20px; display: block;}
+        main .list_board ul li {border-radius: 5px; background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; margin-bottom: 8px;}
+        main .list_board ul li.fail .state {color: tomato;}
+        main .list_board ul li.success .state {color: turquoise;}
+        main .list_board ul li .state {font-weight: 700;}
+        main .list_board ul li .date {color: #aaaaaa;}
+        main .list_board .moremsg, main .list_board .ordernone {color: #aaaaaa; text-align: center; padding: 16px;}
+
+        /* calendar */
+        .cal_box {position: fixed; top: 0px; left: 0; z-index: 2; width: 100vw; background-color: rgba(0,0,0,0.3); height: 100vh;}
+        .cal_box .wrap {padding: 100px 8px 0 8px;}
+        .calendar {background-color: white; color: black;}
+        
+
+        .calendar .option {background-color: turquoise; display: flex; align-items: center; justify-content: space-around; font-weight: 700; padding: 16px;}
+        .calendar .option .icons {width: 20px; height: 20px; display: block;}
+
+        .calendar #start_calendar_table {width: 100%; border: 1px solid black; text-align: center; border-collapse: collapse;}
+        .calendar #start_calendar_table tr td {border: 1px solid #efefef; color: #aaaaaa; padding: 16px 0;}
+        .calendar #start_calendar_table tr.ths td {font-size: unset; color: black;}
+
+        /* filter */
+        #filter_sdate {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 2;}
+        #filter_state .box {position: fixed; bottom:0; left: 0; background-color:white; width: 100vw; height: 75vh; border-top-left-radius: 15px; border-top-right-radius: 15px; overflow-y: auto;}
+        #filter_state .filter_head {padding: 16px; display: flex; justify-content: space-between; align-items: center;}
+        #filter_state .filter_head .title {font-weight: 900;}
+        #filter_state .filter_head .close img {width: 20px; height: 20px;}
+
+        #filter_state .state_option ul li .container {background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; position: relative;}
+        #filter_state .state_option ul li .container .statename {font-weight: 900;}
+        #filter_state .state_option ul li .container input {position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0;}
+        #filter_state .state_option ul li .container .checkmark {position: absolute; top: 18px; right: 16px; height: 10px; width: 10px; background-color: none; border-radius: 50%;}
+        #filter_state .state_option ul li .container .checkmark::after {content: ""; position: absolute; display: none;}
+        #filter_state .state_option ul li .container input:checked ~ .checkmark {background-color: #aaaaaa;}
+        #filter_state .state_option ul li .container input:checked ~ .statename {color: tomato;}
+
+
+
+        #filter_state {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 2;}
+        #filter_state .box {position: fixed; bottom:0; left: 0; background-color:white; width: 100vw; height: 75vh; border-top-left-radius: 15px; border-top-right-radius: 15px; overflow-y: auto;}
+        #filter_state .filter_head {padding: 16px; display: flex; justify-content: space-between; align-items: center;}
+        #filter_state .filter_head .title {font-weight: 900;}
+        #filter_state .filter_head .close img {width: 20px; height: 20px;}
+
+        #filter_state .state_option ul li .container {background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; position: relative;}
+        #filter_state .state_option ul li .container .statename {font-weight: 900;}
+        #filter_state .state_option ul li .container input {position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0;}
+        #filter_state .state_option ul li .container .checkmark {position: absolute; top: 18px; right: 16px; height: 10px; width: 10px; background-color: none; border-radius: 50%;}
+        #filter_state .state_option ul li .container .checkmark::after {content: ""; position: absolute; display: none;}
+        #filter_state .state_option ul li .container input:checked ~ .checkmark {background-color: #aaaaaa;}
+        #filter_state .state_option ul li .container input:checked ~ .statename {color: tomato;}
+
+    </style>
+</head>
+
+<body>
+    <div id="loading"  style="display: none;">
+        <img src="img/icon/icon_default.png">
+    </div>
+   
+    <div id="app">    
+
+        <header>
+            <div class="shop">
+                <div id="avatar" class="avatar">
+                    <img id="avaimg" src="img/icon/icon_default.png" style="display: none;">
+                </div>
+                <div id='shop_info' class="info">
+                    <div class="name">로또리치</div> <!-- 계정이름 -->
+                    <div class="kind">ADMIN</div> <!-- 계정종류 -->
+                </div>
+            </div>
+        </header>
+
+
+        <main>
+                
+            <section class="screen_board">
+                <ul>
+                    <li class="total_board">
+                        <div class="title">주문합계</div>
+                        <div class="content"><span class="total">8 <!-- 선택된 주문합 --></span><span class="total_orders">orders</span></div>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="date_board">
+                <div class="titlebox">기간 Period</div>
+                <div class="shortcut">
+                    <a><div>오늘</div></a>
+                    <a><div>어제</div></a>
+                    <a><div>7일간</div></a>
+                    <a><div>이번주</div></a>
+                    <a><div>이번달</div></a>
+                    <a><div>지난달</div></a>
+                </div>
+                <ul>
+                    <li class="shadow" id="sdate">
+                        <span class="label">시작일</span>
+                        <span class="start_date">2020-04-01</span> <!-- 오늘 - 6일  -->
+                    </li>
+                    <li class="shadow" id="edate">
+                        <span class="label">종료일</span>
+                        <span class="end_date">2020-04-07</span> <!-- 오늘 -->
+                    </li>
+                </ul>
+
+            </section>
+
+
+            <section class="list_board">
+                <div class="titlebox">
+                    <span class="title">주문 Orders</span>
+                    <a onclick="$('#filter_state').fadeIn();" id="openF"><span class="filter"><img src="img/icon/icon_filter_list.png"></span></a>
+                </div>
+
+                <ul>
+                    <a href="'./orders.html?pid=?">
+                        <li class="shadow"> <!-- 주문의 class와 bind -->
+                            <span class="state">대기</span> <!-- 주문의 상태 -->
+                            <span class="date">2020-04-01, 16:17:48</span> <!-- 주문 생성 시간 -->
+                        </li>
+                    </a>
+                </ul>
+                <div class="ordernone">해당 기간에 주문이 없습니다</div> <!-- 해당기간에 주문이 없을때 -->
+                <div class="moremsg">주문 불러오는 중</div> <!-- 주문을 더 불러올때 -->
+            </section>
+
+        </main>
+
+
+        <footer>
+            <nav>
+                <ul>
+                    <li class="nav_list"><a href="index.html"><img src="img/icon/icon_home.png"></a></li>
+                    <li class="nav_orders"><a href="orders.html"><img src="img/icon/icon_description.png"></a></li>
+                    <li class="nav_stats"><a href="chart.html"><img src="img/icon/icon_chart.png"></a></li>
+                    <li class="nav_mypage"><a href="config.html"><img src="img/icon/icon_settings.png"></a></li>
+                </ul>
+            </nav>
+        </footer>
+
+        <!-- date picker  -->
+        <div class="cal_box" id="date_picker" style="display: none;">
+            <div class="wrap">
+                <div class="calendar">
+        
+                    <div class="option">
+                        <div class="prev_month"><a onclick="setPrevMonth();"><img class="icons"
+                                    src="img/icon/icon_nav_before.png"></a></div>
+                        <div id="calendar_title"></div>
+                        <div class="next_month"><a onclick="setNextMonth();"><img class="icons"
+                                    src="img/icon/icon_nav_next.png"></a></div>
+                    </div>
+        
+                    <table id="start_calendar_table">
+                        <tr class="ths">
+                            <td>일</td>
+                            <td>월</td>
+                            <td>화</td>
+                            <td>수</td>
+                            <td>목</td>
+                            <td>금</td>
+                            <td>토</td>
+                        </tr>
+                    </table>
+        
+                </div>
+            </div>
+
+        </div>
+
+        <!-- filter -->
+        <div id="filter_state" style="display: none;">
+            <div class="box">
+                <form id="state_form">
+                    <section class="filter_head">
+                        <div class="title">주문상태 보기 선택</div>
+                        <div class="close"><img src="img/icon/icon_close.png"></div>
+                    </section>
+        
+                    <section class="state_option">
+        
+                        <ul>
+                            <li>
+                                <label class="container">
+                                    <span class="statename">대기</span><!-- 상태리스트  -->
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
+        
+                    </section>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        /* date */
+        /* 시작일  */
+        var initSD = new Date(Date.now() - 6*24*60*60*1000);
+        var initSyear = initSD.getFullYear();
+        var initSmonth = ("0" + (initSD.getMonth() + 1)).slice(-2);
+        var initSdate = ("0" + (initSD.getDate())).slice(-2);
+        var sdate = initSyear + "-" + initSmonth + "-" + initSdate;
+
+
+        /* 종료일  */
+        var initED = new Date();
+        var initEyear = initED.getFullYear();
+        var initEmonth = ("0" + (initED.getMonth() + 1)).slice(-2);
+        var initEdate = ("0" + (initED.getDate())).slice(-2);
+        var edate = initEyear + "-" + initEmonth + "-" + initEdate;
+
+
+
+        /* calendar */
+
+        var calday = initED;
+        var selectDate = new Date(); // 오늘 날짜 비교용
+
+        function setPrevMonth() {
+            calday = new Date(calday.getFullYear(), calday.getMonth() - 1, calday.getDate());
+            buildCalendar();
+        }
+
+        function setNextMonth() {
+            calday = new Date(calday.getFullYear(), calday.getMonth() + 1, calday.getDate());
+            buildCalendar();
+        }
+
+        function buildCalendar() {
+            var nMonth = new Date(calday.getFullYear(), calday.getMonth(), 1);
+            var lastDate = new Date(calday.getFullYear(), calday.getMonth() + 1, 0);
+            var tbcal = document.getElementById("start_calendar_table");
+            var yearmonth = document.getElementById("calendar_title");
+            yearmonth.innerHTML = calday.getFullYear() + "년 " + (calday.getMonth() + 1) + "월";
+
+
+            while (tbcal.rows.length > 1) {
+                tbcal.deleteRow(tbcal.rows.length - 1);
+            }
+            var row = null;
+            row = tbcal.insertRow();
+            var cnt = 0;
+
+            for (i = 0; i < nMonth.getDay(); i++) {
+                cell = row.insertCell();
+                cnt = cnt + 1;
+            }
+
+
+            for (i = 1; i <= lastDate.getDate(); i++) {
+                cell = row.insertCell();
+                cell.innerHTML = i;
+                cell.setAttribute("e-yyyy", calday.getFullYear());
+                cell.setAttribute("e-mm", calday.getMonth());
+                cell.setAttribute("e-dd", ("0" + i).slice(-2));
+                cell.classList.add('ed');
+                cnt = cnt + 1;
+                if (cnt % 7 == 1) {
+                    cell.innerHTML = "<font color='tomato'>" + i;
+                }
+                if (cnt % 7 == 0) {
+                    cell.innerHTML = "<font color='turquoise'>" + i
+                    row = tbcal.insertRow();
+                }
+                if (calday.getFullYear() == selectDate.getFullYear() && calday.getMonth() == selectDate.getMonth() && i == selectDate.getDate()) {
+                    cell.bgColor = "#eeeeee";
+                }
+            }
+
+        }
+
+        buildCalendar();
+        
+
+        $('#sdate').on('click',function(){
+           $('#date_picker').fadeIn(); 
+        });
+
+        $('#edate').on('click',function(){
+           $('#date_picker').fadeIn(); 
+        });
+
+    </script>
+
+</body>
+
+</html>
