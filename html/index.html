@@ -29,7 +29,7 @@
         main .screen_board .total_board {font-weight: 700; border-radius: 5px; background-color: turquoise; padding: 16px;}
         main .screen_board .total_board .content {display: flex; justify-content: flex-end; align-items: baseline;}
         main .screen_board .total_board .total {font-size: 24px; font-weight: 900; padding-top: 8px;}
-        main .screen_board .total_board .total_orders{font-size: 18px; font-weight: 900; margin-left: 4px;}
+        main .screen_board .total_board .txt{font-size: 18px; font-weight: 900; margin-left: 4px;}
 
         main .date_board {padding: 8px; font-weight: 700;}
         main .date_board .titlebox{padding: 8px; color: #cccccc;}
@@ -123,7 +123,7 @@
                 <ul>
                     <li class="total_board">
                         <div class="title">주문합계</div>
-                        <div class="content"><span class="total">8 <!-- 선택된 주문합 --></span><span class="total_orders">orders</span></div>
+                        <div class="content"><span class="total">8 <!-- 선택된 주문합 --></span><span class="txt">orders</span></div>
                     </li>
                 </ul>
             </section>
@@ -131,24 +131,27 @@
             <section class="date_board">
                 <div class="titlebox">기간 Period</div>
                 <div class="shortcut">
-                    <a><div>오늘</div></a>
-                    <a><div>어제</div></a>
-                    <a><div>7일간</div></a>
-                    <a><div>이번주</div></a>
-                    <a><div>이번달</div></a>
-                    <a><div>지난달</div></a>
+                    <a><div id="date_sc01">오늘</div></a>
+                    <a><div id="date_sc02">어제</div></a>
+                    <a><div id="date_sc03">7일간</div></a>
+                    <a><div id="date_sc04">이번주</div></a>
+                    <a><div id="date_sc05">이번달</div></a>
+                    <a><div id="date_sc06">지난달</div></a>
                 </div>
-                <ul>
-                    <li class="shadow" id="sdate">
-                        <span class="label">시작일</span>
-                        <span class="start_date">2020-04-01</span> <!-- 오늘 - 6일  -->
-                    </li>
-                    <li class="shadow" id="edate">
-                        <span class="label">종료일</span>
-                        <span class="end_date">2020-04-07</span> <!-- 오늘 -->
-                    </li>
+                <ul class="period">
+                    <a>
+                        <li class="shadow" id="sdate">
+                            <span class="label">시작일</span>
+                            <span class="start_date">2020-04-01</span> <!-- 오늘 - 6일  -->
+                        </li>
+                    </a>
+                    <a>
+                        <li class="shadow" id="edate">
+                            <span class="label">종료일</span>
+                            <span class="end_date">2020-04-07</span> <!-- 오늘 -->
+                        </li>
+                    </a>
                 </ul>
-
             </section>
 
 
@@ -158,7 +161,7 @@
                     <a onclick="$('#filter_state').fadeIn();" id="openF"><span class="filter"><img src="img/icon/icon_filter_list.png"></span></a>
                 </div>
 
-                <ul>
+                <ul class="orderbox">
                     <a href="'./orders.html?pid=?">
                         <li class="shadow"> <!-- 주문의 class와 bind -->
                             <span class="state">대기</span> <!-- 주문의 상태 -->
