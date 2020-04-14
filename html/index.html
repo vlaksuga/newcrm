@@ -158,13 +158,7 @@
                     <a onclick="$('#filter_state').fadeIn();" id="openF"><span class="filter"><img src="img/icon/icon_filter_list.png"></span></a>
                 </div>
 
-                <ul>
-                    <a href="orders.html?pid=?">
-                        <li class="shadow"> <!-- 주문의 class와 bind -->
-                            <span class="state">대기</span> <!-- 주문의 상태 -->
-                            <span class="date">2020-04-01, 16:17:48</span> <!-- 주문 생성 시간 -->
-                        </li>
-                    </a>
+                <ul id="listitem">
                 </ul>
                 <div class="ordernone">해당 기간에 주문이 없습니다</div> <!-- 해당기간에 주문이 없을때 -->
                 <div class="moremsg">주문 불러오는 중</div> <!-- 주문을 더 불러올때 -->
@@ -245,15 +239,24 @@
     <script>
 
 
-    $.ajax({
-        method: "get",
-        url: "https://cc.klovely.com/?m=getaccount",
-        data: { accountpkey: 1 }, dataType: 'jsonp'
-    }).always(function (msg) {
-        var h = msg.HEAD;
-        var b = msg.BODY;
-        $('.name').text(b.item.name);
-    });
+        /* 주문리스트 bind*/
+        $.ajax({
+            method: "get",
+            url: "https://cc.klovely.com/?m=list1",
+            data: {}, dataType: 'jsonp'
+        }).always(function (msg) {
+            var h = msg.HEAD;
+            var b = msg.BODY;
+            for (var i = 0; i < b.list.length; i++) {
+                $('#listitem').append('<a href="orders.html?orderpkey=' + b.list[i].orderpkey + '">\
+                        <li class="shadow">\
+                            <span class="state">' + b.list[i].isdup + '</span>\
+                            <span class="date">' + b.list[i].rdate + '</span>\
+                        </li>\
+                    </a>')
+            }
+            
+        });
         
         /* date */
         /* 시작일  */
