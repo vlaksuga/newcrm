@@ -244,6 +244,17 @@
 
     <script>
 
+
+    $.ajax({
+        method: "get",
+        url: "https://cc.klovely.com/?m=getaccount",
+        data: { accountpkey: 1 }, dataType: 'jsonp'
+    }).always(function (msg) {
+        var h = msg.HEAD;
+        var b = msg.BODY;
+        $('.name').text(b.item.name);
+    });
+        
         /* date */
         /* 시작일  */
         var initSD = new Date(Date.now() - 6*24*60*60*1000);
