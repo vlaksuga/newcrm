@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <script src="./js/jquery-3.4.1.min.js"></script>
-        <script src="./js/vue.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=320,minimum-scale=1.0,maximum-scale=4.0,user-scalable=no">
         <meta name="mobile-web-app-capable" content="yes">
@@ -47,47 +46,30 @@
 
             <main>
                 <section class="account_list" style="padding-top: 50px;">
-                    
-                    <a href="account.html">
-                    <div class="account shadow">
-
-                        <div class="summary">
-                            <div class="title_box">
-                                <span class="player">PLAYER 01</span>
-                            </div>
-                        </div>
-
-                    </div>
-                </a>
-
-                    <a href="account.html">
-                    <div class="account shadow">
-
-                        <div class="summary">
-                            <div class="title_box">
-                                <span class="player">PLAYER 02</span>
-                            </div>
-                        </div>
-
-                    </div>
-                    </a>
-
-                    <a href="account.html">
-                    <div class="account shadow">
-
-                        <div class="summary">
-                            <div class="title_box">
-                                <span class="player">PLAYER 03</span>
-                            </div>
-                        </div>
-
-                    </div>
-                </a>
-
                 </section>
-
             </main>
             
     </div>
     </body>
+    <script>
+
+     $.ajax({
+            method: "get",
+            url: "https://cc.klovely.com/?m=listaccount",
+            data: { }, dataType: 'jsonp'
+        }).always(function (msg) {
+            var h = msg.HEAD;
+            var b = msg.BODY;
+            for (var i = 0; i < b.list.length; i++) {
+            $('.account_list').append('<a href="account.html?accountpkey=' + b.list[i].accountpkey + '">\
+                        <div class="account shadow">\
+                            <div class="summary">\
+                                <div class="title_box">\
+                                    <span class="player">' + b.list[i].id + '</span>\
+                                </div>\
+                            </div>\
+                        </div>\
+                    </a>')}
+        });
+    </script>
 </html>

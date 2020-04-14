@@ -1,4 +1,4 @@
-({
+list1 : {
     "HEAD": [
         "status",
         "ok"
@@ -27,5 +27,41 @@
                 "isdup": "DUP"
             }
         ]
+    }
+}
+
+({
+    "HEAD": [
+        "status",
+        "ok"
+    ],
+    "BODY": {
+        "list": [
+            {
+                "accountpkey": "1",
+                "id": "id1"
+            },
+            {
+                "accountpkey": "2",
+                "id": "id2"
+            }
+        ]
+    }
+})
+
+({
+    "HEAD": [
+        "status",
+        "ok"
+    ],
+    "BODY": {
+        "item": {
+            "accountpkey": "1",
+            "name": "김개똥",
+            "storepkey": "1",
+            "id": "id1",
+            "pw": "1111",
+            "memo": null
+        }
     }
 })

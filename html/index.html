@@ -160,7 +160,7 @@
 
                 <ul id="listitem">
                 </ul>
-                <div class="ordernone">해당 기간에 주문이 없습니다</div>
+                <div class="ordernone" style="display: none;">해당 기간에 주문이 없습니다</div>
                 <div class="moremsg">주문 불러오는 중</div>
             </section>
 
@@ -248,15 +248,14 @@
             var h = msg.HEAD;
             var b = msg.BODY;
             $('#ordercnt').text(b.list.length);
-            for (var i = 0; i < b.list.length; i++) {
+                for (var i = 0; i < b.list.length; i++) {
                 $('#listitem').append('<a href="orders.html?orderpkey=' + b.list[i].orderpkey + '">\
                     <li class="shadow">\
                         <span class="state">' + b.list[i].isdup + '</span>\
                         <span class="date">' + b.list[i].rdate + '</span>\
                     </li>\
                 </a>')
-            }
-
+            } 
         });
 
         $.ajax({

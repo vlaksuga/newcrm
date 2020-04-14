@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <script src="./js/jquery-3.4.1.min.js"></script>
-        <script src="./js/vue.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=320,minimum-scale=1.0,maximum-scale=4.0,user-scalable=no">
         <meta name="mobile-web-app-capable" content="yes">
@@ -60,7 +59,7 @@
 
                         <div class="summary shadow">
                             <div class="box">
-                                <input type="text" class="title" value="PLAYER 01">
+                                <input type="text" class="title" id="pname">
                             </div>
                         </div>
                     </div>
@@ -75,7 +74,7 @@
 
                         <div class="summary shadow">
                             <div class="box">
-                                <input type="text" class="title" value="VLAKSUGA">
+                                <input type="text" class="title" id="pid">
                             </div>
                         </div>
                     </div>
@@ -89,7 +88,7 @@
 
                         <div class="summary shadow">
                             <div class="box">
-                                <input type="password" class="title" value="password">
+                                <input type="password" class="title" id="ppw">
                             </div>
                         </div>
                     </div>
@@ -100,7 +99,7 @@
                         </div>
 
                         <div class="details shadow">
-                            <textarea class="precontent">MEMO</textarea>
+                            <textarea class="precontent" id="pmemo">MEMO</textarea>
                         </div>
 
                     </div>
@@ -113,6 +112,39 @@
                 </section>
 
                 <script>
+                    $.extend({
+                            getP: function (name) {
+                                var vars = [], hash;
+                                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                                for (var i = 0; i < hashes.length; i++) {
+                                    try {
+                                        hash = hashes[i].split('=');
+                                        if (hash[0] == name) {
+                                            var spos = hash[1].indexOf("#");
+                                            if (spos == -1) {
+                                                return hash[1];
+                                            } else {
+                                                return hash[1].substr(0, spos);
+                                            }
+                                        }
+                                    } catch (e) {
+                                    }
+                                }
+                            }
+                        });
+
+                    $.ajax({
+                        method: "get",
+                        url: "https://cc.klovely.com/?m=getaccount",
+                        data: {accountpkey:$.getP("accountpkey")}, dataType: 'jsonp'
+                    }).always(function (msg) {
+                        var h = msg.HEAD;
+                        var b = msg.BODY;
+                        $('#pname').val(b.item.name);
+                        $('#pid').val(b.item.id);
+                        $('#ppw').val(b.item.pw);
+                        $('#pmemo').val(b.item.memo);
+                    });
                     function saveaccount(){
                         if(confirm('변경된 내용을 저장할까요?')){
                             alert('저장하였습니다.');
