@@ -110,8 +110,8 @@
                     <img id="avaimg" src="img/icon/icon_default.png" style="display: none;">
                 </div>
                 <div id='shop_info' class="info">
-                    <div class="name">로또리치</div> <!-- 계정이름 -->
-                    <div class="kind">ADMIN</div> <!-- 계정종류 -->
+                    <div class="name">로또리치</div>
+                    <div class="kind">ADMIN</div>
                 </div>
             </div>
         </header>
@@ -123,7 +123,7 @@
                 <ul>
                     <li class="total_board">
                         <div class="title">주문합계</div>
-                        <div class="content"><span class="total">8 <!-- 선택된 주문합 --></span><span class="total_orders">orders</span></div>
+                        <div class="content"><span class="total" id="ordercnt">8 <!-- 선택된 주문합 --></span><span class="total_orders">orders</span></div>
                     </li>
                 </ul>
             </section>
@@ -160,8 +160,8 @@
 
                 <ul id="listitem">
                 </ul>
-                <div class="ordernone">해당 기간에 주문이 없습니다</div> <!-- 해당기간에 주문이 없을때 -->
-                <div class="moremsg">주문 불러오는 중</div> <!-- 주문을 더 불러올때 -->
+                <div class="ordernone">해당 기간에 주문이 없습니다</div>
+                <div class="moremsg">주문 불러오는 중</div>
             </section>
 
         </main>
@@ -247,15 +247,26 @@
         }).always(function (msg) {
             var h = msg.HEAD;
             var b = msg.BODY;
+            $('#ordercnt').text(b.list.length);
             for (var i = 0; i < b.list.length; i++) {
                 $('#listitem').append('<a href="orders.html?orderpkey=' + b.list[i].orderpkey + '">\
-                        <li class="shadow">\
-                            <span class="state">' + b.list[i].isdup + '</span>\
-                            <span class="date">' + b.list[i].rdate + '</span>\
-                        </li>\
-                    </a>')
+                    <li class="shadow">\
+                        <span class="state">' + b.list[i].isdup + '</span>\
+                        <span class="date">' + b.list[i].rdate + '</span>\
+                    </li>\
+                </a>')
             }
-            
+
+        });
+
+        $.ajax({
+            method: "get",
+            url: "https://cc.klovely.com/?m=getStoreInfo",
+            data: {}, dataType: 'jsonp'
+        }).always(function (msg) {
+            var h = msg.HEAD;
+            var b = msg.BODY;
+            $('#shop_info .name').text(b.item.storename);
         });
         
         /* date */
