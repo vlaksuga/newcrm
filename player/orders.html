@@ -1,0 +1,213 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <meta name="viewport" content="width=320,minimum-scale=1.0,maximum-scale=4.0,user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link href="./css/style.css" rel="stylesheet">		
+    <style>
+       
+        header {width: 320px; position: relative;}
+        header .title {width: 320px; height: 44px; background-color: white; position: fixed; top: 0; left: 0; display: flex; justify-content: flex-start; align-items: center;}
+        header .title .icons img {width: 25px; height: 25px; padding-left: 8px; display: block;}
+        header .title .titlename {margin-left: 8px; font-weight: 900;}
+
+        main .order_board {padding: 8px 8px 100px 8px ; font-weight: 700;}
+        main .order_board .order ul li {border-radius: 5px; background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; margin-bottom: 8px;}
+        main .order_board .order .title {padding: 8px; color: #cccccc;}
+        main .order_board .handler ul li {border-radius: 5px; background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; margin-bottom: 8px;}
+        main .order_board .handler ul li.active {border: 1px solid tomato;}
+        main .order_board .handler ul li .handler_value.fail {color: tomato;}
+        .memo_result {padding: 16px; min-height: 300px; font-size: 10px; color: #777777; border-radius: 5px; margin-bottom: 25px;}
+        main .order_board .handler .title {padding: 8px; color: #cccccc;}
+        main .order_board .order_nav {position: fixed; top:0px; right:0px}
+        main .order_board .order_nav img {width: 25px; height: 25px; padding: 10px;}
+
+        main .controller {display: flex; justify-content: space-around; position: fixed; bottom: 48px; width: 100%; background-color: white; padding: 16px 0; font-weight: 900;}
+
+        #popbox_player {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 2;}
+        #popbox_player .box {position: fixed; bottom:0; left: 0; background-color:white; width: 100vw; height: 400px; border-top-left-radius: 15px; border-top-right-radius: 15px; overflow-y: auto;}
+        #popbox_player .filter_head {padding: 16px; display: flex; justify-content: space-between; align-items: center;}
+        #popbox_player .filter_head .title {font-weight: 900;}
+        #popbox_player .filter_head .close img {width: 20px; height: 20px;}
+
+        #popbox_player .option ul li .container {background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; position: relative;}
+        #popbox_player .option ul li .container .playername {font-weight: 900;}
+        #popbox_player .option ul li .container input {position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0;}
+        #popbox_player .option ul li .container .checkmark {position: absolute; top: 18px; right: 16px; height: 10px; width: 10px; background-color: none; border-radius: 50%;}
+        #popbox_player .option ul li .container .checkmark::after {content: ""; position: absolute; display: none;}
+        #popbox_player .option ul li .container input:checked ~ .checkmark {background-color: #aaaaaa;}
+        #popbox_player .option ul li .container input:checked ~ .playername {color: tomato;}
+
+        #popbox_state {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 2;}
+        #popbox_state .box {position: fixed; bottom:0; left: 0; background-color:white; width: 100vw; height: 400px; border-top-left-radius: 15px; border-top-right-radius: 15px; overflow-y: auto;}
+        #popbox_state .filter_head {padding: 16px; display: flex; justify-content: space-between; align-items: center;}
+        #popbox_state .filter_head .title {font-weight: 900;}
+        #popbox_state .filter_head .close img {width: 20px; height: 20px;}
+
+        #popbox_state .option ul li .container {background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; position: relative;}
+        #popbox_state .option ul li .container .statename {font-weight: 900;}
+        #popbox_state .option ul li .container input {position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0;}
+        #popbox_state .option ul li .container .checkmark {position: absolute; top: 18px; right: 16px; height: 10px; width: 10px; background-color: none; border-radius: 50%;}
+        #popbox_state .option ul li .container .checkmark::after {content: ""; position: absolute; display: none;}
+        #popbox_state .option ul li .container input:checked ~ .checkmark {background-color: #aaaaaa;}
+        #popbox_state .option ul li .container input:checked ~ .playername {color: tomato;}
+
+        #popbox_comment {position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 2;}
+        #popbox_comment .box {position: fixed; top:0; left: 0; background-color:white; width: 100vw; height: 400px; overflow-y: auto;}
+        #popbox_comment .filter_head {padding: 16px; display: flex; justify-content: space-between; align-items: center;}
+        #popbox_comment .filter_head .title {font-weight: 900;}
+        #popbox_comment .filter_head .close img {width: 20px; height: 20px;}
+
+        #popbox_comment .option ul li .container {background-color: white; color: black; padding: 16px; display: flex; justify-content: space-between; position: relative;}
+        #popbox_comment .option ul li .container textarea {font-weight: 700; font-size: 10px; line-height: 2; width: 100%; height: 300px; border: none; resize: none;}
+
+        
+        
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <header>
+            <div class="title">
+                <span class="icons"><a onclick="history.back();"><img src="img/icon/icon_arrow_back.png"></a></span>
+                <span class="titlename">주문</span>
+            </div>
+        </header>
+
+        <main>
+            <section class="order_board" id="order_table" style="padding-top: 50px;">
+                <div class="content_list">
+
+                </div>
+                <div class="order">
+                    <div class="title">접수 Received</div>
+                    <ul>
+                        <li class="shadow">
+                            <span>라벨</span>
+                            <span>값</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="handler" id="handler_table">
+                    <div class="title">처리결과 Result</div>
+                    <ul>
+                        <a onclick="$('#popbox_state').fadeIn();">
+                            <li class="handler_list shadow">
+                                <span class="handler_label">처리상태</span>
+                                <span class="handler_value" id="data_state">대기</span>
+                            </li>
+                        </a>
+                        <a onclick="$('#popbox_comment').fadeIn();">
+                            <div class="shadow memo_result" id="data_comment">메모가 없습니다.</div>
+                        </a>
+                    </ul>
+                </div>
+                <div class="order_nav">
+                   <span><a><img src="img/icon/icon_nav_before.png"></a></span>
+                   <span><a><img src="img/icon/icon_nav_next.png"></a></span>
+                </div>
+            </section>
+
+            <section class="controller">
+                <a onclick="saveOrder();"><div class="save">저장</div></a>
+            </section>
+        </main>
+
+        <footer>
+            <nav>
+                <ul>
+                    <li class="nav_list"><a href="index.html"><img src="img/icon/icon_home.png"></a></li>
+                    <li class="nav_orders"><a href="orders.html"><img src="img/icon/icon_description.png"></a></li>
+                    <li class="nav_stats"><a href="chart.html"><img src="img/icon/icon_chart.png"></a></li>
+                    <li class="nav_mypage"><a href="config.html"><img src="img/icon/icon_settings.png"></a></li>
+                </ul>
+            </nav>
+        </footer>
+
+        <!-- filter -->
+        <div id="popbox_player"  class="popbox" style="display: none;">
+            <div class="box">
+                <form id="player_form">
+                    <section class="filter_head">
+                        <div class="title">담당자 선택</div>
+                        <div class="close"><img src="img/icon/icon_close.png"></div>
+                    </section>
+        
+                    <section class="option">
+        
+                        <ul>
+                            <li v-for="player in players">
+                                <label class="container">
+                                    <span class="playername">{{player.name}}</span>
+                                    <input type="radio" name="player">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
+        
+                    </section>
+                </form>
+            </div>
+        </div>
+
+        <div id="popbox_state" class="popbox"  style="display: none;">
+            <div class="box">
+                <form id="state_form">
+                    <section class="filter_head">
+                        <div class="title">주문처리상태 선택</div>
+                        <div class="close"><img src="img/icon/icon_close.png"></div>
+                    </section>
+        
+                    <section class="option">
+        
+                        <ul>
+                            <li v-for="statelist in statelists">
+                                <label class="container">
+                                    <span class="statename">{{statelist.state_name}}</span>
+                                    <input type="radio" name="player">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
+        
+                    </section>
+                </form>
+            </div>
+        </div>
+
+        <div id="popbox_comment" class="popbox"  style="display: none;">
+            <div class="box">
+                <form id="comment_form">
+                    <section class="filter_head">
+                        <div class="title">메모수정</div>
+                        <div class="close"><img src="img/icon/icon_close.png"></div>
+                    </section>
+        
+                    <section class="option">
+        
+                        <ul>
+                            <li>
+                                <div class="container">
+                                <textarea v-model="handler.comment"></textarea>
+                            </div>
+                            </li>
+                        </ul>
+        
+                    </section>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+
+</html>
