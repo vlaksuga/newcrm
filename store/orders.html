@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <script src="./js/jquery-3.4.1.min.js"></script>
-    <script src="./js/vue.js"></script>
     <meta name="viewport" content="width=320,minimum-scale=1.0,maximum-scale=4.0,user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -89,11 +88,8 @@
                 </div>
                 <div class="order">
                     <div class="title">접수 Received</div>
-                    <ul>
-                        <li class="shadow">
-                            <span>라벨</span>
-                            <span>값</span>
-                        </li>
+                    <ul id="received_order_list">
+
                     </ul>
                 </div>
 
@@ -103,7 +99,7 @@
                         <a>
                             <li class="handler_list shadow" id="list_aval">
                                 <span class="handler_label">유효성</span>
-                                <span class="handler_value" id="data_aval">유효</span> <!--  -->
+                                <span class="handler_value" id="data_aval"></span>
                             </li>
                         </a>
                         <a @click="togglePickable">
@@ -116,13 +112,13 @@
                             <li class="handler_list shadow">
                                 <span class="handler_label">담당자</span>
                                 <span class="handler_value"
-                                    id="data_pickplayername">PLAYER 01</span>
+                                    id="data_pickplayername"></span>
                             </li>
                         </a>
                         <a onclick="$('#popbox_state').fadeIn();">
                             <li class="handler_list shadow">
                                 <span class="handler_label">처리상태</span>
-                                <span class="handler_value" id="data_state">대기</span>
+                                <span class="handler_value" id="data_state"></span>
                             </li>
                         </a>
                         <a @click="toggleOverlap">
@@ -236,5 +232,57 @@
     </div>
     
 </body>
+<script>
 
+                $.ajax({
+                    method: "get",
+                    url: "https://cc.klovely.com/?m=get",
+                    data: { orderpkey: 1 }, dataType: 'jsonp'
+                }).always(function (msg) {
+                    var h = msg.HEAD;
+                    var b = msg.BODY;
+
+                    for (var i = 0; i < b.storeinfo.showorder.length; i++) {
+                        $('#received_order_list').append('<li class="shadow">\
+                            <span>' + b.storeinfo.showorder[i].showname + '</span>\
+                            <span>' + b.item.json[b.storeinfo.showorder[i].key] +'</span>\
+                        </li>');
+                    }
+                    
+                    $('#data_aval').text(b.item.valid);
+                    if(b.item.valid == "INACTIVE") {
+                        $('#list_aval').addClass('active');
+                    }
+                    $('#data_pickable').text(b.item.dis);
+                    if(b.item.dis == "HIDE") {
+                        $('#list_pickable').addClass('active');
+                    }
+                    $('#data_pickplayername').text(b.item.processor);
+                    $('#data_state').text(b.item.processstatus);                   
+                });
+                
+
+                $('#list_aval').on('click', function () {
+                        if ($('#data_aval').text() == "ACTIVE") {
+                            var v = "INACTIVE";
+                            $('#data_aval').text(v);
+                            $('#list_aval').removeClass('active');
+                            $('#list_aval').addClass('active');
+                        } else {
+                            v = "ACTIVE";
+                            $('#data_aval').text(v);
+                            $('#list_aval').removeClass('active');
+                        }
+                        $.ajax({
+                            method: "get",
+                            crossDomain: true,
+                            contentType: "application/json",
+                            url: "https://cc.klovely.com/?c=store&m=updateValid",
+                            data: { orderpkey: 0, validval: v }, dataType: 'jsonp'
+                        }).always(function (msg) {
+                            alert(msg);
+                        });
+                });
+                
+</script>
 </html>

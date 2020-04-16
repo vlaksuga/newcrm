@@ -144,10 +144,8 @@
                         <section class="option">
                             <span class="start_date">2020-04-01</span><span class="date_distance">/</span><span class="end_date">2020-04-07</span>
                         </section>
-                                <div class="state shadow">
-                                    <div class="title">대기</div>
-                                    <div class="values">8</div>
-                                </div>
+                        <div id="bystatus">
+                        </div>
                     </div>
 
                     <!-- 담당자별 -->
@@ -167,26 +165,7 @@
                             <span class="start_date">2020-04-01</span><span class="date_distance">/</span><span class="end_date">2020-04-07</span>
                         </section>
 
-                        <div class="player">
-
-                            <div class="summary shadow">
-                                <div class="user">
-                                    <span class="name">PLAYER 01</span>
-                                </div>
-                                <div class="total">
-                                    <span class="num">84</span>
-                                </div>
-                            </div>
-
-                            <div class="details">
-                                <div class="states">
-                                    <div class="title">대기</div>
-                                    <div class="values">
-                                        <span class="num">8</span>
-                                    </div>
-                                </div>
-                            </div>
-
+                        <div id="byprocessor">
                         </div>
 
                     </div>
@@ -307,6 +286,73 @@
         }
 
         buildCalendar();
+
+
+        /* 처리상태 */
+        $.ajax({
+                    method: "get",
+                    url: "https://cc.klovely.com/?m=groupbyprocessstatus",
+                    data: {}, dataType: 'jsonp'
+                }).always(function (msg) {
+                    var h = msg.HEAD;
+                    var b = msg.BODY;
+                    for(var i = 0; i < b.list.length; i++){
+                        $('#bystatus').append('<div class="state shadow">\
+                                <div class="title">' + b.list[i].processstatus + '</div>\
+                                <div class="values">' + b.list[i].cnt + '</div>\
+                            </div>')
+                    }                  
+                });
+
+        /* 담당자 */
+        $.ajax({
+                    method: "get",
+                    url: "https://cc.klovely.com/?m=groupbyprocessor",
+                    data: {}, dataType: 'jsonp'
+                }).always(function (msg) {
+                    var h = msg.HEAD;
+                    var b = msg.BODY;
+                    for(var i = 0; i < b.list.length; i++){
+                        $('#byprocessor').append('<div class="player">\
+                        <div class="summary shadow" data-d="#player_' + b.list[i].processor + '">\
+                            <div class="user">\
+                                <span class="name">' + b.list[i].processor + '</span>\
+                            </div>\
+                            <div class="total">\
+                                <span class="num">' + b.list[i].cnt + '</span>\
+                            </div>\
+                        </div>\
+                        <div class="details" style="display: none;" id="player_' + b.list[i].processor + '">\
+                                <div class="states">\
+                                    <div class="title" v-bind:class="list.state_class">name</div>\
+                                    <div class="values">\
+                                        <span class="num">11</span>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                    </div>')
+                    }
+                });
+
+                    $(function () {
+
+                        $(".summary").on("click", function () {
+                            lastpkey = 9999999999999999999999;
+                            var bbb = $(this).data("d");
+
+                            $(".summary").removeClass("active");
+                            $(this).addClass("active");
+                            $(".details").slideUp();
+                            if ($(bbb).css("display") == "none") {
+                                $(bbb).slideDown();
+                                return false;
+                            } else {
+                                $(bbb).slideUp();
+                                $(".summary").removeClass("active");
+                                return false;
+                            }
+                        });
+                    });
 
     </script>
     

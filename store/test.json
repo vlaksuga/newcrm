@@ -65,3 +65,19 @@ list1 : {
         }
     }
 })
+
+({
+    "HEAD": [
+        "status",
+        "ok"
+    ],
+    "BODY": {
+        "item": {
+            "orderpkey": "1",
+            "rdate": "2020-04-14 06:28:11",
+            "json": "{\"name\":\"김씨\", \"date\":\"7살\"}",
+            "storepkey": "1",
+            "isdup": "NORMAL"
+        }
+    }
+})
