@@ -90,4 +90,28 @@
             
     </div>
     </body>
+<<<<<<< HEAD
+=======
+    <script>
+
+     $.ajax({
+            method: "get",
+            url: "https://cc.klovely.com/?m=listaccount",
+            data: { }, dataType: 'jsonp'
+        }).always(function (msg) {
+            var h = msg.HEAD;
+            var b = msg.BODY;
+            for (var i = 0; i < b.list.length; i++) {
+            $('.account_list').append('<a href="account.html?accountpkey=' + b.list[i].accountpkey + '">\
+                        <div class="account shadow">\
+                            <div class="summary">\
+                                <div class="title_box">\
+                                    <span class="player">' + b.list[i].id + '</span>\
+                                </div>\
+                            </div>\
+                        </div>\
+                    </a>')}
+        });
+    </script>
+>>>>>>> parent of 4e7c4b4... page 분리
 </html>
